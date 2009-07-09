@@ -18,6 +18,7 @@
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
 require 'uri'
+require 'net/http'
 
 module ZenModelBase
 	def initialize(base_uri, user=nil, pass=nil)
@@ -33,5 +34,16 @@ module ZenModelBase
 	def setCreds(user, pass)
 		@@user, @@pass = user, pass
 	end
+
+	# REST helper functions
+	def get(req_path)
+		Net::HTTP.start(@@base_uri.host,@@base_uri.port) {|http|
+			req = Net::HTTP::Get.new(req_path)
+			req.basic_auth @@user, @@pass if @@user
+			response = http.request(req)
+			return(response.body)
+		}
+	end
+
 end
 

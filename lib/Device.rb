@@ -26,13 +26,10 @@ class Device
 	end
 
 	def getId()
-		puts "getting DevID....."
-		Net::HTTP.start(@@base_uri.host,@@base_uri.port) {|http|
-			req = Net::HTTP::Get.new("#{@device}/getId")
-			req.basic_auth @@user, @@pass
-			response = http.request(req)
-			puts response.body
-		}
+		unless @devId
+			@devId = self.get("#{@device}/getId")
+		end
+		return @devId
 	end
 end
 

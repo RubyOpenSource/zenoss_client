@@ -18,17 +18,16 @@
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
 require 'lib/ZenModelBase'
+require 'lib/Device'
 require 'net/http'
 class DeviceClass
 	include ZenModelBase
 	def findDevice(device)
-		Net::HTTP.start(@@base_uri.host,@@base_uri.port) {|http|
-			req = Net::HTTP::Get.new("#{@@base_uri.path}/findDevicePath?devicename=#{device}")
-			req.basic_auth @@user, @@pass
-			response = http.request(req)
-			puts response.body
-			return(Device.new(response.body))
-		}
+		dev = self.get("#{@@base_uri.path}/findDevicePath?devicename=#{device}")
+		return Device.new(dev)
+	end
+
+	def getDeviceWinInfo
 	end
 end
 
