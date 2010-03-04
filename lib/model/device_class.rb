@@ -1,5 +1,5 @@
 #############################################################################
-# Copyright © 2010 Dan Wanek <dwanek@nd.gov>
+# Copyright © 2009 Dan Wanek <dwanek@nd.gov>
 #
 #
 # This file is part of Zenoss-RubyREST.
@@ -17,3 +17,19 @@
 # You should have received a copy of the GNU General Public License along
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
+module Zenoss
+  module Model
+    class DeviceClass
+      include Model
+
+      def find_device(device)
+        dev = rest("#{@@base_uri.path}/findDevicePath?devicename=#{device}")
+        return Device.new(dev)
+      end
+
+      def get_device_win_info
+      end
+
+    end # DeviceClass
+  end # Model
+end # Zenoss

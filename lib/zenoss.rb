@@ -1,5 +1,5 @@
 #############################################################################
-# Copyright © 2009 Dan Wanek <dwanek@nd.gov>
+# Copyright © 2010 Dan Wanek <dwanek@nd.gov>
 #
 #
 # This file is part of Zenoss-RubyREST.
@@ -17,20 +17,33 @@
 # You should have received a copy of the GNU General Public License along
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'lib/ZenModelBase'
-require 'net/http'
-class Device
-	include ZenModelBase
-	def initialize(device)
-		@device = device
-	end
+require 'uri'
 
-	def getId()
-		unless @devId
-			@devId = self.get("#{@device}/getId")
-		end
-		return @devId
-	end
-end
+module Zenoss
+
+  # Set the Base URI of the Zenoss server
+  def Zenoss.uri(uri)
+    const_set(:BASE_URI, ( uri.kind_of?(URI) ?  uri : URI.parse(uri)))
+  end
+
+  def Zenoss.set_auth(user, pass)
+    const_set(:USER, user)
+    const_set(:PASS, pass)
+  end
 
 
+  protected
+
+  # REST helper functions
+  def rest(req_path)
+    Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
+      req = Net::HTTP::Get.new(req_path)
+      req.basic_auth Zenoss::USER, Zenoss::USER if Zenoss::USER
+      response = http.request(req)
+      return(response.body)
+    }
+  end
+
+end # Zenoss
+
+require 'model/model'

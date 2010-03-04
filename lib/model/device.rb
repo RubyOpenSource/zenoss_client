@@ -1,5 +1,5 @@
 #############################################################################
-# Copyright © 2010 Dan Wanek <dwanek@nd.gov>
+# Copyright © 2009 Dan Wanek <dwanek@nd.gov>
 #
 #
 # This file is part of Zenoss-RubyREST.
@@ -17,3 +17,22 @@
 # You should have received a copy of the GNU General Public License along
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
+module Zenoss
+  module Model
+    class Device
+      include Model
+
+      def initialize(device)
+        @device = device
+      end
+
+      def get_id()
+        unless @dev_id
+          @dev_id = rest("#{@device}/getId")
+        end
+        return @dev_id
+      end
+
+    end # Device
+  end # Model
+end # Zenoss

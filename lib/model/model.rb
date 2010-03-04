@@ -17,17 +17,15 @@
 # You should have received a copy of the GNU General Public License along
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'lib/ZenModelBase'
-require 'lib/Device'
+require 'uri'
 require 'net/http'
-class DeviceClass
-	include ZenModelBase
-	def findDevice(device)
-		dev = self.get("#{@@base_uri.path}/findDevicePath?devicename=#{device}")
-		return Device.new(dev)
-	end
 
-	def getDeviceWinInfo
-	end
-end
+module Zenoss
+  module Model
+    include Zenoss
 
+  end # Model
+end # Zenoss
+
+require 'model/device'
+require 'model/device_class'
