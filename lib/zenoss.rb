@@ -29,16 +29,25 @@ module Zenoss
   def Zenoss.set_auth(user, pass)
     const_set(:USER, user)
     const_set(:PASS, pass)
+    true
   end
 
+  def Zenoss.rest(req_path)
+    Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
+      req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
+      req.basic_auth USER, PASS if USER
+      response = http.request(req)
+      return(response.body)
+    }
+  end
 
   protected
 
   # REST helper functions
   def rest(req_path)
     Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
-      req = Net::HTTP::Get.new(req_path)
-      req.basic_auth Zenoss::USER, Zenoss::USER if Zenoss::USER
+      req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
+      req.basic_auth Zenoss::USER, Zenoss::PASS if Zenoss::USER
       response = http.request(req)
       return(response.body)
     }

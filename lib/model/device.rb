@@ -20,17 +20,28 @@
 module Zenoss
   module Model
     class Device
-      include Model
+      include Zenoss
+      include Zenoss::Model
 
-      def initialize(device)
-        @device = device
+      # Name of the device in Zenoss.  This method will return the first
+      # match if the device_name is not fully qualified.
+      def self.find_device(device_name)
+        devpath = Zenoss.rest("Devices/findDev?name=#{device_name}")
+        return Device.new(devpath)
       end
 
-      def get_id()
-        unless @dev_id
-          @dev_id = rest("#{@device}/getId")
+
+      def initialize(device_path)
+        device_path.sub(/^\/zport\/dmd\/(.*)\/([^\/]+)$/) do |m|
+          @path = $1
+          @device = $2
         end
-        return @dev_id
+      end
+
+      # Instead of calling the /getId REST method, this method simply returns
+      # the @device value since it is the same anyway.
+      def get_id()
+        @device
       end
 
     end # Device
