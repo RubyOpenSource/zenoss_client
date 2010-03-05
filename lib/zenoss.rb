@@ -17,13 +17,22 @@
 # You should have received a copy of the GNU General Public License along
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
+require 'rubygems'
+require 'date'
+require 'tzinfo'
 require 'uri'
 
 module Zenoss
 
   # Set the Base URI of the Zenoss server
   def Zenoss.uri(uri)
-    const_set(:BASE_URI, ( uri.kind_of?(URI) ?  uri : URI.parse(uri)))
+    if(uri.kind_of?(URI))
+      uri.path << '/' unless(uri.path.index /\/$/)
+      const_set(:BASE_URI, uri)
+    else
+      uri << '/' unless(uri.index /\/$/)
+      const_set(:BASE_URI, URI.parse(uri))
+    end
   end
 
   def Zenoss.set_auth(user, pass)
@@ -32,7 +41,16 @@ module Zenoss
     true
   end
 
-  def Zenoss.rest(req_path)
+  # Return the base DeviceClass /zport/dmd/Devices
+  def Zenoss.devices
+    Model::DeviceClass.new('/zport/dmd/Devices')
+  end
+
+
+  protected
+
+  # Prepend the appropriate path and call the REST method on the URL set with Zenoss#uri
+  def rest(req_path)
     Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
       req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
       req.basic_auth USER, PASS if USER
@@ -41,17 +59,19 @@ module Zenoss
     }
   end
 
-  protected
-
-  # REST helper functions
-  def rest(req_path)
-    Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
-      req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
-      req.basic_auth Zenoss::USER, Zenoss::PASS if Zenoss::USER
-      response = http.request(req)
-      return(response.body)
-    }
+  # Some of the REST methods return Strings that are formated like a Python list.
+  # This method turns that String into a Ruby Array.
+  def plist_to_array(list)
+    (list.gsub /[\[\]]/,'').split /,\s+/
   end
+
+  # Converts a String in Python's DateTime format to Ruby's DateTime format
+  def pdatetime_to_datetime(pdt)
+    pdt = pdt.split(/\s+/)
+    tz = TZInfo::Timezone.get(pdt.last)
+    DateTime.strptime("#{pdt[0]} #{pdt[1]} #{tz.current_period.abbreviation.to_s}", '%Y/%m/%d %H:%M:%S.%N %Z')
+  end
+
 
 end # Zenoss
 

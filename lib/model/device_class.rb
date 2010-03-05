@@ -20,14 +20,25 @@
 module Zenoss
   module Model
     class DeviceClass
-      include Model
+      include Zenoss
+      include Zenoss::Model
 
-      def find_device(device)
-        dev = rest("#{@@base_uri.path}/findDevicePath?devicename=#{device}")
-        return Device.new(dev)
+      def initialize(devclass)
+        @devclass = devclass.sub(/^(\/zport\/dmd\/)?([^\/]+)\/?$/,'\2')
       end
 
-      def get_device_win_info
+      # Name of the device in Zenoss.  This method will return the first
+      # match if the device_name is not fully qualified.
+      def find_device_path(device_name)
+        devpath = rest("findDevicePath?devicename=#{device_name}")
+        return Device.new(devpath)
+      end
+
+
+      protected
+
+      def rest(method)
+        super("#{@devclass}/#{method}")
       end
 
     end # DeviceClass

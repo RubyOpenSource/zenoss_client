@@ -23,13 +23,6 @@ module Zenoss
       include Zenoss
       include Zenoss::Model
 
-      # Name of the device in Zenoss.  This method will return the first
-      # match if the device_name is not fully qualified.
-      def self.find_device(device_name)
-        devpath = Zenoss.rest("Devices/findDev?name=#{device_name}")
-        return Device.new(devpath)
-      end
-
 
       def initialize(device_path)
         device_path.sub(/^\/zport\/dmd\/(.*)\/([^\/]+)$/) do |m|
@@ -42,6 +35,64 @@ module Zenoss
       # the @device value since it is the same anyway.
       def get_id()
         @device
+      end
+
+      def sys_uptime
+        rest("sysUpTime")
+      end
+
+      # Return list of monitored DeviceComponents on this device
+      def get_monitored_components(collector=nil, type=nil)
+        method = "getMonitoredComponents"
+        method << '?' unless(collector.nil? && type.nil?)
+        method << "collector=#{collector}" unless collector.nil?
+        method << "type=#{type}" unless type.nil?
+        components = rest(method)
+
+        # Turn the return string into an array of components
+        (components.gsub /[\[\]]/,'').split /,\s+/
+      end
+      
+      # Return list of all DeviceComponents on this device
+      def get_device_components(monitored=nil, collector=nil, type=nil)
+        method = "getDeviceComponents"
+        method << '?' unless(monitored.nil? && collector.nil? && type.nil?)
+        method << "monitored=#{monitored}" unless monitored.nil?
+        method << "collector=#{collector}" unless collector.nil?
+        method << "type=#{type}" unless type.nil?
+        components = rest(method)
+
+        plist_to_array(components)
+      end
+
+      def get_hw_product_name
+        rest('getHWProductName')
+      end
+
+      def get_system_names
+        plist_to_array( rest('getSystemNames') )
+      end
+
+      def get_device_group_names
+        plist_to_array( rest('getDeviceGroupNames') )
+      end
+
+      def get_last_change
+        pdatetime_to_datetime( rest('getLastChange') )
+      end
+
+      def get_manage_ip
+        rest('getManageIp')
+      end
+
+      def get_snmp_last_collection
+        pdatetime_to_datetime( rest('getSnmpLastCollection') )
+      end
+
+      protected
+
+      def rest(method)
+        super("#{@path}/#{@device}/#{method}")
       end
 
     end # Device
