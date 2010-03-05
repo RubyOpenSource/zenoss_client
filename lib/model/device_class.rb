@@ -23,8 +23,17 @@ module Zenoss
       include Zenoss
       include Zenoss::Model
 
+      attr_reader :organizer_name
+
       def initialize(devclass)
-        @devclass = devclass.sub(/^(\/zport\/dmd\/)?([^\/]+)\/?$/,'\2')
+        @base_id = 'Devices'
+
+        # This confusing little ditty lets us accept a DeviceClass in a number of ways:
+        # Like, '/zport/dmd/Devices/Server/Linux'
+        # or, '/Devices/Server/Linux'
+        # or, '/Server/Linux'
+        path = devclass.sub(/^(\/zport\/dmd\/)?(@base_id\/)?([^\/]+)\/?$/,'\2')
+        @organizer_name = rest('getOrganizerName', "#{@base_id}/#{path}")
       end
 
       # Name of the device in Zenoss.  This method will return the first
@@ -34,11 +43,15 @@ module Zenoss
         return Device.new(devpath)
       end
 
+      def get_sub_devices
+        plist_to_array( rest('getSubDevices') )
+      end
+
 
       protected
 
-      def rest(method)
-        super("#{@devclass}/#{method}")
+      def rest(method, path = "#{@base_id}#{@organizer_name}")
+        super("#{path}/#{method}")
       end
 
     end # DeviceClass
