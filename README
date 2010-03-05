@@ -1,9 +1,0 @@
-This is a work-in-progress to create an easy to use client REST API for
-Zenoss (http://www.zenoss.com) written in Ruby.  I love Zenoss as a
-product, but I am much more efficient in Ruby than Python so I decided
-to start hacking this library together.  It is very incomplete and I am
-just adding functionality as I need it or it is requested.
-
-Cheers,
-
-Dan Wanek
