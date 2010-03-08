@@ -22,6 +22,9 @@ require 'date'
 require 'tzinfo'
 require 'uri'
 
+# Include extensions to classes for helper methods
+require 'extensions'
+
 module Zenoss
 
   # Set the Base URI of the Zenoss server
@@ -47,7 +50,8 @@ module Zenoss
   end
 
 
-  protected
+
+  private
 
   # Prepend the appropriate path and call the REST method on the URL set with Zenoss#uri
   def rest(req_path)
