@@ -11,6 +11,8 @@ Dan Wanek
 
 TO USE:
 -------
+A gem is now available.  'gem install zenoss_client'
+
 	require 'zenoss'
 
 	# You must set the URI before doing anything else
