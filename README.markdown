@@ -22,8 +22,13 @@ TO USE:
 	# This returns the base DeviceClass '/zport/dmd/Devices'
 	# It is the equivilent in zendmd of 'dmd.Devices'
 	devices = Zenoss.devices
+
 	# Search for a device
 	dev = devices.find_device_path('devname')
+
+	# List all implemented REST methods for this object
+	puts dev.zenoss_methods.sort.join(', ')
+
 	# Get the uptime of the device
 	dev.sys_uptime
 
