@@ -65,12 +65,16 @@ module Zenoss
 
   # Some of the REST methods return Strings that are formated like a Python list.
   # This method turns that String into a Ruby Array.
+  # If the list parameter is nil the return value is also nil.
   def plist_to_array(list)
+    return nil if list.nil?
     (list.gsub /[\[\]]/,'').split /,\s+/
   end
 
   # Converts a String in Python's DateTime format to Ruby's DateTime format
+  # If the pdt parameter is nil the return value is also nil.
   def pdatetime_to_datetime(pdt)
+    return nil if pdt.nil?
     pdt = pdt.split(/\s+/)
     tz = TZInfo::Timezone.get(pdt.last)
     DateTime.strptime("#{pdt[0]} #{pdt[1]} #{tz.current_period.abbreviation.to_s}", '%Y/%m/%d %H:%M:%S.%N %Z')

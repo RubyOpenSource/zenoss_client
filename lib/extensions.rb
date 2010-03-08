@@ -39,14 +39,63 @@ class Class
   # Takes a Hash as an argument in the form {:ruby_name => 'RestName'}
   def zenoss_list(methods)
     methods.each_pair do |ruby_name,rest_name|
-      # Update the class variable @@zenoss_methods with this method
-      z_methods = class_variable_get(:@@zenoss_methods)
-      z_methods << ruby_name.to_s
-      class_variable_set(:@@zenoss_methods, z_methods)
+      add_to_zenoss_methods(ruby_name)
 
       define_method(ruby_name) do
         plist_to_array( rest(rest_name) )
       end
     end
+  end
+
+  def zenoss_datetime(methods)
+    methods.each_pair do |ruby_name,rest_name|
+      add_to_zenoss_methods(ruby_name)
+
+      define_method(ruby_name) do
+        pdatetime_to_datetime( rest(rest_name) )
+      end
+    end
+  end
+
+  def zenoss_string(methods)
+    methods.each_pair do |ruby_name,rest_name|
+      add_to_zenoss_methods(ruby_name)
+
+      define_method(ruby_name) do
+        rest(rest_name)
+      end
+    end
+  end
+
+  def zenoss_int(methods)
+    methods.each_pair do |ruby_name,rest_name|
+      add_to_zenoss_methods(ruby_name)
+
+      define_method(ruby_name) do
+        retval = rest(rest_name)
+        retval.to_i unless retval.nil?
+      end
+    end
+  end
+  
+  def zenoss_boolean(methods)
+    methods.each_pair do |ruby_name,rest_name|
+      add_to_zenoss_methods(ruby_name)
+
+      define_method(ruby_name) do
+        (rest(rest_name)).eql?('True') ? true : false
+      end
+    end
+  end
+
+
+
+  private
+
+  # Update the class variable @@zenoss_methods with this method
+  def add_to_zenoss_methods(method_sym)
+    z_methods = class_variable_get(:@@zenoss_methods)
+    z_methods << method_sym.to_s
+    class_variable_set(:@@zenoss_methods, z_methods)
   end
 end
