@@ -24,8 +24,17 @@ module Zenoss
   module Model
     include Zenoss
 
+
+    # -------- Methods from DeviceResultInt.DeviceResultInt -------- #
+
+    def get_device_class_name
+      rest('getDeviceClassName')
+    end
+
   end # Model
 end # Zenoss
 
 require 'model/device'
 require 'model/device_class'
+require 'model/device_hw'
+require 'model/operating_system'

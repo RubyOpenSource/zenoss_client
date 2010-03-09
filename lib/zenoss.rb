@@ -22,9 +22,6 @@ require 'date'
 require 'tzinfo'
 require 'uri'
 
-# Include extensions to classes for helper methods
-require 'extensions'
-
 module Zenoss
 
   # Set the Base URI of the Zenoss server
@@ -48,7 +45,6 @@ module Zenoss
   def Zenoss.devices
     Model::DeviceClass.new('/zport/dmd/Devices')
   end
-
 
 
   private
