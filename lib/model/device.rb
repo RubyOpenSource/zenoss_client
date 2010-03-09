@@ -39,12 +39,16 @@ module Zenoss
 
       zenoss_boolean( {:monitor_device? => 'monitorDevice', :snmp_monitor_device? => 'snmpMonitorDevice' } )
 
+      attr_reader :path, :device, :os, :hw
 
       def initialize(device_path)
         device_path.sub(/^\/zport\/dmd\/(.*)\/([^\/]+)$/) do |m|
           @path = $1
           @device = $2
         end
+
+        @os = OperatingSystem.new(self)
+        @hw = DeviceHW.new(self)
       end
 
       # Instead of calling the /getId REST method, this method simply returns
