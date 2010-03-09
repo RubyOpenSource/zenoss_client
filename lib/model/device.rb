@@ -20,8 +20,8 @@
 module Zenoss
   module Model
     class Device
-      include Zenoss
       include Zenoss::Model
+      include Zenoss::Model::EventView
 
       attr_reader :path, :device, :os, :hw
 
@@ -154,7 +154,7 @@ module Zenoss
       def get_monitored_components(collector=nil, type=nil)
         method = "getMonitoredComponents"
         method << '?' unless(collector.nil? && type.nil?)
-        method << "collector=#{collector}" unless collector.nil?
+        method << "collector=#{collector}&" unless collector.nil?
         method << "type=#{type}" unless type.nil?
         components = rest(method)
 
@@ -166,8 +166,8 @@ module Zenoss
       def get_device_components(monitored=nil, collector=nil, type=nil)
         method = "getDeviceComponents"
         method << '?' unless(monitored.nil? && collector.nil? && type.nil?)
-        method << "monitored=#{monitored}" unless monitored.nil?
-        method << "collector=#{collector}" unless collector.nil?
+        method << "monitored=#{monitored}&" unless monitored.nil?
+        method << "collector=#{collector}&" unless collector.nil?
         method << "type=#{type}" unless type.nil?
         components = rest(method)
 

@@ -17,28 +17,31 @@
 # You should have received a copy of the GNU General Public License along
 # with Zenoss-RubyREST.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'uri'
-require 'net/http'
 
 module Zenoss
   module Model
-    include Zenoss
+    module EventView
 
+      def get_event_history
+        rest('getEventHistory')
+      end
 
-    # -------- Methods from DeviceResultInt.DeviceResultInt -------- #
+      def get_status(statusclass=nil)
+        method = 'getStatus'
+        method << "?statusclass=#{statusclass}" unless statusclass.nil?
 
-    def get_device_class_name
-      rest('getDeviceClassName')
-    end
+        # nil.to_i is 0 so we should be OK for nil returns
+        rest(method).to_i
+      end
 
+      def get_status_img_src(status_number='0')
+        rest("getStatusImgSrc?status=#{status_number}")
+      end
+
+      def get_status_css_class(status_number)
+        rest("getStatusCssClass?status=#{status_number}")
+      end
+
+    end # EventView
   end # Model
 end # Zenoss
-
-# Modules
-require 'model/event_view'
-
-# Classes
-require 'model/device'
-require 'model/device_class'
-require 'model/device_hw'
-require 'model/operating_system'
