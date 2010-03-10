@@ -34,7 +34,7 @@ module Zenoss
         rest(method).to_i
       end
 
-      def get_status_img_src(status_number='0')
+      def get_status_img_src(status_number)
         rest("getStatusImgSrc?status=#{status_number}")
       end
 

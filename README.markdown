@@ -1,3 +1,5 @@
+# zenoss_client: A Ruby library for REST access to Zenoss
+
 This is a work-in-progress to create an easy to use client REST API for
 Zenoss (http://www.zenoss.com) written in Ruby.  I love Zenoss as a
 product, but I am much more efficient in Ruby than Python so I decided
@@ -8,9 +10,23 @@ Cheers,
 
 Dan Wanek
 
+## REQUIREMENTS:
+----------------
+Gems:
+* tzinfo: For Python DateTime to Ruby DateTime conversion
 
-TO USE:
--------
+Zenoss Event Information:
+If you want to access Zenoss event information via REST you may need the
+following patch.  The methods EventView#get_status_img_src and
+EventView#get_status_css_class depend on the 'status' parameter being an
+integer. When the call is unmarshalled on the Zenoss side it is always a
+string unless you apply this patch:
+
+http://gist.github.com/328414
+
+
+## TO USE:
+----------
 A gem is now available.  'gem install zenoss_client'
 
 	require 'zenoss'
