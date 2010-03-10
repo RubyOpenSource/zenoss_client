@@ -24,7 +24,7 @@ EventView#get_status_css_class depend on the 'status' parameter being an
 integer. When the call is unmarshalled on the Zenoss side it is always a
 string unless you apply this patch:
 
-http://gist.github.com/328414
+[http://gist.github.com/328414](http://gist.github.com/328414)
 
 
 ## TO USE:
