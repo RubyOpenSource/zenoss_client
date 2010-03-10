@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rake/clean'
 require 'rake/gempackagetask'
+require 'rake/rdoctask'
 
 CLEAN.include("pkg")
 CLEAN.include("doc")
@@ -25,11 +26,11 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.files = `git ls-files`.split(/\n/)
   gem.require_path = "lib"
   gem.rdoc_options	= %w(-x wsdl/ -x test/ -x examples/)
-  gem.extra_rdoc_files = %w(README.markdown COPYING.txt)
+  gem.extra_rdoc_files = %w(README.rdoc COPYING.txt)
 
   gem.required_ruby_version	= '>= 1.8.7'
   gem.add_runtime_dependency  'tzinfo'
-  gem.post_install_message	= "See README.markdown"
+  gem.post_install_message	= "See README.rdoc"
 end
  
 Rake::GemPackageTask.new(GEMSPEC) do |pkg|
@@ -49,6 +50,11 @@ desc "Increment the version by 1 minor release"
 task :versionup do
 	ver = up_min_version
 	puts "New version: #{ver}"
+end
+
+Rake::RDocTask.new do |rd|
+	rd.main = 'README.rdoc'
+	rd.rdoc_files.include("README.rdoc", "lib/**/*.rb")
 end
 
 

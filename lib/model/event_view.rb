@@ -26,6 +26,7 @@ module Zenoss
         rest('getEventHistory')
       end
 
+      # Fetches that status number for this device or component
       def get_status(statusclass=nil)
         method = 'getStatus'
         method << "?statusclass=#{statusclass}" unless statusclass.nil?
@@ -34,10 +35,18 @@ module Zenoss
         rest(method).to_i
       end
 
+      # Fetches the img src path for this status number.  This is usually the
+      # output from the #get_status method.  If this is not working you may
+      # need to apply this patch to Zenoss:
+      # http://gist.github.com/328414
       def get_status_img_src(status_number)
         rest("getStatusImgSrc?status=#{status_number}")
       end
 
+      # Fetches the css class for this status number.  This is usually the
+      # output from the #get_status method.  If this is not working you may
+      # need to apply this patch to Zenoss:
+      # http://gist.github.com/328414
       def get_status_css_class(status_number)
         rest("getStatusCssClass?status=#{status_number}")
       end
