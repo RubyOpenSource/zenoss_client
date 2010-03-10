@@ -11,11 +11,13 @@ Cheers,
 Dan Wanek
 
 ## REQUIREMENTS:
-----------------
 Gems:
+
 * tzinfo: For Python DateTime to Ruby DateTime conversion
 
+
 Zenoss Event Information:
+
 If you want to access Zenoss event information via REST you may need the
 following patch.  The methods EventView#get_status_img_src and
 EventView#get_status_css_class depend on the 'status' parameter being an
@@ -26,7 +28,6 @@ http://gist.github.com/328414
 
 
 ## TO USE:
-----------
 A gem is now available.  'gem install zenoss_client'
 
 	require 'zenoss'
