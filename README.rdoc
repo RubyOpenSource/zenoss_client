@@ -26,6 +26,10 @@ string unless you apply this patch:
 
 http://gist.github.com/328414
 
+This has been reported and is filed as a product defect:
+
+http://dev.zenoss.com/trac/ticket/6282
+
 
 == TO USE:
 A gem is now available.  'gem install zenoss_client'
