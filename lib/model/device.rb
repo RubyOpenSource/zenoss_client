@@ -33,9 +33,19 @@ module Zenoss
 
         @os = OperatingSystem.new(self)
         @hw = DeviceHW.new(self)
+
+        # Initialize common things from Model
+        model_init
       end
 
       # ------------------ REST Calls ------------------ #
+
+      # Move this Device to the given DeviceClass.  The same end result can be
+      # achieved via DeviceClass#move_devices
+      def change_device_class(device_class)
+        reset_cache_vars
+        rest("changeDeviceClass?deviceClassPath=#{device_class.organizer_name}")
+      end
 
       # Instead of calling the /getId REST method, this method simply returns
       # the @device value since it is the same anyway.

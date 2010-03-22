@@ -24,11 +24,39 @@ module Zenoss
   module Model
     include Zenoss
 
+    # Common initialization for all Model components
+    def model_init
+
+      # A place to maintain cached vars to prevent unnecessary REST calls
+      @cache_vars = {}
+    end
 
     # -------- Methods from DeviceResultInt.DeviceResultInt -------- #
 
+    # Return the path of the device_class; everything after '/zport/dmd/Devices'
     def get_device_class_name
-      rest('getDeviceClassName')
+      @cache_vars[:device_class_name] ||= rest('getDeviceClassName')
+    end
+
+    # Return the path of the device_class; everything after '/zport/dmd/Devices'
+    def get_device_class_path
+      get_device_class_name
+    end
+
+    # Return the DeviceClass object of this object
+    def device_class
+      @cache_vars[:device_class] ||= DeviceClass.new(get_device_class_name)
+    end
+
+
+    private
+
+    # Reset the cache variables so the REST calls return the appropriate
+    # values after a change has taken place.
+    def reset_cache_vars
+      @cache_vars.each_key do |key|
+        @cache_vars[key] = nil
+      end
     end
 
   end # Model
