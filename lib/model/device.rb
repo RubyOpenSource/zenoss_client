@@ -40,8 +40,7 @@ module Zenoss
 
       # ------------------ REST Calls ------------------ #
 
-      # Move this Device to the given DeviceClass.  The same end result can be
-      # achieved via DeviceClass#move_devices
+      # Move this Device to the given DeviceClass.
       def change_device_class(device_class)
         reset_cache_vars
         rest("changeDeviceClass?deviceClassPath=#{device_class.organizer_name}")
