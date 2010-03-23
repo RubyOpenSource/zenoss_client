@@ -17,38 +17,37 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'uri'
-require 'net/http'
+
+# This file contains helper modules for minor classes that have to deal
+# with Devices and DeviceClasses.
 
 module Zenoss
   module Model
-    include Zenoss
 
-    # Common initialization for all Model components
-    def model_init
+    module DeviceResultInt
 
-      # A place to maintain cached vars to prevent unnecessary REST calls
-      @cache_vars = {}
-    end
-
-    
-    private
-
-    # Reset the cache variables so the REST calls return the appropriate
-    # values after a change has taken place.
-    def reset_cache_vars
-      @cache_vars.each_key do |key|
-        @cache_vars[key] = nil
+      # Return the path of the device_class; everything after '/zport/dmd/Devices'
+      def get_device_class_name
+        @cache_vars[:device_class_name] ||= rest('getDeviceClassName')
       end
-    end
+
+      # Return the path of the device_class; everything after '/zport/dmd/Devices'
+      def get_device_class_path
+        get_device_class_name
+      end
+
+      # Return the DeviceClass object of this object
+      def device_class
+        @cache_vars[:device_class] ||= DeviceClass.new(get_device_class_name)
+      end
+    end # DeviceResultInt
 
   end # Model
 end # Zenoss
 
-require 'model/event_view'
 
-# Device Related ( /zport/dmd/Devices )
-require 'model/devices'
-
-# Service Related ( /zport/dmd/Services )
-require 'model/services'
+# Load the main Device related files
+require 'model/devices/device_class'
+require 'model/devices/device'
+require 'model/devices/device_hw'
+require 'model/devices/operating_system'
