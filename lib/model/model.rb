@@ -66,7 +66,7 @@ end # Zenoss
 require 'model/event_view'
 
 # Classes
-require 'model/device'
-require 'model/device_class'
-require 'model/device_hw'
-require 'model/operating_system'
+require 'model/devices/device'
+require 'model/devices/device_class'
+require 'model/devices/device_hw'
+require 'model/devices/operating_system'
