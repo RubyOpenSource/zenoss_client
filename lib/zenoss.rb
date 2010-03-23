@@ -46,6 +46,12 @@ module Zenoss
     Model::DeviceClass.new('/zport/dmd/Devices')
   end
 
+  # Return the base ServiceOrganizer /zport/dmd/Services
+  def Zenoss.services
+    Model::ServiceOrganizer.new('/zport/dmd/Services')
+  end
+
+
 
   private
 

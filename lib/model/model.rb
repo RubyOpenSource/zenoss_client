@@ -65,8 +65,15 @@ end # Zenoss
 # Modules
 require 'model/event_view'
 
-# Classes
-require 'model/devices/device'
+# Device Related
 require 'model/devices/device_class'
+require 'model/devices/device'
 require 'model/devices/device_hw'
 require 'model/devices/operating_system'
+
+# Service Related
+require 'model/services/service_organizer'
+require 'model/services/service_class'
+require 'model/services/service'
+require 'model/services/ip_service'
+require 'model/services/win_service'
