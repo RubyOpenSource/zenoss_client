@@ -32,7 +32,9 @@ module Zenoss
         # Like, '/zport/dmd/Systems/MyService'
         # or, '/Systems/MyService'
         # or, '/MyService'
-        path = devclass.sub(/^(\/zport\/dmd\/)?(@base_id\/)?([^\/]+)\/?$/,'\2')
+        path = devclass.sub(/^(\/zport\/dmd\/)?(#{@base_id}\/)?([\w\/]+)\/?$/,'\3')
+
+        @id = path.split('/').last
         @organizer_name = rest('getOrganizerName', "#{@base_id}/#{path}")
       end
 
@@ -50,7 +52,25 @@ module Zenoss
         loader.add_system("#{@organizer_name}/#{sys_name}")
       end
 
+      # TODO:  Need to add some error checking.  For now we are just returning true
+      def delete_subsystem(sys_name)
+        rest("manage_deleteOrganizer?orgname=#{sys_name}")
+        true
+      end
 
+      # Delete this System
+      def delete!
+        Zenoss.systems.delete_subsystem(@organizer_name)
+      end
+
+
+      # --------------------------- REST Methods -------------------------- #
+
+      # Instead of calling the /getId REST method, this method simply returns
+      # the @id value since it is the same anyway.
+      def get_id
+        @id
+      end
 
       private
 

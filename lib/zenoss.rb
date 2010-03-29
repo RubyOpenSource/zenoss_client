@@ -21,6 +21,7 @@ require 'rubygems'
 require 'date'
 require 'tzinfo'
 require 'uri'
+require 'nokogiri' # required for HTML parsing returned by some methods
 
 module Zenoss
 
@@ -55,8 +56,6 @@ module Zenoss
   def Zenoss.systems
     Model::System.new('/zport/dmd/Systems')
   end
-
-
 
 
 

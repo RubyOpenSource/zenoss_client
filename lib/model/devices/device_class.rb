@@ -32,7 +32,7 @@ module Zenoss
         # Like, '/zport/dmd/Devices/Server/Linux'
         # or, '/Devices/Server/Linux'
         # or, '/Server/Linux'
-        path = devclass.sub(/^(\/zport\/dmd\/)?(@base_id\/)?([^\/]+)\/?$/,'\2')
+        path = devclass.sub(/^(\/zport\/dmd\/)?(#{@base_id}\/)?([^\/]+)\/?$/,'\2')
         @organizer_name = rest('getOrganizerName', "#{@base_id}/#{path}")
       end
 
@@ -51,7 +51,7 @@ module Zenoss
 
 
 
-      # ----------------- REST Methods ---------------- #
+      # --------------------------- REST Methods -------------------------- #
 
       # Name of the device in Zenoss.  This method will return the first
       # match if the device_name is not fully qualified.

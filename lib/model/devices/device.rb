@@ -47,6 +47,7 @@ module Zenoss
         rest("changeDeviceClass?deviceClassPath=#{device_class.organizer_name}")
       end
 
+
       # Instead of calling the /getId REST method, this method simply returns
       # the @device value since it is the same anyway.
       def get_id()

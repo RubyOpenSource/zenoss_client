@@ -47,7 +47,8 @@ module Zenoss
       # addSystem(self, newSystemPath, REQUEST=None)
       def add_system(system_path)
         method = "addSystem?newSystemPath=#{system_path}"
-        body = rest(method)
+        rest(method)
+        sys = System.new("/Systems/#{system_path}")
       end
 
       
