@@ -21,7 +21,6 @@ require 'rubygems'
 require 'date'
 require 'tzinfo'
 require 'uri'
-require 'nokogiri' # required for HTML parsing returned by some methods
 
 module Zenoss
 
