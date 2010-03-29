@@ -19,26 +19,45 @@
 #############################################################################
 module Zenoss
   module Model
-    class ServiceOrganizer
+    class System
       include Zenoss
       include Zenoss::Model
 
       attr_reader :organizer_name
 
-      def initialize(service_organizer)
-        @base_id = 'Services'
+      def initialize(devclass)
+        @base_id = 'Systems'
 
-        path = service_organizer.sub(/^(\/zport\/dmd\/)?(@base_id\/)?([^\/]+)\/?$/,'\2')
+        # This confusing little ditty lets us accept a System in a number of ways:
+        # Like, '/zport/dmd/Systems/MyService'
+        # or, '/Systems/MyService'
+        # or, '/MyService'
+        path = devclass.sub(/^(\/zport\/dmd\/)?(@base_id\/)?([^\/]+)\/?$/,'\2')
         @organizer_name = rest('getOrganizerName', "#{@base_id}/#{path}")
       end
 
 
-      protected
+      # ------------------------- Utility Methods ------------------------- #
+      # These are methods that do not exist as part of the official Zenoss
+      # API, but from an object model they seem to make sense to me.
+      # ------------------------------------------------------------------- #
+
+      # Add a device beneath this Device Class.  It is also typically best
+      # to use the fully qualified version of the device name.
+      # It returns true if the device is added, false otherwise.
+      def add_subsystem(sys_name)
+        loader = ZDeviceLoader.instance
+        loader.add_system("#{@organizer_name}/#{sys_name}")
+      end
+
+
+
+      private
 
       def rest(method, path = "#{@base_id}#{@organizer_name}")
         super("#{path}/#{method}")
       end
 
-    end # ServiceOrganizer
+    end # System
   end # Model
 end # Zenoss

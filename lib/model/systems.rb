@@ -17,28 +17,4 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-module Zenoss
-  module Model
-    class ServiceOrganizer
-      include Zenoss
-      include Zenoss::Model
-
-      attr_reader :organizer_name
-
-      def initialize(service_organizer)
-        @base_id = 'Services'
-
-        path = service_organizer.sub(/^(\/zport\/dmd\/)?(@base_id\/)?([^\/]+)\/?$/,'\2')
-        @organizer_name = rest('getOrganizerName', "#{@base_id}/#{path}")
-      end
-
-
-      protected
-
-      def rest(method, path = "#{@base_id}#{@organizer_name}")
-        super("#{path}/#{method}")
-      end
-
-    end # ServiceOrganizer
-  end # Model
-end # Zenoss
+require 'model/systems/system'

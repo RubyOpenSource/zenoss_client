@@ -51,6 +51,13 @@ module Zenoss
     Model::ServiceOrganizer.new('/zport/dmd/Services')
   end
 
+  # Return the base System /zport/dmd/Systems
+  def Zenoss.systems
+    Model::System.new('/zport/dmd/Systems')
+  end
+
+
+
 
 
   private

@@ -26,7 +26,7 @@ module Zenoss
         model_init
       end
 
-      def add_zenpack
+      def manage_add_zenpack(zenpack_id)
       end
 
     end

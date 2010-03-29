@@ -36,6 +36,23 @@ module Zenoss
         @organizer_name = rest('getOrganizerName', "#{@base_id}/#{path}")
       end
 
+      # ------------------------- Utility Methods ------------------------- #
+      # These are methods that do not exist as part of the official Zenoss
+      # API, but from an object model they seem to make sense to me.
+      # ------------------------------------------------------------------- #
+
+      # Add a device beneath this Device Class.  It is also typically best
+      # to use the fully qualified version of the device name.
+      # It returns true if the device is added, false otherwise.
+      def add_device(fully_qualified_device)
+        loader = ZDeviceLoader.instance
+        loader.load_device(fully_qualified_device, @organizer_name)
+      end
+
+
+
+      # ----------------- REST Methods ---------------- #
+
       # Name of the device in Zenoss.  This method will return the first
       # match if the device_name is not fully qualified.
       def find_device_path(device_name)
@@ -48,7 +65,7 @@ module Zenoss
       end
 
 
-      protected
+      private
 
       def rest(method, path = "#{@base_id}#{@organizer_name}")
         super("#{path}/#{method}")

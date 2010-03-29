@@ -47,8 +47,16 @@ end # Zenoss
 
 require 'model/event_view'
 
+# Device Loader interface.  You can use it directly or use the
+# utility methods in DeviceClass to create devices beneath
+# that class
+require 'model/z_device_loader'
+
 # Device Related ( /zport/dmd/Devices )
 require 'model/devices'
 
 # Service Related ( /zport/dmd/Services )
 require 'model/services'
+
+# Systems Related ( /zport/dmd/Systems )
+require 'model/systems'
