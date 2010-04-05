@@ -38,6 +38,9 @@ module Zenoss
     end
   end
 
+  # @param [String] user
+  # @param [String] pass
+  # @return [Boolean]
   def Zenoss.set_auth(user, pass)
     const_set(:USER, user)
     const_set(:PASS, pass)
