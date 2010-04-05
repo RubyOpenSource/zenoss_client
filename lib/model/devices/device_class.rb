@@ -55,13 +55,23 @@ module Zenoss
 
       # Name of the device in Zenoss.  This method will return the first
       # match if the device_name is not fully qualified.
+      #
+      # @param [String] device_name the hostname of the device
+      # @return [Device,nil] Device object of passed hostname or nil if the device doesn't exist
       def find_device_path(device_name)
         devpath = rest("findDevicePath?devicename=#{device_name}")
-        return Device.new(devpath)
+        devpath.nil? ? nil : Device.new(devpath)
       end
 
+      # @return [Array<Device>] an Array of Devices (or some Device subclass)
       def get_sub_devices
-        plist_to_array( rest('getSubDevices') )
+        (plist_to_array( rest('getSubDevices') )).map do |dstr|
+          # I'm using this regex here so some day we can generate
+          # Devices and sub Device types with an eval like so:
+          # eval "#{$1}.new(#{$2})"
+          dev = dstr.sub(/^<[\w]+\s+at\s+(.*)>$/,'\2')
+          Device.new(dev)
+        end
       end
 
 
