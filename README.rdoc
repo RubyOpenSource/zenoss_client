@@ -16,19 +16,13 @@ Gems:
 * tzinfo: For Python DateTime to Ruby DateTime conversion
 
 
-Zenoss Event Information:
+== UNSUPPORTED REST METHODS:
+Some methods within Zope are unsupported due to type conversion issues.
+I have created a work-around but you must add a custom Python script
+to Zope in order to do this.  Please see this blog post for information
+on how add the custom script:
 
-If you want to access Zenoss event information via REST you may need the
-following patch.  The methods Zenoss::Model::EventView#get_status_img_src and
-EventView#get_status_css_class depend on the 'status' parameter being an
-integer. When the call is unmarshalled on the Zenoss side it is always a
-string unless you apply this patch:
-
-http://gist.github.com/328414
-
-This has been reported and is filed as a product defect:
-
-http://dev.zenoss.com/trac/ticket/6282
+http://distributed-frostbite.blogspot.com/2010/04/using-ruby-with-zenoss-part-1.html
 
 
 == TO USE:
