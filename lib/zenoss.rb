@@ -75,8 +75,33 @@ module Zenoss
       req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
       req.basic_auth USER, PASS if USER
       response = http.request(req)
+      response.body.chomp! unless response.body.nil?
       return(response.body)
     }
+  end
+
+  # Call a custom Zope method to work around some issues of unsupported or bad behaving
+  # REST methods.
+  # @see http://gist.github.com/343627 for more info.
+  #
+  # @param [String] req_path the request path of the REST method ( as if it wasn't misbehaving )
+  #   @example req_path
+  #     getRRDValues?dsnames=['ProcessorTotalUserTime_ProcessorTotalUserTime','MemoryPagesOutputSec_MemoryPagesOutputSec']
+  # @return [String] the response body of the REST call
+  def custom_rest(req_path)
+    meth,args = req_path.split('?')
+    meth = "callZenossMethod?methodName=#{meth}"
+    unless args.nil?
+      meth << '&args=['
+      # Remove the named parameters because we can't dynamically call named parameters in Python.
+      # This method uses positional parameters via the passed Array (Python List).
+      args.split('&').inject(nil) do |delim,arg|
+        meth << "#{delim}#{arg.split('=').last}"
+        delim = ',' if delim.nil?
+      end
+      meth << ']'
+    end
+    rest(meth)
   end
 
   # Some of the REST methods return Strings that are formated like a Python list.

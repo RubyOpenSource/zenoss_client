@@ -40,7 +40,7 @@ module Zenoss
       # need to apply this patch to Zenoss:
       # http://gist.github.com/328414
       def get_status_img_src(status_number)
-        rest("getStatusImgSrc?status=#{status_number}")
+        custom_rest("getStatusImgSrc?status=#{status_number}")
       end
 
       # Fetches the css class for this status number.  This is usually the
@@ -48,7 +48,7 @@ module Zenoss
       # need to apply this patch to Zenoss:
       # http://gist.github.com/328414
       def get_status_css_class(status_number)
-        rest("getStatusCssClass?status=#{status_number}")
+        custom_rest("getStatusCssClass?status=#{status_number}")
       end
 
     end # EventView
