@@ -25,6 +25,9 @@ require 'uri'
 module Zenoss
 
   # Set the Base URI of the Zenoss server
+  #
+  # @param [URI, String] uri is the URL we use to connect to the Zenoss server
+  # @return [URI] the URI that was parsed and used as our base connection
   def Zenoss.uri(uri)
     if(uri.kind_of?(URI))
       uri.path << '/' unless(uri.path.index /\/$/)
@@ -41,17 +44,17 @@ module Zenoss
     true
   end
 
-  # Return the base DeviceClass /zport/dmd/Devices
+  # @return [Model::DeviceClass] the base DeviceClass /zport/dmd/Devices
   def Zenoss.devices
     Model::DeviceClass.new('/zport/dmd/Devices')
   end
 
-  # Return the base ServiceOrganizer /zport/dmd/Services
+  # @return [Model::ServiceOrganizer] the base ServiceOrganizer /zport/dmd/Services
   def Zenoss.services
     Model::ServiceOrganizer.new('/zport/dmd/Services')
   end
 
-  # Return the base System /zport/dmd/Systems
+  # @return [Model::System] the base System /zport/dmd/Systems
   def Zenoss.systems
     Model::System.new('/zport/dmd/Systems')
   end
@@ -61,6 +64,9 @@ module Zenoss
   private
 
   # Prepend the appropriate path and call the REST method on the URL set with Zenoss#uri
+  #
+  # @param [String] req_path the request path of the REST method
+  # @return [String] the response body of the REST call
   def rest(req_path)
     Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
       req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
@@ -73,6 +79,9 @@ module Zenoss
   # Some of the REST methods return Strings that are formated like a Python list.
   # This method turns that String into a Ruby Array.
   # If the list parameter is nil the return value is also nil.
+  #
+  # @param [String] list a Python formatted list
+  # @return [Array] a bonafide Ruby Array
   def plist_to_array(list)
     return nil if list.nil?
     (list.gsub /[\[\]]/,'').split /,\s+/
@@ -80,6 +89,9 @@ module Zenoss
 
   # Converts a String in Python's DateTime format to Ruby's DateTime format
   # If the pdt parameter is nil the return value is also nil.
+  #
+  # @param [String] pdt a String formatted in Python's DateTime format
+  # @return [DateTime] a bonafide Ruby DateTime object
   def pdatetime_to_datetime(pdt)
     return nil if pdt.nil?
     pdt = pdt.split(/\s+/)
