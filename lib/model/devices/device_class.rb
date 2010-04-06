@@ -69,7 +69,7 @@ module Zenoss
           # I'm using this regex here so some day we can generate
           # Devices and sub Device types with an eval like so:
           # eval "#{$1}.new(#{$2})"
-          dev = dstr.sub(/^<[\w]+\s+at\s+(.*)>$/,'\2')
+          dev = dstr.sub(/^<([\w]+)\s+at\s+(.*)>$/,'\2')
           Device.new(dev)
         end
       end

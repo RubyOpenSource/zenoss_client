@@ -22,6 +22,7 @@ module Zenoss
     class Device
       include Zenoss::Model
       include Zenoss::Model::EventView
+      include Zenoss::Model::RRDView
       include Zenoss::Model::DeviceResultInt
 
       attr_reader :path, :device, :os, :hw

@@ -17,47 +17,22 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'uri'
-require 'net/http'
-
 module Zenoss
   module Model
-    include Zenoss
+    module RRDView
+      include Zenoss::Model
 
-    # Common initialization for all Model components
-    def model_init
-
-      # A place to maintain cached vars to prevent unnecessary REST calls
-      @cache_vars = {}
-    end
-
-    
-    private
-
-    # Reset the cache variables so the REST calls return the appropriate
-    # values after a change has taken place.
-    def reset_cache_vars
-      @cache_vars.each_key do |key|
-        @cache_vars[key] = nil
+      # @return [Array] of datapoints
+      def get_rrd_data_points
+        (plist_to_array( custom_rest('getRRDDataPoints') )).map do |dstr|
+          dp = dstr.sub(/^<([\w]+)\s+at\s+(.*)>$/,'\2')
+          RRDDataPoint.new(dp)
+        end
       end
-    end
 
+    end # RRDView
   end # Model
 end # Zenoss
 
-require 'model/event_view'
-require 'model/rrd_view'
-
-# Device Loader interface.  You can use it directly or use the
-# utility methods in DeviceClass to create devices beneath
-# that class
-require 'model/z_device_loader'
-
-# Device Related ( /zport/dmd/Devices )
-require 'model/devices'
-
-# Service Related ( /zport/dmd/Services )
-require 'model/services'
-
-# Systems Related ( /zport/dmd/Systems )
-require 'model/systems'
+# Load the RRD related files
+require 'model/rrd/rrd_data_point'

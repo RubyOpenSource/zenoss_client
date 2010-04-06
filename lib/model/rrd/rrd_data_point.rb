@@ -17,47 +17,40 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'uri'
-require 'net/http'
-
 module Zenoss
   module Model
-    include Zenoss
+    class RRDDataPoint
+      include Zenoss
+      include Zenoss::Model
 
-    # Common initialization for all Model components
-    def model_init
+      def initialize(datapoint_path)
+        @path = datapoint_path
 
-      # A place to maintain cached vars to prevent unnecessary REST calls
-      @cache_vars = {}
-    end
-
-    
-    private
-
-    # Reset the cache variables so the REST calls return the appropriate
-    # values after a change has taken place.
-    def reset_cache_vars
-      @cache_vars.each_key do |key|
-        @cache_vars[key] = nil
+        # Initialize common things from Model
+        model_init
       end
-    end
 
+      # ------------------------- Utility Methods ------------------------- #
+      # These are methods that do not exist as part of the official Zenoss
+      # API, but from an object model they seem to make sense to me.
+      # ------------------------------------------------------------------- #
+
+
+
+      # --------------------------- REST Methods -------------------------- #
+
+      # @return [String] Name of the data source
+      def name
+        @cache_vars[:name] ||= rest('name')
+      end
+
+
+      private
+
+      def rest(method, path = "#{@path}")
+        super("#{path}/#{method}")
+      end
+
+    end # DeviceClass
   end # Model
 end # Zenoss
-
-require 'model/event_view'
-require 'model/rrd_view'
-
-# Device Loader interface.  You can use it directly or use the
-# utility methods in DeviceClass to create devices beneath
-# that class
-require 'model/z_device_loader'
-
-# Device Related ( /zport/dmd/Devices )
-require 'model/devices'
-
-# Service Related ( /zport/dmd/Services )
-require 'model/services'
-
-# Systems Related ( /zport/dmd/Systems )
-require 'model/systems'
