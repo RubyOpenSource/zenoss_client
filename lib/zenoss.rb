@@ -109,10 +109,26 @@ module Zenoss
   # If the list parameter is nil the return value is also nil.
   #
   # @param [String] list a Python formatted list
-  # @return [Array] a bonafide Ruby Array
+  # @return [Array,nil] a bonafide Ruby Array
   def plist_to_array(list)
     return nil if list.nil?
+    list = sanitize_str(list)
     (list.gsub /[\[\]]/,'').split /,\s+/
+  end
+
+  # Converts a String formatted like a Python Dictionary to a Ruby Hash.
+  #
+  # @param [String] dict a Python dictionary
+  # @return [Hash,nil] a Ruby Hash
+  def pdict_to_hash(dict)
+    return nil if dict.nil?
+    puts "Dict: #{dict}"
+    dict = sanitize_str(dict)
+    puts "New Dict: #{dict}"
+    dict = dict.sub(/^\{(.*)\}$/,'\1').split(/[,:]/).map do |str|
+      str.strip
+    end
+    Hash[*dict]
   end
 
   # Converts a String in Python's DateTime format to Ruby's DateTime format
@@ -127,6 +143,14 @@ module Zenoss
     DateTime.strptime("#{pdt[0]} #{pdt[1]} #{tz.current_period.abbreviation.to_s}", '%Y/%m/%d %H:%M:%S.%N %Z')
   end
 
+  # Do some clean-up on the string returned from REST calls.  Removes some
+  # quote characters embedded in the string and other misc.
+  #
+  # @param [String] str string returned from REST call
+  # @return [String] sanitized string
+  def sanitize_str(str)
+    str.gsub(/['"]/,'')
+  end
 
 end # Zenoss
 

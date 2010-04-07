@@ -30,6 +30,14 @@ module Zenoss
         end
       end
 
+      # Get key/value pairs of RRD Values for the passed data source names.
+      #
+      # @param [Array <String>] dsnames data source names from RRDDataPoint#name
+      # @return [Hash] key/value pairs of data source name and data source values
+      def get_rrd_values(dsnames)
+        pdict_to_hash(custom_rest("getRRDValues?dsnames=[#{dsnames.join(',')}]"))
+      end
+
     end # RRDView
   end # Model
 end # Zenoss
