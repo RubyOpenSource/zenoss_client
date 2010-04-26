@@ -56,6 +56,10 @@ require 'model/z_device_loader'
 # Device Related ( /zport/dmd/Devices )
 require 'model/devices'
 
+# Event Related
+require 'model/events/event_manager_base'
+require 'model/events/mysql_event_manager'
+
 # Service Related ( /zport/dmd/Services )
 require 'model/services'
 

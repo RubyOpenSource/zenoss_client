@@ -22,7 +22,13 @@ module Zenoss
     module EventView
 
       def get_event_history
-        rest('getEventHistory')
+        #rest('getEventHistory')
+        get_event_manager('history')
+      end
+
+      def get_event_manager(table='status')
+        manager = rest("getEventManager?table=#{table}")
+        Model::Events::MySqlEventManager.new(manager.sub(/.* at (.*)>$/,'\1'))
       end
 
       # Fetches that status number for this device or component
