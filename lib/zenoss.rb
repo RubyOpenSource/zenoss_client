@@ -73,6 +73,7 @@ module Zenoss
   def rest(req_path)
     Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
       req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
+      puts "Request: #{BASE_URI.path}#{req_path}"
       req.basic_auth USER, PASS if USER
       response = http.request(req)
       response.body.chomp! unless response.body.nil?
@@ -101,6 +102,7 @@ module Zenoss
       end
       meth << ']'
     end
+    puts "METHOD: #{meth}"
     rest(meth)
   end
 
