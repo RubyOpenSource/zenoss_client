@@ -38,11 +38,19 @@ module Zenoss
         #def get_event_list(where="device='itdmbx3.nd.gov'")
         def get_event_list(resultFields=nil, where=nil, orderby=nil, severity=nil, state=2, startdate=nil, enddate=nil, offset=0, rows=0, get_total_count=false, filter=nil, filters=nil)
           method = "getEventList?"
-          method << "resultFields=#{resultFields.join(',')}&" unless resultFields.nil?
-          method << "where=#{URI.encode(where,'=')}" unless where.nil?
-          event_list = custom_rest(method, nil, 'evid')
+          method << (resultFields.nil? ? "None&" : "#{resultFields.join(',')}&")
+          method << (where.nil? ? "&" : URI.encode(where,'='))
+          retstr = custom_rest(method, 'getEventFields')
+          retstr
         end
 
+        # Parameters:
+        # * evid (string) - Event ID
+        # * dedupid (string) - string used to determine duplicates
+        # * better (boolean) - provide even more detail than normal?
+        # Returns: EventDetail object fields from the event 
+        def get_event_detail(evid=nil, dedupid=nil, better=false)
+        end
 
 
         private

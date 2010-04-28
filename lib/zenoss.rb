@@ -99,8 +99,9 @@ module Zenoss
       # Remove the named parameters because we can't dynamically call named parameters in Python.
       # This method uses positional parameters via the passed Array (Python List).
       args.split('&').inject(nil) do |delim,arg|
+        arg.gsub!(/'/, "'''") # This may cause problems if the passed argument is already triple quoted.
         meth << "#{delim}#{arg.split('=').last}"
-        delim = ',' if delim.nil?
+        delim = '===' if delim.nil?
       end
       meth << ']'
     end
@@ -120,6 +121,49 @@ module Zenoss
     return nil if list.nil?
     list = sanitize_str(list)
     (list.gsub /[\[\]]/,'').split /,\s+/
+  end
+
+  # Some of the REST methods return Strings that are formated like a Python list.
+  # This method turns that String into a Ruby Array.
+  # If the list parameter is nil the return value is also nil.
+  # WARNING: This will soon supersede #plist_to_array
+  #
+  # @param [String, Array] list a Python formatted list or Array of chars
+  # @param [Boolean] first a flag that tells whether this is a recursive call or not
+  # @return [Array,nil] a bonafide Ruby Array
+  def parse_array(list, first = true)
+    return nil if list.nil?
+    open = false
+    narray = []
+    list = list.chars.to_a unless list.is_a?(Array)
+    while( token = list.shift )
+      case token
+      when /[\[\(]/
+        open = true
+        if(first)
+          narray = parse_array(list, false)
+        else
+          narray << parse_array(list, false)
+        end
+      when /[\]\)]/ 
+        open = false
+        return narray
+      when /["']/
+        qtype = token
+        tokenstr = ''
+        while( (token = list.shift) !~ /#{qtype}/ )
+          tokenstr << token
+        end
+        narray << tokenstr
+      when /\d/
+        while( list[0] =~ /\d/ )
+          token << list.shift
+        end
+      narray << token.to_i
+      end
+    end
+
+    narray
   end
 
   # Converts a String formatted like a Python Dictionary to a Ruby Hash.
@@ -147,6 +191,16 @@ module Zenoss
     pdt = pdt.split(/\s+/)
     tz = TZInfo::Timezone.get(pdt.last)
     DateTime.strptime("#{pdt[0]} #{pdt[1]} #{tz.current_period.abbreviation.to_s}", '%Y/%m/%d %H:%M:%S.%N %Z')
+  end
+
+  # This takes an array of two element Python tuples and turns it into a
+  # Ruby hash.
+  #
+  # @param [Array] tuple_array an Array of Strings formatted like two-element Python tuples
+  # @return [Hash] a Ruby hash of key-value pairs taken from the tuple argument
+  def ptuples_to_hash(tuple_array)
+    tuple_array.each do |tuple|
+    end
   end
 
   # Do some clean-up on the string returned from REST calls.  Removes some
