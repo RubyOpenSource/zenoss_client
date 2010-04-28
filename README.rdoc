@@ -24,6 +24,8 @@ on how add the custom script:
 
 http://distributed-frostbite.blogspot.com/2010/04/using-ruby-with-zenoss-part-1.html
 
+UPDATE: The script itself is now part of the source tree and can be found here: tools/callZenossMethod.py
+It should still be installed in the same fashion as the blog post steps through.
 
 == TO USE:
 A gem is now available.  'gem install zenoss_client'
