@@ -40,6 +40,16 @@ module Zenoss
         model_init
       end
 
+
+      # ------------------ Custom REST Calls ------------------ #
+      # These are not part of the official Zenoss API
+
+      def get_events
+        get_event_manager.get_event_list(nil,"device='#{@device}'")
+      end
+
+
+
       # ------------------ REST Calls ------------------ #
 
       # Move this Device to the given DeviceClass.

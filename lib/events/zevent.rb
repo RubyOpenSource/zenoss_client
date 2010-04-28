@@ -20,15 +20,10 @@
 
 module Zenoss
   module Event
-    class ZEvent
+    class ZEvent < Event
       include Zenoss
-
-      def initialize(evid)
-        @evid = evid
-      end
+      include Zenoss::Event
 
     end # ZEvent
   end # Event
 end # Zenoss
-
-require 'events/zevent'

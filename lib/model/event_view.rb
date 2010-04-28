@@ -21,6 +21,8 @@ module Zenoss
   module Model
     module EventView
 
+      # ------------------ REST Calls ------------------ #
+
       def get_event_history
         #rest('getEventHistory')
         get_event_manager('history')

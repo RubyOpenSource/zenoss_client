@@ -20,8 +20,15 @@
 
 module Zenoss
   module Event
-    include Zenoss
-
+    class Event
+      include Zenoss
+      def initialize(event_hash)
+        event_hash.each_pair do |key,value|
+          instance_variable_set("@#{key}",value)
+          self.class.send(:define_method, key, proc { instance_variable_get("@#{key}")})
+        end
+      end
+    end # Event
   end # Event
 end # Zenoss
 

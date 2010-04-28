@@ -34,14 +34,15 @@ module Zenoss
 
         # ------------------ REST Calls ------------------ #
 
-        # getEventList(self, resultFields=None, where="", orderby="", severity=None, state=2, startdate=None, enddate=None, offset=0, rows=0, getTotalCount=False, filter="", filters=None, **kwargs)
-        #def get_event_list(where="device='itdmbx3.nd.gov'")
         def get_event_list(resultFields=nil, where=nil, orderby=nil, severity=nil, state=2, startdate=nil, enddate=nil, offset=0, rows=0, get_total_count=false, filter=nil, filters=nil)
           method = "getEventList?"
           method << (resultFields.nil? ? "None&" : "#{resultFields.join(',')}&")
           method << (where.nil? ? "&" : URI.encode(where,'='))
-          retstr = custom_rest(method, 'getEventFields')
-          retstr
+          events = []
+          (parse_array(custom_rest(method, 'getEventFields'))).each do |event|
+            events << Zenoss::Event::ZEvent.new(Hash[event])
+          end
+          events
         end
 
         # Parameters:

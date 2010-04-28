@@ -51,5 +51,8 @@ A gem is now available.  'gem install zenoss_client'
 	# Get the uptime of the device
 	dev.sys_uptime
 
+  # Get a list of events for this system
+  dev.get_events
+
 
 Have fun and let me know what needs to be fixed / added.
