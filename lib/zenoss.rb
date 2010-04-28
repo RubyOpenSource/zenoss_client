@@ -88,8 +88,10 @@ module Zenoss
   # @param [String] req_path the request path of the REST method ( as if it wasn't misbehaving )
   #   @example req_path
   #     getRRDValues?dsnames=['ProcessorTotalUserTime_ProcessorTotalUserTime','MemoryPagesOutputSec_MemoryPagesOutputSec']
+  # @param [String] callback_func the name of the function to be called on the returned object before giving it back to Ruby
+  # @param [String] callback_attr the name of the attribute to fetch on the returned object before giving it back to Ruby
   # @return [String] the response body of the REST call
-  def custom_rest(req_path)
+  def custom_rest(req_path,callback_func = nil, callback_attr=nil)
     meth,args = req_path.split('?')
     meth = "callZenossMethod?methodName=#{meth}"
     unless args.nil?
@@ -102,6 +104,8 @@ module Zenoss
       end
       meth << ']'
     end
+    meth << "&filterFunc=#{callback_func}" unless callback_func.nil?
+    meth << "&filterAttr=#{callback_attr}" unless callback_attr.nil?
     puts "METHOD: #{meth}"
     rest(meth)
   end
@@ -157,3 +161,4 @@ module Zenoss
 end # Zenoss
 
 require 'model/model'
+require 'events/event'

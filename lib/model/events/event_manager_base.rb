@@ -40,7 +40,7 @@ module Zenoss
           method = "getEventList?"
           method << "resultFields=#{resultFields.join(',')}&" unless resultFields.nil?
           method << "where=#{URI.encode(where,'=')}" unless where.nil?
-          event_list = custom_rest(method)
+          event_list = custom_rest(method, nil, 'evid')
         end
 
 
@@ -48,10 +48,6 @@ module Zenoss
         private
 
         def rest(method)
-          super("#{@manager}/#{method}")
-        end
-
-        def custom_rest(method)
           super("#{@manager}/#{method}")
         end
 
