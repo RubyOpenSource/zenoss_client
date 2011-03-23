@@ -17,4 +17,4 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'model/systems/system'
+require 'zenoss/model/systems/system'

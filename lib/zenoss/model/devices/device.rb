@@ -19,38 +19,29 @@
 #############################################################################
 module Zenoss
   module Model
-    class Device
+    class Device < OpenStruct
       include Zenoss::Model
       include Zenoss::Model::EventView
       include Zenoss::Model::RRDView
       include Zenoss::Model::DeviceResultInt
 
-      attr_reader :path, :device, :os, :hw
-
-      def initialize(device_path)
-        device_path.sub(/^\/zport\/dmd\/(.*)\/([^\/]+)$/) do |m|
-          @path = $1
-          @device = $2
-        end
-
-        @os = OperatingSystem.new(self)
-        @hw = DeviceHW.new(self)
-
-        # Initialize common things from Model
-        model_init
+      # Initialize this object from a Hash returned via getDevices from the JSON api
+      # @param[Zenoss] zenoss the current instance we are connecting with
+      # @param[Hash] zhash a hash of values used to create this Device instance
+      def initialize(zenoss,zhash)
+        @zenoss = zenoss
+        super zhash
+        self.ipAddress = IPAddr.new(IPAddr.inet_ntoa(self.ipAddress)) if self.ipAddress
       end
 
+      # -------------------- JSON API Calls ------------------- #
 
-      # ------------------ Custom REST Calls ------------------ #
-      # These are not part of the official Zenoss API
-
+      # Get events for this device
       def get_events
-        get_event_manager.get_event_list(nil,"device='#{@device}'")
+        @zenoss.get_events(self.name)
       end
 
-
-
-      # ------------------ REST Calls ------------------ #
+      # ------------------ Legacy REST Calls ------------------ #
 
       # Move this Device to the given DeviceClass.
       def change_device_class(device_class)

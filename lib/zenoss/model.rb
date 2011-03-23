@@ -56,10 +56,6 @@ require 'zenoss/model/z_device_loader'
 # Device Related ( /zport/dmd/Devices )
 require 'zenoss/model/devices'
 
-# Event Related
-require 'zenoss/model/events/event_manager_base'
-require 'zenoss/model/events/mysql_event_manager'
-
 # Service Related ( /zport/dmd/Services )
 require 'zenoss/model/services'
 

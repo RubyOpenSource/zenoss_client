@@ -17,8 +17,16 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'zenoss/model/services/service_organizer'
-require 'zenoss/model/services/service_class'
-require 'zenoss/model/services/service'
-require 'zenoss/model/services/ip_service'
-require 'zenoss/model/services/win_service'
+require 'ipaddr'
+
+class IPAddr
+
+  # This is an extension to the base IPAddr that adds the ability to convert
+  # an IP Address from it's network form to a string in the standard dotted
+  # decimal format
+  def self.inet_ntoa(addr)
+    [addr].pack("N").unpack("C*").join "."
+  end
+end
+
+

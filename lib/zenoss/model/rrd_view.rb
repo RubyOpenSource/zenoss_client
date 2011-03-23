@@ -43,4 +43,4 @@ module Zenoss
 end # Zenoss
 
 # Load the RRD related files
-require 'model/rrd/rrd_data_point'
+require 'zenoss/model/rrd/rrd_data_point'

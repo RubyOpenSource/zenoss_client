@@ -47,7 +47,7 @@ end # Zenoss
 
 
 # Load the main Device related files
-require 'model/devices/device_class'
-require 'model/devices/device'
-require 'model/devices/device_hw'
-require 'model/devices/operating_system'
+require 'zenoss/model/devices/device_class'
+require 'zenoss/model/devices/device'
+require 'zenoss/model/devices/device_hw'
+require 'zenoss/model/devices/operating_system'

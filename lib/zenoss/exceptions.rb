@@ -17,8 +17,9 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'zenoss/model/services/service_organizer'
-require 'zenoss/model/services/service_class'
-require 'zenoss/model/services/service'
-require 'zenoss/model/services/ip_service'
-require 'zenoss/model/services/win_service'
+
+module Zenoss
+
+  class ZenossError < StandardError; end
+
+end
