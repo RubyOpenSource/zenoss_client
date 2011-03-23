@@ -21,6 +21,7 @@ require 'rubygems'
 require 'date'
 require 'tzinfo'
 require 'uri'
+require 'zenoss/connection'
 
 module Zenoss
 
@@ -172,9 +173,7 @@ module Zenoss
   # @return [Hash,nil] a Ruby Hash
   def pdict_to_hash(dict)
     return nil if dict.nil?
-    puts "Dict: #{dict}"
     dict = sanitize_str(dict)
-    puts "New Dict: #{dict}"
     dict = dict.sub(/^\{(.*)\}$/,'\1').split(/[,:]/).map do |str|
       str.strip
     end
@@ -214,5 +213,5 @@ module Zenoss
 
 end # Zenoss
 
-require 'model/model'
-require 'events/event'
+require 'zenoss/model'
+require 'zenoss/events'

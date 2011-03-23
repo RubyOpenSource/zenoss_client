@@ -45,23 +45,23 @@ module Zenoss
   end # Model
 end # Zenoss
 
-require 'model/event_view'
-require 'model/rrd_view'
+require 'zenoss/model/event_view'
+require 'zenoss/model/rrd_view'
 
 # Device Loader interface.  You can use it directly or use the
 # utility methods in DeviceClass to create devices beneath
 # that class
-require 'model/z_device_loader'
+require 'zenoss/model/z_device_loader'
 
 # Device Related ( /zport/dmd/Devices )
-require 'model/devices'
+require 'zenoss/model/devices'
 
 # Event Related
-require 'model/events/event_manager_base'
-require 'model/events/mysql_event_manager'
+require 'zenoss/model/events/event_manager_base'
+require 'zenoss/model/events/mysql_event_manager'
 
 # Service Related ( /zport/dmd/Services )
-require 'model/services'
+require 'zenoss/model/services'
 
 # Systems Related ( /zport/dmd/Systems )
-require 'model/systems'
+require 'zenoss/model/systems'
