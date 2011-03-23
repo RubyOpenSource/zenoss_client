@@ -17,26 +17,16 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
+require 'zenoss/jsonapi'
 
 module Zenoss
 
   # This class represents a connection into a Zenoss server.
   class Connection
     include Zenoss
-    ROUTERS = {
-      'MessagingRouter' => 'messaging',
-      'EventsRouter'    => 'evconsole',
-      'ProcessRouter'   => 'process',
-      'ServiceRouter'   => 'service',
-      'DeviceRouter'    => 'device',
-      'NetworkRouter'   => 'network',
-      'TemplateRouter'  => 'template',
-      'DetailNavRouter' => 'detailnav',
-      'ReportRouter'    => 'report',
-      'MibRouter'       => 'mib',
-      'ZenPackRouter'   => 'zenpack',
-    }
-
+    include Zenoss::JSONAPI
+    include Zenoss::JSONAPI::DeviceRouter
+    include Zenoss::JSONAPI::EventsRouter
 
     def initialize(url, user, pass)
       @zenoss_uri = (url.is_a?(URI) ? url : URI.parse(url))
@@ -45,61 +35,6 @@ module Zenoss
       @httpcli = HTTPClient.new
       sign_in(user,pass)
     end
-
-    def json_request(router, method, data=[])
-      raise ZenossError, "Router (#{router}) not found" unless ROUTERS.has_key?(router)
-
-      req_url = "#{@zenoss_uri}/zport/dmd/#{ROUTERS[router]}_router"
-      req_headers = {'Content-type' => 'application/json; charset=utf-8'}
-      req_body = [{
-        :action => router,
-        :method => method,
-        :data   => data,
-        :type   => 'rpc',
-        :tid    => @request_number,
-      }].to_json
-
-      @request_number += 1
-
-      resp = @httpcli.post req_url, req_body, req_headers
-      parse_json(resp)
-    end
-
-    def get_devices(device_class = '/zport/dmd/Devices')
-      resp = json_request('DeviceRouter', 'getDevices', [{:uid => device_class}])
-
-      devs = []
-      resp['devices'].each do |dev|
-        devs << Model::Device.new(self, dev)
-      end
-      devs
-    end
-
-    def get_events(device=nil, component=nil, event_class=nil)
-      data = {
-        :start  => 0,
-        :limit  => 100,
-        :dir    => 'DESC',
-        :sort   => 'severity',
-        :params => { :severity => [5,4,3,2,1], :eventState => [0,1]},
-      }
-      data[:params][:device] = device if device
-      data[:params][:component] = component if component
-      data[:params][:eventClass] = event_class if event_class
-
-      resp = json_request('EventsRouter', 'query', [data])
-
-      events = []
-      resp['events'].each do |ev|
-        events << ZenossEvent.new(self, ev)
-      end
-      events
-    end
-
-    def get_templates(device_id)
-      resp = json_request('DeviceRouter', 'getTemplates', [{:id => device_id}])
-    end
-
 
     private
 
@@ -119,24 +54,6 @@ module Zenoss
         raise ZenossError, "(HTTP Response #{resp.status}) Could not authenticate to #{@zenoss_uri}" unless resp.status == 200
       end
       true
-    end
-
-    # Check the HTTP and JSON response for errors and return JSON response
-    def parse_json(resp)
-      begin
-        if(resp.status != 200)
-          raise ZenossError, "Bad HTTP Response #{resp.status}: Cound not make JSON call"
-        end
-
-        json = JSON.load(resp.body.content)
-        unless(json['result']['success'])
-          raise ZenossError, "JSON request '#{json['method']}' on '#{json['action']}' was unsuccessful"
-        end
-
-        json['result']
-      rescue JSON::ParserError => e
-        raise ZenossError, "Invalid JSON response: #{e.message}"
-      end
     end
 
 

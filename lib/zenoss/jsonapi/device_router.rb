@@ -17,3 +17,24 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
+module Zenoss
+  module JSONAPI
+    module DeviceRouter
+
+      def get_devices(device_class = '/zport/dmd/Devices')
+        resp = json_request('DeviceRouter', 'getDevices', [{:uid => device_class}])
+
+        devs = []
+        resp['devices'].each do |dev|
+          devs << Model::Device.new(self, dev)
+        end
+        devs
+      end
+
+      def get_templates(device_id)
+        resp = json_request('DeviceRouter', 'getTemplates', [{:id => device_id}])
+      end
+
+    end # DeviceRouter
+  end # JSON
+end # Zenoss

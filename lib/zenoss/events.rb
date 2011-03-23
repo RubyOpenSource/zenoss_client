@@ -17,7 +17,5 @@
 # You should have received a copy of the GNU General Public License along
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-require 'zenoss/events/event_manager_base'
-require 'zenoss/events/mysql_event_manager'
 require 'zenoss/events/event'
 require 'zenoss/events/zevent'

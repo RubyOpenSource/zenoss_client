@@ -18,19 +18,30 @@
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
 module Zenoss
-  module Model
-    module Events
-      class MySqlEventManager < EventManagerBase
-        include Zenoss::Model
+  module JSONAPI
+    module EventsRouter
 
-        def initialize(manager_base)
-          super(manager_base)
+      def get_events(device=nil, component=nil, event_class=nil, limit=100)
+        data = {
+          :start  => 0,
+          :limit  => 100,
+          :dir    => 'DESC',
+          :sort   => 'severity',
+          :params => { :severity => [5,4,3,2,1], :eventState => [0,1]},
+        }
+        data[:params][:device] = device if device
+        data[:params][:component] = component if component
+        data[:params][:eventClass] = event_class if event_class
+
+        resp = json_request('EventsRouter', 'query', [data])
+
+        events = []
+        resp['events'].each do |ev|
+          events << Events::ZEvent.new(self, ev)
         end
+        events
+      end
 
-
-        # ------------------ REST Calls ------------------ #
-
-      end # MySqlEventManager
-    end # Events
-  end # Model
+    end # EventsRouter
+  end # JSON
 end # Zenoss

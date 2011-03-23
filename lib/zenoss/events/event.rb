@@ -19,15 +19,34 @@
 #############################################################################
 
 module Zenoss
-  module Event
-    class Event
-      include Zenoss
-      def initialize(event_hash)
-        event_hash.each_pair do |key,value|
-          instance_variable_set("@#{key}",value)
-          self.class.send(:define_method, key, proc { instance_variable_get("@#{key}")})
+  module Events
+    class Event < OpenStruct
+
+      # Initialize this object from a Hash returned via the JSON api
+      # @param[Zenoss] zenoss the current instance we are connecting with
+      # @param[Hash] zhash a hash of values used to create this Event instance
+      def initialize(zenoss,zhash)
+        @zenoss = zenoss
+        super zhash
+        self.firstTime = DateTime.parse(self.firstTime) if self.firstTime
+        self.lastTime  = DateTime.parse(self.lastTime) if self.lastTime
+      end
+
+      def detail(history = false)
+        data = {
+          :evid => self.evid,
+          :history => history,
+        }
+        resp = @zenoss.json_request('EventsRouter', 'detail', [data])
+        resp['event'].first.each_pair do |k,v|
+          self.new_ostruct_member(k)
+          @table[k.to_sym] = v
         end
       end
+
+      def acknowledge
+      end
+
     end # Event
-  end # Event
+  end # Events
 end # Zenoss

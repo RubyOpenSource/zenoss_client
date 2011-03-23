@@ -19,11 +19,7 @@
 #############################################################################
 
 module Zenoss
-  module Event
-    class ZEvent < Event
-      include Zenoss
-      include Zenoss::Event
-
-    end # ZEvent
-  end # Event
+  module Events
+    class ZEvent < Event; end
+  end # Events
 end # Zenoss
