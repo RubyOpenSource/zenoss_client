@@ -43,5 +43,5 @@ module Zenoss
       end
 
     end # EventsRouter
-  end # JSON
+  end # JSONAPI
 end # Zenoss

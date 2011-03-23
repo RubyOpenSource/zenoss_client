@@ -19,29 +19,16 @@
 #############################################################################
 module Zenoss
   module JSONAPI
-    module DeviceRouter
+    module ReportRouter
 
-      def get_devices(device_class = '/zport/dmd/Devices')
-        resp = json_request('DeviceRouter', 'getDevices', [{:uid => device_class}])
-
-        devs = []
-        resp['devices'].each do |dev|
-          devs << Model::Device.new(self, dev)
-        end
-        devs
+      def get_report_types
+        resp = json_request('ReportRouter', 'getReportTypes')
       end
 
-      def get_templates(device_id)
-        resp = json_request('DeviceRouter', 'getTemplates', [{:id => device_id}])
+      def get_report_tree(id = '/zport/dmd/Reports')
+        resp = json_request('ReportRouter', 'getTree', [{:id => id}])
       end
 
-      def get_info(device_id, keys = nil)
-        data = {}
-        data[:uid]  = device_id
-        data[:keys] = keys if keys
-        resp = json_request('DeviceRouter', 'getInfo', [data])
-      end
-
-    end # DeviceRouter
+    end # ReportRouter
   end # JSONAPI
 end # Zenoss

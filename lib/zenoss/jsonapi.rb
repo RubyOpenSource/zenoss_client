@@ -34,7 +34,7 @@ module Zenoss
       'ZenPackRouter'   => 'zenpack',
     }
 
-    def json_request(router, method, data=[])
+    def json_request(router, method, data={})
       raise ZenossError, "Router (#{router}) not found" unless ROUTERS.has_key?(router)
 
       req_url = "#{@zenoss_uri}/zport/dmd/#{ROUTERS[router]}_router"
@@ -63,9 +63,10 @@ module Zenoss
         end
 
         json = JSON.load(resp.body.content)
-        # Check for JSON success. Sometimes the 'success' key does not exist; the 'query' method on 
-        # EventsRouter for instance. In that case we'll just by-pass the check.
-        if(json['result'].has_key?('success') && !json['result']['success'])
+        # Check for JSON success. There are some exceptions where this doesn't make sense:
+        #   1. Sometimes the 'success' key does not exist like in EventsRouter#query
+        #   2. When json['result'] is not a Hash like a return from ReportRouter#get_tree
+        if(json['result'].is_a?(Hash) && json['result'].has_key?('success') && !json['result']['success'])
           raise ZenossError, "JSON request '#{json['method']}' on '#{json['action']}' was unsuccessful"
         end
 
@@ -80,3 +81,4 @@ end
 
 require 'zenoss/jsonapi/device_router'
 require 'zenoss/jsonapi/events_router'
+require 'zenoss/jsonapi/report_router'

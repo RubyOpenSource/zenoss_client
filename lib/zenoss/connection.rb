@@ -18,6 +18,7 @@
 # with zenoss_client.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
 require 'zenoss/jsonapi'
+require 'zenoss/restapi'
 
 module Zenoss
 
@@ -27,10 +28,11 @@ module Zenoss
     include Zenoss::JSONAPI
     include Zenoss::JSONAPI::DeviceRouter
     include Zenoss::JSONAPI::EventsRouter
+    include Zenoss::JSONAPI::ReportRouter
+    include Zenoss::RESTAPI
 
     def initialize(url, user, pass)
       @zenoss_uri = (url.is_a?(URI) ? url : URI.parse(url))
-      @zenoss_uri.path << '/' unless(@zenoss_uri.path.end_with? '/')
       @request_number = 1
       @httpcli = HTTPClient.new
       sign_in(user,pass)
@@ -54,55 +56,6 @@ module Zenoss
         raise ZenossError, "(HTTP Response #{resp.status}) Could not authenticate to #{@zenoss_uri}" unless resp.status == 200
       end
       true
-    end
-
-
-    #---------- LEGACY REST METHODS ---------- #
-
-
-    # Prepend the appropriate path and call the REST method on the URL set with Zenoss#uri
-    #
-    # @param [String] req_path the request path of the REST method
-    # @return [String] the response body of the REST call
-    def rest(req_path)
-      Net::HTTP.start(Zenoss::BASE_URI.host,Zenoss::BASE_URI.port) {|http|
-        req = Net::HTTP::Get.new("#{BASE_URI.path}#{req_path}")
-        puts "Request: #{BASE_URI.path}#{req_path}"
-        req.basic_auth USER, PASS if USER
-        response = http.request(req)
-        response.body.chomp! unless response.body.nil?
-        return(response.body)
-      }
-    end
-
-    # Call a custom Zope method to work around some issues of unsupported or bad behaving
-    # REST methods.
-    # @see http://gist.github.com/343627 for more info.
-    #
-    # @param [String] req_path the request path of the REST method ( as if it wasn't misbehaving )
-    #   @example req_path
-    #     getRRDValues?dsnames=['ProcessorTotalUserTime_ProcessorTotalUserTime','MemoryPagesOutputSec_MemoryPagesOutputSec']
-    # @param [String] callback_func the name of the function to be called on the returned object before giving it back to Ruby
-    # @param [String] callback_attr the name of the attribute to fetch on the returned object before giving it back to Ruby
-    # @return [String] the response body of the REST call
-    def custom_rest(req_path,callback_func = nil, callback_attr=nil)
-      meth,args = req_path.split('?')
-      meth = "callZenossMethod?methodName=#{meth}"
-      unless args.nil?
-        meth << '&args=['
-        # Remove the named parameters because we can't dynamically call named parameters in Python.
-        # This method uses positional parameters via the passed Array (Python List).
-        args.split('&').inject(nil) do |delim,arg|
-          arg.gsub!(/'/, "'''") # This may cause problems if the passed argument is already triple quoted.
-          meth << "#{delim}#{arg.split('=').last}"
-          delim = '===' if delim.nil?
-        end
-        meth << ']'
-      end
-      meth << "&filterFunc=#{callback_func}" unless callback_func.nil?
-      meth << "&filterAttr=#{callback_attr}" unless callback_attr.nil?
-      puts "METHOD: #{meth}"
-      rest(meth)
     end
 
   end # Connection

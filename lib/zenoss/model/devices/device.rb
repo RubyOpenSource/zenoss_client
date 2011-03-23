@@ -41,6 +41,10 @@ module Zenoss
         @zenoss.get_events(self.name)
       end
 
+      def get_info(keys = nil)
+        @zenoss.get_info(self.uid, keys)
+      end
+
       # ------------------ Legacy REST Calls ------------------ #
 
       # Move this Device to the given DeviceClass.
@@ -197,7 +201,11 @@ module Zenoss
       private
 
       def rest(method)
-        super("#{@path}/#{@device}/#{method}")
+        @zenoss.rest(URI.encode("#{self.uid}/#{method}"))
+      end
+
+      def custom_rest(req_path, callback_func = nil, callback_attr=nil)
+        @zenoss.custom_rest(self.uid, req_path, callback_func, callback_attr)
       end
 
     end # Device
