@@ -19,16 +19,19 @@
 #############################################################################
 module Zenoss
   module Model
-    class RRDDataPoint
+    class RRDDataPoint < OpenStruct
       include Zenoss
       include Zenoss::Model
 
-      def initialize(datapoint_path)
-        @path = datapoint_path
-
-        # Initialize common things from Model
+      def initialize(zenoss, datapoint_path)
+        @zenoss = zenoss
+        super({:uid => datapoint_path})
         model_init
       end
+
+      # -------------------- JSON API Calls ------------------- #
+
+
 
       # ------------------------- Utility Methods ------------------------- #
       # These are methods that do not exist as part of the official Zenoss
@@ -47,8 +50,8 @@ module Zenoss
 
       private
 
-      def rest(method, path = "#{@path}")
-        super("#{path}/#{method}")
+      def rest(method)
+        @zenoss.rest(URI.encode("#{self.uid}/#{method}"))
       end
 
     end # DeviceClass

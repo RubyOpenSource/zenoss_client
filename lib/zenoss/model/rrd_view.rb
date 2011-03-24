@@ -24,10 +24,9 @@ module Zenoss
 
       # @return [Array] of datapoints
       def get_rrd_data_points
-        #rest("getRRDDataPoints")
         (plist_to_array( custom_rest('getRRDDataPoints') )).map do |dstr|
           dp = dstr.sub(/^<([\w]+)\s+at\s+(.*)>$/,'\2')
-          RRDDataPoint.new(dp)
+          RRDDataPoint.new(@zenoss,dp)
         end
       end
 
@@ -36,7 +35,7 @@ module Zenoss
       # @param [Array <String>] dsnames data source names from RRDDataPoint#name
       # @return [Hash] key/value pairs of data source name and data source values
       def get_rrd_values(dsnames)
-        #pdict_to_hash(custom_rest("getRRDValues?dsnames=[#{dsnames.join(',')}]"))
+        pdict_to_hash(custom_rest("getRRDValues?dsnames=[#{dsnames.join(',')}]"))
       end
 
       # Get all of the data point falues between a certain time period
@@ -54,7 +53,36 @@ module Zenoss
         method << "&cf=#{cf}&resolution=#{resolution}"
         method << "&start=#{vstart.strftime('%s')}"
         method << "&end=#{vend.strftime('%s')}"
-        vals = custom_rest(method)
+        custom_rest(method)
+        parse_rrd_fetch(custom_rest(method))
+      end
+
+      #private
+
+
+      # Parse the string returned by the REST call fetchRRDValue.
+      def parse_rrd_fetch(vstr)
+        vstr = vstr.chomp
+        vstr = vstr.slice 1, (vstr.length - 2)
+        parts = vstr.match(/^\(([^\)]+)\),\s*\(([^\)]+)\),\s*\[([^\]]+)\]/)
+
+        # Get the first part of the return, start, end, resolution
+        retparms = Hash[[:start,:end,:resolution].zip( parts[1].split(/\s*,\s*/).map {|v| v.to_i} )]
+        # Get the datasource name. This will almost always be 'ds0'
+        retparms[:rrdds] = parts[2].gsub(/['"]/,'').split(/,/).first
+        # Get the values
+        retparms[:rrdvalues] = plist_to_array(parts[3]).map do |v|
+          atom = v.gsub(/(\(|\))/,'').split(/\s*,\s*/)[0]
+          case atom
+          when /\d\.\d/
+            atom.to_f
+          when /^\d$/
+            atom.to_i
+          when /None/
+            nil
+          end
+        end
+        retparms
       end
 
     end # RRDView
