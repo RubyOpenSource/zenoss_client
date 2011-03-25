@@ -41,7 +41,7 @@ module Zenoss
     # @param [String] callback_attr the name of the attribute to fetch on the returned object before giving it back to Ruby
     # @return [String] the response body of the REST call
     def custom_rest(dev_path, req_path, callback_func = nil, callback_attr=nil)
-      puts "ORIGINAL: #{req_path}"
+      puts "ORIGINAL: #{req_path}" if $DEBUG
       meth,args = req_path.split('?')
       meth = "callZenossMethod?methodName=#{meth}"
       unless args.nil?
@@ -58,7 +58,7 @@ module Zenoss
       meth << "&filterFunc=#{callback_func}" unless callback_func.nil?
       meth << "&filterAttr=#{callback_attr}" unless callback_attr.nil?
       meth = "#{URI.encode(dev_path)}/#{meth}"
-      puts "METHOD: #{meth}"
+      puts "METHOD: #{meth}" if $DEBUG
       rest(meth)
     end
 

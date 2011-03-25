@@ -24,7 +24,7 @@ module Zenoss
 
       # @return [Array] of datapoints
       def get_rrd_data_points
-        (plist_to_array( custom_rest('getRRDDataPoints') )).map do |dstr|
+        (plist_to_array( custom_rest('getRRDDataPoints').chomp )).map do |dstr|
           dp = dstr.sub(/^<([\w]+)\s+at\s+(.*)>$/,'\2')
           RRDDataPoint.new(@zenoss,dp)
         end
