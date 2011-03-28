@@ -45,6 +45,8 @@ It should still be installed in the same fashion as the blog post steps through.
 == TO USE:
 A gem is now available.  'gem install zenoss_client'
 
+<pre>
+<code>
 	require 'zenoss'
   require 'date'
 
@@ -62,6 +64,7 @@ A gem is now available.  'gem install zenoss_client'
 
   # Get a list of events for this system
   dev.get_events
-
+</code>
+</pre>
 
 Have fun and let me know what needs to be fixed / added.
