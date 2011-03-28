@@ -47,7 +47,7 @@ A gem is now available.  'gem install zenoss_client'
 
 <pre>
 <code>
-	require 'zenoss'
+  require 'zenoss'
   require 'date'
 
   server = 'https://zenhost:port/zport/dmd'
@@ -59,8 +59,8 @@ A gem is now available.  'gem install zenoss_client'
   rrdpts = dev.get_rrd_data_points
   datapoints = dev.fetch_rrd_value rrdpts.first.name, (DateTime.now - 1)
 
-	# Get the uptime of the device
-	dev.sys_uptime
+  # Get the uptime of the device
+  dev.sys_uptime
 
   # Get a list of events for this system
   dev.get_events
