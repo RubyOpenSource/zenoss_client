@@ -1,0 +1,67 @@
+h1. zenoss_client: A Ruby library for JSON/REST access to Zenoss
+
+This is a work-in-progress to create an easy to use client JSON/REST API for
+Zenoss (http://www.zenoss.com) written in Ruby.  I love Zenoss as a product,
+but I am much more efficient in Ruby than Python so I decided to start
+hacking this library together.  It is very incomplete and I am just adding
+functionality as I need it or it is requested.
+
+Cheers,
+
+Dan Wanek
+
+h2. CHANGES SINCE THE 0.1.x BRANCH
+
+Starting with 0.5.0 I am trying to incorporate as much of the new JSON API
+into this library as possible because the type conversion hackery that was
+present in the REST code is largely unnecessary. Please note that the
+initialization is much different because we are using the sign-in form auth
+instead of the Basic auth of the previous version. This is because the JSON
+calls do not support Basic authentication.
+
+There is still much work that needs to be done in order to fully implement
+all of the JSON methods. For now many of the older features fall back to
+REST and some of those will always rely on REST because they are not
+currently supported in the JSON API.
+
+
+h2. REQUIREMENTS:
+Gems:
+
+* tzinfo: For Python DateTime to Ruby DateTime conversion
+
+
+h2. UNSUPPORTED REST METHODS:
+Some methods within Zope are unsupported due to type conversion issues.
+I have created a work-around but you must add a custom Python script
+to Zope in order to do this.  Please see this blog post for information
+on how add the custom script:
+
+http://distributed-frostbite.blogspot.com/2010/04/using-ruby-with-zenoss-part-1.html
+
+UPDATE: The script itself is now part of the source tree and can be found here: tools/callZenossMethod.py
+It should still be installed in the same fashion as the blog post steps through.
+
+== TO USE:
+A gem is now available.  'gem install zenoss_client'
+
+	require 'zenoss'
+  require 'date'
+
+  server = 'https://zenhost:port/zport/dmd'
+  user, pass = 'zuser', 'zpass'
+  @zen = Zenoss.connect server, user, pass
+  dev = (@zen.find_devices_by_name 'myservername').first
+
+  # Get RRD data for this device
+  rrdpts = dev.get_rrd_data_points
+  datapoints = dev.fetch_rrd_value rrdpts.first.name, (DateTime.now - 1)
+
+	# Get the uptime of the device
+	dev.sys_uptime
+
+  # Get a list of events for this system
+  dev.get_events
+
+
+Have fun and let me know what needs to be fixed / added.
