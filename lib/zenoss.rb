@@ -21,6 +21,7 @@ require 'rubygems'
 require 'date'
 require 'tzinfo'
 require 'uri'
+require 'ostruct'
 require 'httpclient'
 require 'json'
 
