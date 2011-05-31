@@ -72,7 +72,7 @@ module Zenoss
           raise ZenossError, "Bad HTTP Response #{resp.status}: Cound not make REST call"
         end
 
-        resp.body.content
+        resp.http_body.content
       end
     end
 

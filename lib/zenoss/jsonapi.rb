@@ -62,7 +62,7 @@ module Zenoss
           raise ZenossError, "Bad HTTP Response #{resp.status}: Cound not make JSON call"
         end
 
-        json = JSON.load(resp.body.content)
+        json = JSON.load(resp.http_body.content)
         # Check for JSON success. There are some exceptions where this doesn't make sense:
         #   1. Sometimes the 'success' key does not exist like in EventsRouter#query
         #   2. When json['result'] is not a Hash like a return from ReportRouter#get_tree
