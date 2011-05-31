@@ -38,7 +38,11 @@ module Zenoss
 
       # Get events for this device
       def get_events
-        @zenoss.get_events(self.name)
+        @zenoss.query_events(self.uid)
+      end
+
+      def get_event_history
+        @zenoss.query_events(self.uid,{:history => true})
       end
 
       def get_info(keys = nil)

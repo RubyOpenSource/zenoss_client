@@ -21,25 +21,60 @@ module Zenoss
   module JSONAPI
     module EventsRouter
 
-      def get_events(device=nil, component=nil, event_class=nil, limit=100)
-        data = {
-          :start  => 0,
-          :limit  => 100,
-          :dir    => 'DESC',
-          :sort   => 'severity',
-          :params => { :severity => [5,4,3,2,1], :eventState => [0,1]},
+      # Query events for the given parameters.
+      # @param [String] uid the uid to query events for. If this isn't specified
+      #   the query may take a very long time
+      # @param [Hash] opts misc options to limit/filter events
+      # @option opts [Fixnum] :limit the Max index of events to retrieve
+      # @option opts [Fixnum] :start the Min index of events to retrieve
+      # @option opts [String] :sort Key on which to sort the return results (default: 'lastTime')
+      # @option opts [String] :dir Sort order; can be either 'ASC' or 'DESC'
+      # @option opts [Hash] :params Key-value pair of filters for this search. (default: None)
+      # @option opts [Boolean<true>] :history True to search the event history
+      #   table instead of active events (default: False)
+      # @option opts [Array<Hash>] :criteria A list of key-value pairs to to build query's
+      #   where clause (default: None)
+      # @option opts [String] :device limit events to a specific device. This only makes sense
+      #   if the uid being passed is not a device.
+      # @option opts [String] :component limit events to a specific component
+      # @option opts [String] :event_class limit events to a specific eventClass
+      def query_events(uid=nil, opts = {})
+        defaults = {
+          :limit    => 100,
+          :start    => 0,
+          :sort     => 'lastTime',
+          :dir      => 'DESC',
+          :history  => false,
         }
-        data[:params][:device] = device if device
-        data[:params][:component] = component if component
-        data[:params][:eventClass] = event_class if event_class
+        opts = defaults.merge(opts)
 
-        resp = json_request('EventsRouter', 'query', [data])
+        resp = self.ev_query(uid, opts)
 
         events = []
         resp['events'].each do |ev|
           events << Events::ZEvent.new(self, ev)
         end
         events
+      end
+
+
+      # @param [String] uid the uid to query events for. If this isn't specified
+      #   the query may take a very long time
+      # @param [Hash] opts misc options to limit/filter events
+      # @see #query_events
+      def ev_query(uid, opts)
+        data = {
+          :limit    => opts[:limit],
+          :start    => opts[:start],
+          :sort     => opts[:sort],
+          :dir      => opts[:dir],
+          :history  => opts[:history],
+        }
+        data[:uid] = uid unless uid.nil?
+        data[:params] = opts[:params] if opts.has_key?(:params)
+        data[:criteria] = opts[:criteria] if opts.has_key?(:criteria)
+
+        json_request('EventsRouter', 'query', [data])
       end
 
     end # EventsRouter
