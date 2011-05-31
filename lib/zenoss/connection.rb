@@ -35,6 +35,7 @@ module Zenoss
       @zenoss_uri = (url.is_a?(URI) ? url : URI.parse(url))
       @request_number = 1
       @httpcli = HTTPClient.new
+      @httpcli.receive_timeout = 360  # six minutes should be more that sufficient
       sign_in(user,pass)
     end
 
