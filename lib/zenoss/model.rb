@@ -48,6 +48,9 @@ end # Zenoss
 require 'zenoss/model/event_view'
 require 'zenoss/model/rrd_view'
 
+# Methods related to zProperties
+require 'zenoss/model/zen_property_manager'
+
 # Device Loader interface.  You can use it directly or use the
 # utility methods in DeviceClass to create devices beneath
 # that class

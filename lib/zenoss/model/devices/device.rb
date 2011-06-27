@@ -24,6 +24,7 @@ module Zenoss
       include Zenoss::Model::EventView
       include Zenoss::Model::RRDView
       include Zenoss::Model::DeviceResultInt
+      include Zenoss::Model::ZenPropertyManager
 
       # Initialize this object from a Hash returned via getDevices from the JSON api
       # @param[Zenoss] zenoss the current instance we are connecting with
