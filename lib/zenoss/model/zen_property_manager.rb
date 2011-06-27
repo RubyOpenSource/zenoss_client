@@ -39,10 +39,19 @@ module Zenoss
       end
 
       # Set a zProperty
-      # @param [String] prop the property to set
-      # @param [String, Array, Boolean] value the value to set the property to
+      # @param [String] propname the property to set
+      # @param [String, Array, Boolean] propvalue the value to set the property to
       # @return
-      def set_zen_property(prop, value)
+      def set_zen_property(propname, propvalue)
+        method = 'setZenProperty'
+        if(propvalue.is_a? Array)
+          custom_rest("#{method}?propname=#{propname}&propvalue=[#{propvalue.join(',')}]")
+        else
+          if(propvalue.is_a?(TrueClass) || propvalue.is_a?(FalseClass))
+            propvalue = propvalue.to_s.capitalize
+          end
+          custom_rest("#{method}?propname=#{propname}&propvalue=#{propvalue}")
+        end
       end
 
     end # ZenPropertyManager
