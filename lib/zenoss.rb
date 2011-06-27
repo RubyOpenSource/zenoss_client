@@ -84,7 +84,7 @@ module Zenoss
         while( list[0] =~ /\d/ )
           token << list.shift
         end
-      narray << token.to_i
+        narray << token.to_i
       end
     end
 
@@ -122,8 +122,20 @@ module Zenoss
   # @param [Array] tuple_array an Array of Strings formatted like two-element Python tuples
   # @return [Hash] a Ruby hash of key-value pairs taken from the tuple argument
   def ptuples_to_hash(tuple_array)
+    return nil if tuple_array.empty?
+    thash = {}
     tuple_array.each do |tuple|
+      str = sanitize_str(tuple.strip)
+      k, *v = str.slice!(1..-2).split(/\s*,\s*/)
+      if(v.length <= 1)
+        thash[k] = v.first
+      else
+        v[0]  = v[0].slice(1..-1)
+        v[-1] = v[-1].slice(0..-2)
+        thash[k] = v
+      end
     end
+    thash
   end
 
   # Do some clean-up on the string returned from REST calls.  Removes some
