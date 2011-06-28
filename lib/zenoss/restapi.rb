@@ -57,7 +57,7 @@ module Zenoss
       end
       meth << "&filterFunc=#{callback_func}" unless callback_func.nil?
       meth << "&filterAttr=#{callback_attr}" unless callback_attr.nil?
-      meth = "#{URI.encode(dev_path)}/#{meth}"
+      meth = "#{URI.encode(dev_path)}/#{URI.encode(meth)}"
       puts "METHOD: #{meth}" if $DEBUG
       rest(meth)
     end
