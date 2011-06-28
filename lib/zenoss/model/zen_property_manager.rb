@@ -43,17 +43,25 @@ module Zenoss
       # Set a zProperty
       # @param [String] propname the property to set
       # @param [String, Array, Boolean] propvalue the value to set the property to
-      # @return
+      # @return [Boolean] true on success false otherwise
       def set_zen_property(propname, propvalue)
         method = 'setZenProperty'
         if(propvalue.is_a? Array)
-          custom_rest("#{method}?propname=#{propname}&propvalue=[#{propvalue.join(',')}]")
+          custom_rest("#{method}?propname=#{propname}&propvalue=[#{propvalue.join(',')}]") == "None\n"
         else
           if(propvalue.is_a?(TrueClass) || propvalue.is_a?(FalseClass))
             propvalue = propvalue.to_s.capitalize
           end
-          custom_rest("#{method}?propname=#{propname}&propvalue=#{propvalue}")
+          custom_rest("#{method}?propname=#{propname}&propvalue=#{propvalue}") == "None\n"
         end
+      end
+
+      # Delete a zProperty from the device
+      # @param [String] propname the overridden zProperty to delete from the device
+      # @return [Boolean] true on success false otherwise
+      def delete_zen_property(propname)
+        method = "deleteZenProperty?propname=#{propname}"
+        custom_rest(method) == "None\n"
       end
 
     end # ZenPropertyManager
