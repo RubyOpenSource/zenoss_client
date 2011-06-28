@@ -64,6 +64,22 @@ module Zenoss
         custom_rest(method) == "None\n"
       end
 
+      def cust_property_ids
+        plist_to_array( rest('custPropertyIds') )
+      end
+
+      def get_cust_property(id)
+        custom_rest("getProperty?id=#{id}").chomp
+      end
+
+      def set_cust_property(id, value)
+        set_zen_property(id, value)
+      end
+
+      def delete_cust_property(id)
+        delete_zen_property(id)
+      end
+
     end # ZenPropertyManager
   end # Model
 end # Zenoss
