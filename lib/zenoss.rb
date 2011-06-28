@@ -144,7 +144,9 @@ module Zenoss
   # @param [String] str string returned from REST call
   # @return [String] sanitized string
   def sanitize_str(str)
-    str.gsub(/['"]/,'')
+    str.gsub!(/['"]/,'')
+    str.chomp!
+    str
   end
 
 end # Zenoss

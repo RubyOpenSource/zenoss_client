@@ -23,11 +23,13 @@ module Zenoss
 
       # ------------------ REST Calls ------------------ #
 
+      # @param [TrueClass,FalseClass] all true to return all Ids or false
+      #   to get just the overridden Ids.
       # @return [Array] Return an Array of zProperty Ids for this device
-      def zen_property_ids
-        method = 'zenPropertyIds'
+      def zen_property_ids(all=true)
+        method = "zenPropertyIds?all=#{all.to_s.capitalize}"
 
-        plist_to_array( rest(method) )
+        plist_to_array( custom_rest(method) )
       end
 
       # @return [Hash] Return a Hash of zProperies and values
