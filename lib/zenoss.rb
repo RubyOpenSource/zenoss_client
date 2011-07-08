@@ -32,8 +32,8 @@ module Zenoss
 
   # initialize a connection to a Zenoss server. This is the same as doing
   #   Zenoss::Connection.new(server,user,pass)
-  def Zenoss.connect(server, user, pass)
-    Connection.new(server,user,pass)
+  def Zenoss.connect(server, user, pass, &block)
+    Connection.new(server,user,pass,&block)
   end
 
   # Some of the REST methods return Strings that are formated like a Python list.
