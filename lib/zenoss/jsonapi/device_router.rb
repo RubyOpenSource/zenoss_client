@@ -41,6 +41,7 @@ module Zenoss
         data[:sort]   = opts[:sort_key] if opts.has_key? :sort_key
         data[:dir]    = opts[:sort_ord] if opts.has_key? :sort_ord
         data[:params] = opts[:params] if opts.has_key? :params
+	data[:params] ||= {}
         resp = json_request('DeviceRouter', 'getDevices', [data])
 
         devs = []
