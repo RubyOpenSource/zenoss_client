@@ -30,5 +30,7 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version	= '>= 1.8.7'
   gem.add_runtime_dependency  'httpclient', '~> 2.2.0'
   gem.add_runtime_dependency  'tzinfo', '~> 0.3.20'
-  gem.add_runtime_dependency  'json', '~> 1.5.0'
+  gem.add_runtime_dependency  'json', '~> 1.5'
+  
+  gem.add_development_dependency('minitest')
 end

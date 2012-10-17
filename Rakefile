@@ -2,6 +2,7 @@ require 'rubygems'
 require 'rake/clean'
 require 'rake/gempackagetask'
 require 'rake/rdoctask'
+require 'rake/testtask'
 
 CLEAN.include("pkg")
 CLEAN.include("doc")
@@ -69,4 +70,10 @@ def up_min_version
 	f.rewind
 	f.write(ver)
 	ver
+end
+
+Rake::TestTask.new do |t|
+  t.libs.push "lib"
+  t.test_files = FileList['test/*_test.rb']
+  t.verbose = true
 end
