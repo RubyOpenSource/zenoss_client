@@ -68,3 +68,15 @@ A gem is now available.  'gem install zenoss_client'
 </pre>
 
 Have fun and let me know what needs to be fixed / added.
+
+== Testing
+You can invoke a series of minitest based spec test using the supplied
+tests and rake task. Simply run the following to kick off the tests
+@rake test@
+
+You should see output similar to the following (The number of tests will
+of course grow over time):
+@3 tests, 6 assertions, 0 failures, 0 errors, 0 skips@
+
+If you get any failures, you should of course address them
+
