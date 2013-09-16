@@ -202,6 +202,15 @@ module Zenoss
         rest("getSystemNamesString?sep=#{sep}")
       end
 
+      # Change name of the device
+      def rename_device(new_name)
+        ret = rest("renameDevice?newId=#{new_name}")
+        if ret
+          self.name  = new_name
+        end
+        return ret
+      end
+
 
       private
 
