@@ -54,6 +54,7 @@ module Zenoss
       resp = @httpcli.post login_path, login_parms
       if(resp.status == 302)
         login_path = resp.header['Location'].first
+        login_path = "#{@zenoss_uri}/#{login_path}"
         resp = @httpcli.post login_path, login_parms 
         raise ZenossError, "(HTTP Response #{resp.status}) Could not authenticate to #{@zenoss_uri}" unless resp.status == 200
       end
