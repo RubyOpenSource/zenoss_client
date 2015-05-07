@@ -1,8 +1,9 @@
 require 'rubygems'
 require 'rake/clean'
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'rubygems/package_task'
+require 'rdoc/task'
 require 'rake/testtask'
+require 'date'
 
 CLEAN.include("pkg")
 CLEAN.include("doc")
@@ -33,8 +34,8 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.add_runtime_dependency  'tzinfo'
   gem.post_install_message	= "See README.rdoc"
 end
- 
-Rake::GemPackageTask.new(GEMSPEC) do |pkg|
+
+Gem::PackageTask.new(GEMSPEC) do |pkg|
   pkg.need_tar = true
 end
 
