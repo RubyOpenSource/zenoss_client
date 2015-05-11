@@ -72,7 +72,7 @@ Have fun and let me know what needs to be fixed / added.
 == Testing
 You can invoke a series of minitest based spec test using the supplied
 tests and rake task. Simply run the following to kick off the tests
-@rake test@
+@bundle exec rake test@
 
 You should see output similar to the following (The number of tests will
 of course grow over time):
@@ -80,3 +80,8 @@ of course grow over time):
 
 If you get any failures, you should of course address them
 
+Since the test suite requires a working Zenoss installation to test against,
+some docker files are provided under test/docker. From a docker host, clone this
+repo, cd to the appropriate test/docker/ subdirectory, and run @sh start.sh@ to
+build and start the container. Once the container is running, you should be able
+to run the tests as described above.

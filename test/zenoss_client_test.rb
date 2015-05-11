@@ -1,5 +1,6 @@
 require_relative './test_helper'
 require 'minitest/spec'
+require 'minitest/autorun'
 require 'logger'
 
 LOG = Logger.new(STDOUT)
