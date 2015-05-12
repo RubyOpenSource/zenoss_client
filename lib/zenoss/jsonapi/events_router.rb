@@ -68,7 +68,6 @@ module Zenoss
           :start    => opts[:start],
           :sort     => opts[:sort],
           :dir      => opts[:dir],
-          :history  => opts[:history],
         }
         data[:uid] = uid unless uid.nil?
         data[:params] = opts[:params] if opts.has_key?(:params)
