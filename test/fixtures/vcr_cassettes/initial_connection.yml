@@ -1,0 +1,569 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/acl_users/cookieAuthHelper/login
+    body:
+      encoding: UTF-8
+      string: __ac_name=test&__ac_password=test&submitted=true&came_from=http%3A%2F%2F192.168.56.2%3A8080%2Fzport%2Fdmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Length:
+      - '59'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Location:
+      - http://192.168.56.2:8080/zport/dmd/zport/dmd?submitted=true
+      Set-Cookie:
+      - _ZopeId="47196628A68r9jgJPrs"; Path=/; HTTPOnly
+    body:
+      encoding: UTF-8
+      string: http://192.168.56.2:8080/zport/dmd/zport/dmd?submitted=true
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/http://192.168.56.2:8080/zport/dmd/zport/dmd?submitted=true
+    body:
+      encoding: UTF-8
+      string: __ac_name=test&__ac_password=test&submitted=true&came_from=http%3A%2F%2F192.168.56.2%3A8080%2Fzport%2Fdmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - _ZopeId=47196628A68r9jgJPrs
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Length:
+      - '32270'
+      Content-Type:
+      - text/html; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "\n<html>\n    <head>\n<base href=\"http://192.168.56.2:8080/zport/dmd/zport/dmd/\"
+        />\n\n        <title>\n            Zenoss:\n            \n    Dashboard\n\n
+        \       </title>\n        <link rel=\"icon\" href=\"/zport/dmd/favicon.ico\"
+        type=\"image/x-icon\" />\n        <link rel=\"shortcut icon\" href=\"/zport/dmd/favicon.ico\"
+        type=\"image/x-icon\" />\n\n        <link rel=\"stylesheet\" type=\"text/css\"
+        href=\"/++resource++zenui/css/xtheme-zenoss.css?v=1356718852.0\" />\n        <link
+        rel=\"stylesheet\" type=\"text/css\" href=\"/++resource++zenui/css/zenoss.css?v=1356718852.0\"
+        />\n\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/++resource++zenui/css/zenui3.css?v=1356718852.0\"
+        />\n        \n<script type=\"text/javascript\">\n    function _global_permissions(){\n
+        \       return {\"modify cookie crumblers\": true, \"add ram cache managers\":
+        true, \"reply to item\": true, \"zproperties edit\": true, \"maintenance windows
+        view\": true, \"maintenance windows edit\": true, \"define commands edit\":
+        true, \"add folders\": true, \"set own password\": true, \"add portal content\":
+        true, \"edit user groups\": true, \"manage notification subscriptions\": true,
+        \"review portal content\": true, \"manage relations\": true, \"change cache
+        managers\": true, \"add ofolders\": true, \"create transient objects\": true,
+        \"list undoable changes\": true, \"webdav unlock items\": true, \"manage portal\":
+        true, \"change bindings\": true, \"delete device\": true, \"access transient
+        objects\": true, \"add dmd objects\": true, \"manage site\": true, \"gensummary\":
+        true, \"add restructuredtext documents\": true, \"zencommon\": true, \"manage
+        transient object container\": true, \"zproperties view\": true, \"request
+        review\": true, \"mail forgotten password\": true, \"view trigger\": true,
+        \"change cache settings\": true, \"add page templates\": true, \"change session
+        data manager\": true, \"change external methods\": true, \"managableindex:
+        manage\": true, \"administrators view\": true, \"add external methods\": true,
+        \"define commands view\": true, \"change device production state\": true,
+        \"add site roots\": true, \"add zentablemanager\": true, \"set own properties\":
+        true, \"add plugin registrys\": true, \"webdav lock items\": true, \"update
+        trigger\": true, \"manage trigger\": true, \"search zcatalog\": true, \"access
+        contents information\": true, \"add browser id manager\": true, \"change dtml
+        documents\": true, \"use mailhost services\": true, \"change dtml methods\":
+        true, \"view history\": true, \"add content type registrys\": true, \"ftp
+        access\": true, \"add vocabularies\": true, \"edit local templates\": true,
+        \"manage groups\": true, \"manage webdav locks\": true, \"add toonerelationships\":
+        true, \"add user folders\": true, \"add cmf caching policy managers\": true,
+        \"add temporary folder\": true, \"add btreefolder2s\": true, \"administrators
+        edit\": true, \"admin device\": true, \"change python scripts\": true, \"private,
+        only accessible from trusted code\": true, \"change images and files\": true,
+        \"change database methods\": true, \"add python scripts\": true, \"change
+        configuration\": true, \"view\": true, \"access inactive portal content\":
+        true, \"undo changes\": true, \"run commands\": true, \"change admin objects\":
+        true, \"webdav access\": true, \"view management screens\": true, \"add session
+        data manager\": true, \"add mailhost objects\": true, \"add cmf core tools\":
+        true, \"add database methods\": true, \"change network\": true, \"import/export
+        objects\": true, \"change lock information\": true, \"manage vocabulary\":
+        true, \"access arbitrary user session data\": true, \"open/close database
+        connections\": true, \"delete objects\": true, \"update notification\": true,
+        \"change settings\": true, \"change page templates\": true, \"change device\":
+        true, \"add portal member\": true, \"change browser id manager\": true, \"manage
+        zcatalog entries\": true, \"send events\": true, \"manage eventmanager\":
+        true, \"access session data\": true, \"view notification\": true, \"copy or
+        move\": true, \"add filesystem directory views\": true, \"add cookie crumblers\":
+        true, \"add virtual host monsters\": true, \"define permissions\": true, \"change
+        event views\": true, \"add tomanycontrelationships\": true, \"add documents,
+        images, and files\": true, \"manage access rules\": true, \"change alerting
+        rules\": true, \"query vocabulary\": true, \"modify portal content\": true,
+        \"edit restructuredtext\": true, \"public, everyone can access\": true, \"manage
+        dmd\": true, \"add generic setup tools\": true, \"zenupdate\": true, \"add
+        pluggable index\": true, \"add zcatalogs\": true, \"add portal folders\":
+        true, \"manage device status\": true, \"change local roles\": true, \"add
+        transient object container\": true, \"manage five local sites\": true, \"add
+        tomanyrelationships\": true, \"list portal members\": true, \"edit users\":
+        true, \"access future portal content\": true, \"manage users\": true, \"change
+        permissions\": true, \"use database methods\": true, \"add accelerated http
+        cache managers\": true, \"manage zcatalogindex entries\": true, \"search for
+        principals\": true, \"log to the event log\": true, \"manage events\": true,
+        \"log site errors\": true, \"list folder contents\": true, \"add relationship
+        managers\": true, \"change proxy roles\": true, \"manage properties\": true,
+        \"add zodb mount points\": true, \"manage device\": true};\n    }\n\n    function
+        _managed_objects(){\n        return [];\n    }\n\n    function _has_global_roles()
+        {\n        return true\n    }\n</script>\n        \n        \n<script type=\"text/javascript\">\n\n
+        \        (function() {\n            var ua = navigator.userAgent.toLowerCase();\n
+        \           if (ua.indexOf(\"firefox/3.6\") > -1) {\n                Ext.toArray
+        = function(a, i, j, res) {\n                    res = [];\n                    Ext.each(a,
+        function(v) { res.push(v); });\n                    return res.slice(i ||
+        0, j || res.length);\n                }\n            }\n        })();\n        \n</script>\n\n<script
+        type=\"text/javascript\" src=\"/++resource++extjs/ext-all.js?v=1336168855.0\"></script>\n\n<script
+        type=\"text/javascript\" src=\"/++resource++extjs/examples/ux/form/MultiSelect.js?v=1336168855.0\"></script>\n<script
+        type=\"text/javascript\" src=\"/++resource++extjs/examples/ux/form/ItemSelector.js?v=1336168855.0\"></script>\n<script
+        type=\"text/javascript\" src=\"/++resource++extjs/examples/ux/IFrame.js?v=1336168855.0\"></script>\n<script
+        type=\"text/javascript\" src=\"/++resource++extjs/examples/ux/RowExpander.js?v=1336168855.0\"></script>\n\n<script
+        type=\"text/javascript\" src=\"/++resource++search/zenoss-search.js?v=1356718851.0\"></script>\n\n<script
+        type=\"text/javascript\" src=\"/++resource++zenui/js/swfobject/2.2/swfobject.js?v=1356718853.0\"></script>\n\n<script
+        type=\"text/javascript\" src=\"extdirect.js?v=4.2.3\"></script>\n\n<script
+        type=\"text/javascript\" src=\"zenoss-all.js?v=1356718945.0\"></script>\n\n<script
+        type=\"text/javascript\" src=\"i18n.js?v=4.2.3\"></script>\n\n<script type=\"text/javascript\"
+        src=\"/++resource++zenaws/ZenAWS.js?v=1431130398.0\"></script>\n<script type=\"text/javascript\"
+        src=\"/++resource++zenaws/ZenAWSInstanceTypes.js?v=1431130398.0\"></script>\n\n<script
+        type=\"text/javascript\" src=\"/++resource++msmq/js/MSMQQueue.js?v=1431130466.0\"></script>\n\n
+        \       <script></script>\n        <script type=\"text/javascript\" src=\"/++resource++esxtop/js/VirtualMachine.js?v=1431130409.0\"></script>\n\n\n
+        \       \n    \n    \n    <meta http-equiv=\"Content-Type\" content=\"text/html;
+        charset=utf-8\" />\n    <link rel=\"shortcut icon\" href=\"/zport/dmd/favicon.ico\"
+        type=\"image/x-icon\" />\n    <link rel=\"stylesheet\" href=\"yui/reset-fonts-grids/reset-fonts-grids.css\"
+        />\n\n    <link rel=\"stylesheet\" href=\"/zport/portal_skins/zenoss.css\">\n
+        \   <!--[if IE 7]>\n        <link rel=\"stylesheet\" type=\"text/css\" title=\"zenoss\"\n
+        \           href=\"zenoss_ie.css\" >\n    <![endif]-->\n    <!--[if IE 6]>\n
+        \       <link rel=\"stylesheet\" type=\"text/css\" title=\"zenoss\"\n            href=\"zenoss_ie6.css\"
+        >\n    <![endif]-->\n    <script>\n        var DEBUG_MODE = false;\n        var
+        VERSION_ID = '423';\n    </script>\n    <script type=\"text/javascript\" src=\"js/MochiKit.js\"></script>\n
+        \   <script type=\"text/javascript\" language=\"javascript\" src=\"/zport/dmd/yui/yahoo/yahoo-min.js\"></script>\n
+        \   <script type=\"text/javascript\" language=\"javascript\" src=\"/zport/dmd/yui/yuiloader/yuiloader-min.js\"></script>\n
+        \   <script type=\"text/javascript\" src=\"javascript/zenoss-core.js\"></script>\n
+        \   <script>\n    var loader = YAHOO.zenoss.getLoader();\n    loader.require(['zenossutils']);\n
+        \   loader.insert({onSuccess:function(){\n        removeElementAutoCompletes();\n
+        \       applyBrowserSpecificStyles();\n        addSelectionBar();\n        checkForCollapsed();\n
+        \       connectCheckboxListeners();\n        notifyParentOfNewUrl();\n        zenPageInit();\n
+        \   }});\n    </script>\n\n\n    \n<script>\n\nvar submitFormToMethod = function(formname,
+        method) {\n//Basically for use in menu items, to obviate creating dummy forms\n//or
+        menu items that are actually buttons.\n   f = document.forms[formname];\n
+        \  f.action = '/zport/dmd/' + method;\n   f.submit();\n}\n\naddLoadEvent(function()
+        {\n\n    YAHOO.zenoss.templateFreeURL = '/zport/dmd';\n    YAHOO.zenoss.ZENOSS_VERSION
+        = '4.2.3';\n    YAHOO.zenoss.ZENOSS_PRODUCT = 'core';\n\n});\n\n\n\n</script>\n\n
+        \   <link rel=\"stylesheet\" type=\"text/css\" href=\"/++resource++zenui/css/backcompat.css?v=1356718852.0\"
+        />\n\n    \n\n        \n<script type=\"text/javascript\">\nExt.state.Manager.getProvider().setState('{\"device_grid\":{\"columns\":[{\"id\":\"name\"},{\"id\":\"h1\"},{\"id\":\"deviceClass\"},{\"id\":\"productionState\"},{\"id\":\"serialNumber\"},{\"id\":\"tagNumber\"},{\"id\":\"hwManufacturer\"},{\"id\":\"hwModel\"},{\"id\":\"osManufacturer\"},{\"id\":\"osModel\"},{\"id\":\"h2\"},{\"id\":\"priorityString\"},{\"id\":\"h3\"},{\"id\":\"h4\"},{\"id\":\"h5\"},{\"id\":\"worstevents\"}],\"sort\":{\"property\":\"name\",\"direction\":\"ASC\",\"root\":\"data\"},\"filters\":{}},\"infrastructure_events\":{\"columns\":[{\"id\":\"evid\"},{\"id\":\"dedupid\"},{\"id\":\"eventState\"},{\"id\":\"severity\"},{\"id\":\"device\"},{\"id\":\"component\"},{\"id\":\"eventClass\"},{\"id\":\"summary\"},{\"id\":\"firstTime\"},{\"id\":\"lastTime\"},{\"id\":\"count\"},{\"id\":\"prodState\"},{\"id\":\"DevicePriority\"},{\"id\":\"stateChange\"},{\"id\":\"eventClassKey\"},{\"id\":\"eventGroup\"},{\"id\":\"eventKey\"},{\"id\":\"agent\"},{\"id\":\"monitor\"},{\"id\":\"ownerid\"},{\"id\":\"facility\"},{\"id\":\"priority\"},{\"id\":\"eventClassMapping\"},{\"id\":\"clearid\"},{\"id\":\"ntevid\"},{\"id\":\"ipAddress\"},{\"id\":\"message\"},{\"id\":\"Location\"},{\"id\":\"DeviceGroups\"},{\"id\":\"Systems\"}],\"sort\":{\"property\":\"severity\",\"direction\":\"DESC\",\"root\":\"data\"},\"filters\":{\"eventState\":[0,1],\"severity\":[5,4,3,2]}},\"ext-gen1512\":{\"columns\":[{\"id\":\"islocal\"},{\"id\":\"category\"},{\"id\":\"id\"},{\"id\":\"value\"},{\"id\":\"path\"}],\"sort\":{\"property\":\"id\",\"direction\":\"ASC\",\"root\":\"data\"},\"filters\":{}},\"device_events\":{\"columns\":[{\"id\":\"evid\"},{\"id\":\"dedupid\"},{\"id\":\"eventState\"},{\"id\":\"severity\"},{\"id\":\"component\"},{\"id\":\"eventClass\"},{\"id\":\"summary\"},{\"id\":\"firstTime\"},{\"id\":\"lastTime\"},{\"id\":\"count\"},{\"id\":\"prodState\"},{\"id\":\"DevicePriority\"},{\"id\":\"stateChange\"},{\"id\":\"eventClassKey\"},{\"id\":\"eventGroup\"},{\"id\":\"eventKey\"},{\"id\":\"agent\"},{\"id\":\"monitor\"},{\"id\":\"ownerid\"},{\"id\":\"facility\"},{\"id\":\"priority\"},{\"id\":\"eventClassMapping\"},{\"id\":\"clearid\"},{\"id\":\"ntevid\"},{\"id\":\"ipAddress\"},{\"id\":\"message\"},{\"id\":\"Location\"},{\"id\":\"DeviceGroups\"},{\"id\":\"Systems\"},{\"id\":\"DeviceClass\"}],\"sort\":{\"property\":\"severity\",\"direction\":\"DESC\",\"root\":\"data\"},\"filters\":{\"eventState\":[0,1],\"severity\":[5,4,3,2]}},\"ext-gen1348\":{\"columns\":[{\"id\":\"islocal\"},{\"id\":\"category\"},{\"id\":\"id\"},{\"id\":\"value\"},{\"id\":\"path\"}],\"sort\":{\"property\":\"id\",\"direction\":\"ASC\",\"root\":\"data\"},\"filters\":{}},\"ext-gen1584\":{\"columns\":[{\"id\":\"islocal\"},{\"id\":\"category\"},{\"id\":\"id\"},{\"id\":\"value\"},{\"id\":\"path\"}],\"sort\":{\"property\":\"id\",\"direction\":\"ASC\",\"root\":\"data\"},\"filters\":{}},\"ext-gen1400\":{\"columns\":[{\"id\":\"islocal\"},{\"id\":\"category\"},{\"id\":\"id\"},{\"id\":\"value\"},{\"id\":\"path\"}],\"sort\":{\"property\":\"id\",\"direction\":\"ASC\",\"root\":\"data\"},\"filters\":{}}}');\n\n
+        \       Ext.onReady(function(){\n            Zenoss.env.EVENT_CLASSES = ['/App',
+        '/App/Apache', '/App/Citrix', '/App/Conn', '/App/Conn/Max', '/App/Email',
+        '/App/Email/Loop', '/App/Failed', '/App/Info', '/App/Install', '/App/Job',
+        '/App/Job/Fail', '/App/Log', '/App/MySQL', '/App/Print', '/App/Reload', '/App/Start',
+        '/App/Stop', '/App/VNC', '/Archive', '/Capacity', '/Change', '/Change/Add',
+        '/Change/Add/Blocked', '/Change/Remove', '/Change/Remove/Blocked', '/Change/Set',
+        '/Change/Set/Blocked', '/Cisco', '/Cisco/FW', '/Cluster', '/Cluster/Heartbeat',
+        '/Cmd', '/Cmd/Fail', '/Cmd/Fail/WinExe', '/Cmd/Ok', '/Config', '/Conn', '/Conn/Fail',
+        '/DB', '/DB/Filemaker', '/Environ', '/HW', '/HW/Backup', '/HW/Backup/Robot',
+        '/HW/Backup/SCSI', '/HW/Backup/Tape Drive', '/HW/Backup/Tape Media', '/HW/Blade',
+        '/HW/Management', '/HW/Memory', '/HW/Network', '/HW/Network/AdapterDown',
+        '/HW/Network/TeamDown', '/HW/Power', '/HW/Power/PowerLoss', '/HW/Power/UPS',
+        '/HW/Power/UPS/SmartBoost', '/HW/Store', '/HW/Store/FiberChannel', '/HW/Temperature',
+        '/HW/Temperature/Fan', '/Heartbeat', '/Ignore', '/Ignore/Win', '/License',
+        '/Net', '/Net/Conflict', '/Net/Dhcp', '/Net/Dhcp/Ack', '/Net/Dhcp/Inform',
+        '/Net/Dhcp/Obtained', '/Net/Dhcp/Request', '/Net/Link', '/Net/NS', '/Net/SpanTree',
+        '/Net/Time', '/OS', '/OS/Pagefile', '/OS/Reboot', '/Perf', '/Perf/CPU', '/Perf/Filesystem',
+        '/Perf/Interface', '/Perf/MSMQ', '/Perf/Memory', '/Perf/Snmp', '/Perf/XmlRpc',
+        '/Security', '/Security/Auth', '/Security/Conn', '/Security/Conn/Close', '/Security/Conn/Open',
+        '/Security/Login', '/Security/Login/BadPass', '/Security/Login/Fail', '/Security/Sudo',
+        '/Security/Virus', '/Status', '/Status/DNS', '/Status/Ftp', '/Status/HTTP',
+        '/Status/Heartbeat', '/Status/IRCD', '/Status/IpService', '/Status/JMX', '/Status/JMX/Connection',
+        '/Status/Jabber', '/Status/LDAP', '/Status/MSMQ', '/Status/Nagios', '/Status/Ntp',
+        '/Status/OSProcess', '/Status/Perf', '/Status/Ping', '/Status/Snmp', '/Status/Update',
+        '/Status/Web', '/Status/WinService', '/Status/Wmi', '/Status/Wmi/Conn', '/Status/XmlRpc',
+        '/Status/zenwinmodeler', '/Storage', '/Storage/Full', '/Storage/SAN', '/Unknown',
+        '/Users', '/Win', '/Win/AD', '/Win/DCOM', '/Win/Exchange', '/Win/MSSQLServer',
+        '/Win/NetBios', '/Win/PWMgr', '/Win/SharePoint', '/Win/Shell', '/Win/Userenv',
+        '/Win/WindowsUpdate', '/Win/WindowsUpdate/Failure', '/Win/WindowsUpdate/Pending',
+        '/Win/WindowsUpdate/Success', '/Win/evtsys'];\n        })\n        \nExt.onReady(function(){\nZenoss.env.COLUMN_DEFINITIONS=[\n{\"sortable\":
+        true, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"Event ID\", \"dataIndex\":
+        \"evid\", \"hidden\": true, \"id\": \"evid\"},\n{\"sortable\": true, \"filter\":
+        {\"xtype\": \"textfield\"}, \"header\": \"Fingerprint\", \"dataIndex\": \"dedupid\",
+        \"hidden\": true, \"id\": \"dedupid\"},\n{\"sortable\": true, \"header\":
+        \"Status\", \"filter\": {\"source\": [{\"name\": \"New\", \"value\": 0}, {\"name\":
+        \"Acknowledged\", \"value\": 1}, {\"checked\": false, \"name\": \"Suppressed\",
+        \"value\": 2}, {\"checked\": false, \"name\": \"Closed\", \"value\": 3}, {\"checked\":
+        false, \"name\": \"Cleared\", \"value\": 4}, {\"checked\": false, \"name\":
+        \"Aged\", \"value\": 6}], \"text\": \"...\", \"xtype\": \"multiselectmenu\",
+        \"cls\": \"x-btn x-btn-default-toolbar-small\"}, \"width\": 60, \"renderer\":
+        Zenoss.util.render_status, \"hidden\": false, \"id\": \"eventState\", \"dataIndex\":
+        \"eventState\"},\n{\"filter\": {\"source\": [{\"name\": \"Critical\", \"value\":
+        5}, {\"name\": \"Error\", \"value\": 4}, {\"name\": \"Warning\", \"value\":
+        3}, {\"name\": \"Info\", \"value\": 2}, {\"checked\": false, \"name\": \"Debug\",
+        \"value\": 1}, {\"checked\": false, \"name\": \"Clear\", \"value\": 0}], \"text\":
+        \"...\", \"xtype\": \"multiselectmenu\", \"cls\": \"x-btn x-btn-default-toolbar-small\"},
+        \"width\": 60, \"sortable\": true, \"renderer\": Zenoss.util.render_severity,
+        \"header\": \"Severity\", \"field_definition\": \"{name:'severity',type:'int'}\",
+        \"hidden\": false, \"id\": \"severity\", \"dataIndex\": \"severity\"},\n{\"sortable\":
+        true, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"Resource\", \"dataIndex\":
+        \"device\", \"hidden\": false, \"id\": \"device\", \"renderer\": Zenoss.render.linkFromGrid},\n{\"sortable\":
+        true, \"header\": \"Component\", \"filter\": {\"xtype\": \"textfield\"}, \"width\":
+        80, \"renderer\": Zenoss.render.linkFromGrid, \"hidden\": false, \"id\": \"component\",
+        \"dataIndex\": \"component\"},\n{\"sortable\": true, \"header\": \"Event Class\",
+        \"filter\": {\"xtype\": \"textfield\"}, \"width\": 80, \"renderer\": Zenoss.render.linkFromGrid,
+        \"hidden\": false, \"id\": \"eventClass\", \"dataIndex\": \"eventClass\"},\n{\"flex\":
+        1, \"sortable\": true, \"filter\": {\"xtype\": \"textfield\"}, \"header\":
+        \"Summary\", \"renderer\": Zenoss.render.eventSummaryRow, \"hidden\": false,
+        \"id\": \"summary\", \"dataIndex\": \"summary\"},\n{\"filter\": {\"xtype\":
+        \"datefield\", \"format\": \"Y-m-d H:i:s\"}, \"header\": \"First Seen\", \"sortable\":
+        true, \"renderer\": Ext.util.Format.dateRenderer(Zenoss.date.ISO8601Long),
+        \"width\": 100, \"field_definition\": \"{name:'firstTime',type:'date', dateFormat:
+        Zenoss.date.ISO8601Long}\", \"hidden\": false, \"id\": \"firstTime\", \"dataIndex\":
+        \"firstTime\"},\n{\"filter\": {\"xtype\": \"datefield\", \"format\": \"Y-m-d
+        H:i:s\"}, \"header\": \"Last Seen\", \"sortable\": true, \"renderer\": Ext.util.Format.dateRenderer(Zenoss.date.ISO8601Long),
+        \"width\": 100, \"field_definition\": \"{name:'lastTime', type:'date', dateFormat:
+        Zenoss.date.ISO8601Long}\", \"hidden\": false, \"id\": \"lastTime\", \"dataIndex\":
+        \"lastTime\"},\n{\"sortable\": true, \"header\": \"Count\", \"filter\": {\"vtype\":
+        \"numrange\", \"xtype\": \"textfield\"}, \"width\": 60, \"field_definition\":
+        \"{name:'count',type:'int'}\", \"dataIndex\": \"count\", \"hidden\": false,
+        \"id\": \"count\"},\n{\"sortable\": true, \"filter\": {\"xtype\": \"multiselect-prodstate\"},
+        \"header\": \"Production State\", \"dataIndex\": \"prodState\", \"hidden\":
+        true, \"id\": \"prodState\"},\n{\"sortable\": true, \"filter\": {\"xtype\":
+        \"multiselect-devicepriority\"}, \"header\": \"Device Priority\", \"dataIndex\":
+        \"DevicePriority\", \"hidden\": true, \"id\": \"DevicePriority\"},\n{\"filter\":
+        {\"xtype\": \"datefield\", \"format\": \"Y-m-d H:i:s\"}, \"header\": \"State
+        Change\", \"sortable\": true, \"renderer\": Ext.util.Format.dateRenderer(Zenoss.date.ISO8601Long),
+        \"width\": 120, \"field_definition\": \"{name:'stateChange', type:'date',
+        dateFormat: Zenoss.date.ISO8601Long}\", \"hidden\": true, \"id\": \"stateChange\",
+        \"dataIndex\": \"stateChange\"},\n{\"sortable\": true, \"filter\": {\"xtype\":
+        \"textfield\"}, \"header\": \"Event Class Key\", \"dataIndex\": \"eventClassKey\",
+        \"hidden\": true, \"id\": \"eventClassKey\"},\n{\"sortable\": true, \"filter\":
+        {\"xtype\": \"textfield\"}, \"header\": \"Event Group\", \"dataIndex\": \"eventGroup\",
+        \"hidden\": true, \"id\": \"eventGroup\"},\n{\"sortable\": true, \"filter\":
+        {\"xtype\": \"textfield\"}, \"header\": \"Event Key\", \"dataIndex\": \"eventKey\",
+        \"hidden\": true, \"id\": \"eventKey\"},\n{\"sortable\": true, \"filter\":
+        {\"xtype\": \"textfield\"}, \"header\": \"Agent\", \"dataIndex\": \"agent\",
+        \"hidden\": true, \"id\": \"agent\"},\n{\"sortable\": true, \"filter\": {\"xtype\":
+        \"textfield\"}, \"header\": \"Collector\", \"dataIndex\": \"monitor\", \"hidden\":
+        true, \"id\": \"monitor\"},\n{\"sortable\": true, \"filter\": {\"xtype\":
+        \"textfield\"}, \"header\": \"Owner\", \"dataIndex\": \"ownerid\", \"hidden\":
+        true, \"id\": \"ownerid\"},\n{\"sortable\": false, \"filter\": false, \"header\":
+        \"Syslog Facility\", \"dataIndex\": \"facility\", \"hidden\": true, \"id\":
+        \"facility\"},\n{\"sortable\": false, \"filter\": false, \"header\": \"Syslog
+        Priority\", \"dataIndex\": \"priority\", \"hidden\": true, \"id\": \"priority\"},\n{\"sortable\":
+        false, \"filter\": false, \"header\": \"Event Class Mapping\", \"dataIndex\":
+        \"eventClassMapping\", \"hidden\": true, \"id\": \"eventClassMapping\", \"renderer\":
+        Zenoss.render.LinkFromGridGuidGroup},\n{\"sortable\": false, \"filter\": false,
+        \"header\": \"Cleared by Event ID\", \"dataIndex\": \"clearid\", \"hidden\":
+        true, \"id\": \"clearid\"},\n{\"sortable\": false, \"filter\": false, \"header\":
+        \"NT Event Code\", \"dataIndex\": \"ntevid\", \"hidden\": true, \"id\": \"ntevid\"},\n{\"sortable\":
+        true, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"IP Address\",
+        \"dataIndex\": \"ipAddress\", \"hidden\": true, \"id\": \"ipAddress\"},\n{\"sortable\":
+        false, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"Message\", \"dataIndex\":
+        \"message\", \"hidden\": true, \"id\": \"message\", \"renderer\": Zenoss.render.eventSummaryRow},\n{\"sortable\":
+        true, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"Location\", \"dataIndex\":
+        \"Location\", \"hidden\": true, \"id\": \"Location\", \"renderer\": Zenoss.render.LinkFromGridUidGroup},\n{\"sortable\":
+        false, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"Groups\", \"dataIndex\":
+        \"DeviceGroups\", \"hidden\": true, \"id\": \"DeviceGroups\", \"renderer\":
+        Zenoss.render.LinkFromGridUidGroup},\n{\"sortable\": false, \"filter\": {\"xtype\":
+        \"textfield\"}, \"header\": \"Systems\", \"dataIndex\": \"Systems\", \"hidden\":
+        true, \"id\": \"Systems\", \"renderer\": Zenoss.render.LinkFromGridUidGroup},\n{\"sortable\":
+        true, \"filter\": {\"xtype\": \"textfield\"}, \"header\": \"Device Class\",
+        \"dataIndex\": \"DeviceClass\", \"hidden\": true, \"id\": \"DeviceClass\",
+        \"renderer\": Zenoss.render.LinkFromGridUidGroup}\n];\nZenoss.env.READER_DEFINITIONS=[\n{\"name\":
+        \"evid\"},\n{\"name\": \"dedupid\"},\n{\"name\": \"eventState\"},\n{name:'severity',type:'int'},\n{\"name\":
+        \"device\"},\n{\"name\": \"component\"},\n{\"name\": \"eventClass\"},\n{\"name\":
+        \"summary\"},\n{name:'firstTime',type:'date', dateFormat: Zenoss.date.ISO8601Long},\n{name:'lastTime',
+        type:'date', dateFormat: Zenoss.date.ISO8601Long},\n{name:'count',type:'int'},\n{\"name\":
+        \"prodState\"},\n{\"name\": \"DevicePriority\"},\n{name:'stateChange', type:'date',
+        dateFormat: Zenoss.date.ISO8601Long},\n{\"name\": \"eventClassKey\"},\n{\"name\":
+        \"eventGroup\"},\n{\"name\": \"eventKey\"},\n{\"name\": \"agent\"},\n{\"name\":
+        \"monitor\"},\n{\"name\": \"ownerid\"},\n{\"name\": \"facility\"},\n{\"name\":
+        \"priority\"},\n{\"name\": \"eventClassMapping\"},\n{\"name\": \"clearid\"},\n{\"name\":
+        \"ntevid\"},\n{\"name\": \"ipAddress\"},\n{\"name\": \"message\"},\n{\"name\":
+        \"Location\"},\n{\"name\": \"DeviceGroups\"},\n{\"name\": \"Systems\"},\n{\"name\":
+        \"DeviceClass\"}\n];\nZenoss.env.EVENT_AUTO_EXPAND_COLUMN='summary';\n\n\n
+        \       Ext.define('Zenoss.events.Model',  {\n            extend: 'Ext.data.Model',\n
+        \           idProperty: 'evid',\n            fields: Zenoss.env.READER_DEFINITIONS\n
+        \       });\n\n\n});\nExt.namespace('Zenoss.settings');\nZenoss.settings.zenjobsRefreshInterval
+        = 10;\nZenoss.settings.deviceGridBufferSize = 100;\nZenoss.settings.enableLiveSearch
+        = true;\nZenoss.settings.deviceMoveJobThreshold = 5;\nZenoss.settings.incrementalTreeLoad
+        = true;\nZenoss.settings.enableTreeFilters = true;\nZenoss.settings.eventConsoleBufferSize
+        = 200;\nZenoss.settings.componentGridBufferSize = 50;\n</script>\n\n        <script>\n
+        \           //Ext.defer(function(){window.location.reload()}, 10000);\n        </script>\n
+        \   </head>\n\n    <body>\n        <div id=\"header\">\n            <div class=\"bg\">\n
+        \               <div class=\"bg-leftcap\">\n                    <div class=\"bg-tile\">\n
+        \                       <div class=\"bg-logo\"></div>\n                        <div
+        id=\"primarynav\">\n                            <ul><li class=\"nav-item-active\">\n<div
+        class=\"sd-left\">\n    <div class=\"sd-right\">\n        <a href=\"/zport/dmd/Dashboard\"
+        target=\"_self\" id=\"Dashboard-nav-button\">Dashboard</a>\n   </div>\n</div>\n</li>\n\n<li
+        class=\"nav-item-inactive\">\n<div class=\"sd-left\">\n    <div class=\"sd-right\">\n
+        \       <a href=\"/zport/dmd/Events/evconsole\" target=\"_self\" id=\"Events-nav-button\">Events</a>\n
+        \  </div>\n</div>\n</li>\n\n<li class=\"nav-item-inactive\">\n<div class=\"sd-left\">\n
+        \   <div class=\"sd-right\">\n        <a href=\"/zport/dmd/itinfrastructure\"
+        target=\"_self\" id=\"Infrastructure-nav-button\">Infrastructure</a>\n   </div>\n</div>\n</li>\n\n<li
+        class=\"nav-item-inactive\">\n<div class=\"sd-left\">\n    <div class=\"sd-right\">\n
+        \       <a href=\"/zport/dmd/reports\" target=\"_self\" id=\"Reports-nav-button\">Reports</a>\n
+        \  </div>\n</div>\n</li>\n\n<li class=\"nav-item-inactive\">\n<div class=\"sd-left\">\n
+        \   <div class=\"sd-right\">\n        <a href=\"/zport/dmd/editSettings\"
+        target=\"_self\" id=\"Advanced-nav-button\">Advanced</a>\n   </div>\n</div>\n</li>\n</ul>\n
+        \                           <div id=\"header-extra\">\n                                <div
+        id=\"searchbox-container\"></div>\n                                <div id=\"saved-search-container\"></div>\n
+        \                               <div id=\"user-link-container\">\n                                    <a
+        href=\"/zport/dmd/ZenUsers/test\">\n                                    test\n
+        \                                   </a>\n                                </div>\n
+        \                               <div id=\"sign-out-link\">\n                                    <a
+        href=\"/zport/dmd/logoutUser\">sign out</a>\n                                </div>\n
+        \                               <div>\n                                    <div
+        id=\"help-icon-container\">\n                                        <span></span><!--
+        ie needs empty span tags in some versions -->\n                                        \n
+        \                                       <a target=\"_blank\" alt=\"Help\"
+        href=\"http://www.zenoss.com/help?version=4.2.3\">&nbsp;</a>\n                                    </div>\n
+        \                               </div>\n                            </div>\n
+        \                       </div>\n                        <div id=\"secondarynav\">\n
+        \                           <ul></ul>\n                            \n\n                        </div>\n
+        \                   </div>\n                </div>\n            </div>\n        </div>\n\n
+        \       <div id=\"center\">\n            \n    \n<form name=\"proxy_form\"
+        id=\"proxy_form\" style=\"position:absolute;visibility:hidden\" action=\"/zport/dmd\"></form>\n<form
+        method=\"post\" name=\"proxyForm\" action=\"here/absolute_url\"> \n    <input
+        type=\"hidden\" name=\"zenScreenName\" value=\"Dashboard.pt\" /> \n</form>\n\n
+        \   \n\n<div id=\"dialog\" class=\"dialog\" style=\"visibility:hidden;position:absolute\">
+        \n<div id=\"dialog_innercontent\">\n    \n\n<div style=\"text-align:center\">\n<h2>Loading...</h2>\n<br
+        />\n<img src=\"img/spinning_wheel_throbber.gif\" />\n</div>\n\n\n</div>\n<img
+        id=\"dialog_close\" src=\"/++resource++zenui/img/xtheme-zenoss/window/close-button.png\"
+        class=\"dialog_close\" />\n</div>\n<script>\nloader = YAHOO.zenoss.getLoader();\nloader.require(['zenossutils']);\nloader.insert({\n
+        \   onSuccess: function(){\n        mydialog = new Dialog.Box($('dialog'));\n
+        \       connect('dialog_close','onclick', mydialog.box.hide);\n        $('dialog').style.visibility
+        = '';\n    }\n});\n</script>\n\n\n    \n        <div id=\"contentPaneContainer\">\n
+        \           \n<div id=\"portletContainer\"></div>\n<script>\n    var start_time
+        = '2015-05-21 19:02:13';\n    var state = '';\n    if(state) var dashboardState
+        = evalJSON(state);\n</script>\n<script>\nvar server_time = isoTimestamp(start_time).getTime();\nvar
+        updateTime = {\n    run: function () {\n        server_time += 1000;\n    },\n
+        \   interval: 1000\n}\nExt.TaskManager.start(updateTime);\nif (Ext.isIE) {\n
+        \   var reloadLaterTask = new Ext.util.DelayedTask(function () {\n        window.top.location.reload();\n
+        \   });\n    reloadLaterTask.delay(1000*60*60); // one hour\n}\n\nfunction
+        getServerTimestamp() {\n    var server_now = new Date(server_time);\n    return
+        toISOTimestamp(server_now);\n}\n\n// Initialization of dashboard portlets\nvar
+        ContainerObject;\nfunction initDashboardPortlets() {\n    ContainerObject
+        = new YAHOO.zenoss.portlet.PortletContainer(\n        'portletContainer');\n
+        \   YAHOO.zenoss.globalPortletContainer = ContainerObject;\n    if (dashboardState)
+        {\n        ContainerObject.restore(dashboardState);\n    } else {\n        //
+        Create a default dashboard\n        ContainerObject.setLayout('2coleq', false);\n
+        \       ContainerObject.restoreDefaults();\n    }\n}\nvar loader = YAHOO.zenoss.getLoader();\nloader.require(['portletsource']);\nloader.insert({
+        'onSuccess':initDashboardPortlets });\n\n</script>\n<style>\n    .z-bc .z-bc-content-pane
+        {\n        background-color: #888;\n    }\n</style>\n\n        </div>\n    \n\n
+        \       </div>\n        <div id=\"footer\">\n        </div>\n        <div
+        id=\"footer_extra\">\n        </div>\n\n\n<form id=\"exportform\" method=\"post\"
+        action=\"/zport/dmd/Events/export\">\n    <input type=\"hidden\" id=\"export_body\"
+        name=\"body\" />\n</form>\n<script type=\"text/javascript\">\nExt.onReady(function(){\n\n\nvar
+        viewport = new Ext.Viewport({\n    id: 'viewport',\n    layout: 'border',\n
+        \   cls: 'zenui3',\n    defaults: {\n        'border': false\n    },\n    items:
+        [\n        {\n            region: 'north',\n            renderTo: 'header',\n
+        \           height: 75,\n            id: 'header_panel',\n            xtype:
+        'component',\n            style: {\n                display: \"none\"\n            }\n
+        \       },{\n            id: 'footer_panel',\n            region: 'south',\n
+        \           height: 30,\n            renderTo: 'footer',\n            items:
+        [\n                new Ext.Toolbar({\n                    border: false,\n
+        \                   id: 'footer_bar',\n                    items: ['->', {\n
+        \                       xtype: 'jobswidget',\n                        id:
+        'jobswidget'\n                    }],\n                    listeners: {\n
+        \                       beforeadd: function(bar, item, index) {\n                            if
+        (bar instanceof Ext.toolbar.Toolbar) {\n                                var
+        numitems = bar.items.length,\n                                    lastitem
+        = bar.items.items[numitems - 1];\n                                if (lastitem
+        && lastitem.xtype == 'jobswidget'\n                                        &&
+        index == numitems) {\n                                    // We have the jobs
+        widget already, so\n                                    // change the index
+        passed in by 2 (one for\n                                    // widget, one
+        for filler) so that the jobs\n                                    // widget
+        stays on the right\n                                    bar.insert(index-2,
+        item);\n                                    return false;\n                                }\n
+        \                           }\n                        },\n                        render:
+        function(bar){\n                            Ext.get('footer_extra').appendTo(bar.getEl());\n
+        \                       }\n                    }\n                })\n            ],\n
+        \           border: false\n        },{\n            id: 'center_panel',\n
+        \           region: 'center',\n            renderTo: 'center',\n            layout:
+        'fit',\n            border: false,\n            defaults: {\n                'border':
+        false\n            }\n        }\n    ]\n});\n\n});\n</script>\n\n\n<script>\n//
+        A little pre-javascript layout hackery to prevent appearance of re-layout.\n//
+        If there are breadcrumbs the tabs pane needs to be bumped up.\nif (Zenoss.env.pageHasBreadCrumbs)
+        {\n    try {\n        Ext.get('newTabsPane').setStyle({\n            top:
+        -23,\n            position: 'relative'\n        });\n    } catch(e) {}\n}\nExt.onReady(function(){\n
+        \   var outerItems = [],\n    innerItems = [{\n        region: 'center',\n
+        \       autoScroll: true,\n        bodyCls: 'z-bc-content-pane',\n        contentEl:
+        'contentPaneContainer',\n        split: true\n    }];\n    if (Zenoss.env.pageHasTabs)
+        {\n        outerItems.push({\n            region: 'west',\n            width:
+        200,\n            bodyCls: 'z-bc-tab-pane',\n            contentEl: 'newTabsPane',\n
+        \           split: true\n        });\n    }\n    if (Zenoss.env.pageHasBreadCrumbs)
+        {\n        innerItems.push({\n            region: 'north',\n            height:
+        24,\n            bodyCls: 'z-bc-bread-crumb-pane',\n            contentEl:
+        'breadCrumbPane'\n        });\n    }\n    outerItems.push({\n        region:
+        'center',\n        layout: 'border',\n        defaults: {\n            border:
+        false\n        },\n        items: innerItems\n    });\n\n    // Undo all the
+        pre-layout css\n    try {\n        Ext.get('contentPaneContainer').setStyle({\n
+        \           marginLeft: 0\n        });\n    } catch(e) {}\n    try {\n        Ext.get('newTabsPane').setStyle({\n
+        \           top: 0,\n            position: 'static'\n        });\n    } catch(e)
+        {}\n    try {\n        if (Ext.get('breadCrumbPane')) {\n            Ext.get('breadCrumbPane').setStyle({\n
+        \               marginLeft: 0,\n                position: 'static'\n            });\n
+        \       }\n    } catch(e) {}\n\n\n    Zenoss.util.callWhenReady('center_panel',
+        function(){\n        Ext.getCmp('center_panel').add({\n           layout:
+        'border',\n            id: 'backcompat-layout-panel',\n            defaults:
+        {\n                border: false\n            },\n            bodyCls: 'z-bc',
+        // Zenoss back compat\n            items: outerItems\n        });\n        Ext.getCmp('center_panel').doLayout();\n
+        \   });\n});\n</script>\n\n\n<!-- Make sure everything on the page gets laid
+        out -->\n\n\n    \n\n\n<!-- Load tooltips for this screen -->\n<script type=\"text/javascript\"
+        src=\"tooltips.js\"></script>\n\n<!-- Fields required for history management
+        -->\n<form id=\"history-form\" class=\"x-hidden\" action=\"\">\n    <input
+        type=\"hidden\" id=\"x-history-field\" />\n    <iframe id=\"x-history-frame\"></iframe>\n</form>\n<script
+        type=\"text/javascript\">\nExt.History.init(function(mgr){\n    Ext.History.selectByToken(mgr.getToken());\n});\n</script>\n</body>\n</html>
+        <!-- metal:use-macro=\"context/page_macros/base-new\" -->\n\n\n"
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"addDevice","data":[{"deviceName":"UnitTestDevice","deviceClass":"/Devices/Server"}],"type":"rpc","tid":1}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=47196628A68r9jgJPrs
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Length:
+      - '291'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "ef548acf-ba8a-4dd6-97e5-f386f1a4e89c", "action": "DeviceRouter",
+        "result": {"new_jobs": [{"uuid": "9451b498-662f-4a12-9e2e-ce4c6e94bdc0", "description":
+        "Add device UnitTestDevice", "uid": "/zport/dmd/JobManager"}], "success":
+        true}, "tid": 1, "type": "rpc", "method": "addDevice"}'
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":2}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=47196628A68r9jgJPrs
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:13 GMT
+      Content-Length:
+      - '197'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "1161f3e4-41dc-4fca-982c-2b0b2abfa150", "action": "DeviceRouter",
+        "result": {"totalCount": 0, "hash": "0", "success": true, "devices": []},
+        "tid": 2, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":3}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=47196628A68r9jgJPrs
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:28 GMT
+      Content-Length:
+      - '905'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "fdeecc37-fa0a-4971-a151-5f8c5055ca18", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 1000,
+        "systems": [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer":
+        null, "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 3, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:28 GMT
+recorded_with: VCR 2.9.3

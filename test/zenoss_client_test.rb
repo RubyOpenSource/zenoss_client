@@ -10,55 +10,62 @@ describe Zenoss do
   # Simulate some "before all" type of setup
   # https://github.com/seattlerb/minitest/issues/61#issuecomment-4581115
   def self.zen
-    @zen ||= begin
-      connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD
-      # We Need to Create A Device for testing
-      # We do this here, so we can re-use the same device over and over
-      # Without needing to create a new one per test
-      LOG.info('Creating a Fresh Device For Testing')
-      new_device_rsp = connection.json_request(
-        'DeviceRouter', 'addDevice',
-        [{:deviceName => TEST_DEVICE_NAME, :deviceClass => '/Devices/Server'}]
-      )
+    VCR.use_cassette('initial connection') do
+      @zen ||= begin
+        connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD
+        # We Need to Create A Device for testing
+        # We do this here, so we can re-use the same device over and over
+        # Without needing to create a new one per test
+        LOG.info('Creating a Fresh Device For Testing')
+        new_device_rsp = connection.json_request(
+          'DeviceRouter', 'addDevice',
+          [{:deviceName => TEST_DEVICE_NAME, :deviceClass => '/Devices/Server'}]
+        )
 
-      # Now we need to wait until the device is present before we proceed.
-      # Once we issue the create command, it takes
-      if new_device_rsp.key?('success') && new_device_rsp['success'] == true
-        # Our job was accepted
-        retries = 20
-        retry_delay = 15  # seconds
-        found_device = false
-        LOG.info('Waiting for the newly created device to be available. ' \
-                 'This might take a minute or two')
-        while found_device == false
-          if retries > 0
-            # This will return an Array, so we wait until the array has
-            # something, or we give up after a while
-            devs = connection.find_devices_by_name(TEST_DEVICE_NAME)
-            if devs.empty?
-              retries -= 1
-              LOG.info("#{TEST_DEVICE_NAME} not available yet")
-              sleep(retry_delay)
+        # Now we need to wait until the device is present before we proceed.
+        # Once we issue the create command, it takes
+        if new_device_rsp.key?('success') && new_device_rsp['success'] == true
+          # Our job was accepted
+          retries = 20
+          retry_delay = 15  # seconds
+          found_device = false
+          LOG.info('Waiting for the newly created device to be available. ' \
+                   'This might take a minute or two')
+          while found_device == false
+            if retries > 0
+              # This will return an Array, so we wait until the array has
+              # something, or we give up after a while
+              devs = connection.find_devices_by_name(TEST_DEVICE_NAME)
+              if devs.empty?
+                retries -= 1
+                LOG.info("#{TEST_DEVICE_NAME} not available yet")
+                #sleep(retry_delay)
+              else
+                found_device = true
+                LOG.info("#{TEST_DEVICE_NAME} is available. Proceeding with " \
+                  'testing')
+              end
             else
-              found_device = true
-              LOG.info("#{TEST_DEVICE_NAME} is available. Proceeding with " \
-                'testing')
+              fail ZenossError, 'Unable to Create A New Device For Unit Tests'
             end
-          else
-            fail ZenossError, 'Unable to Create A New Device For Unit Tests'
           end
+        else
+          # We failed to create a new device....
         end
-      else
-        # We failed to create a new device....
+        # Return the connection object
+        connection
       end
-      # Return the connection object
-      connection
-    end
+   end
   end
 
   before do
+    VCR.insert_cassette name
     @zen = self.class.zen
     @dev = @zen.find_devices_by_name(TEST_DEVICE_NAME).first
+  end
+
+  after do
+    VCR.eject_cassette name
   end
 
   it 'returns an Array of devices when searched by name' do

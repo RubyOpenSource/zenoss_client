@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":17}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=47196628A68r9jgJPrs
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:29 GMT
+      Content-Length:
+      - '906'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "fad50c25-8482-40d9-861a-25dfc16da576", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 1000,
+        "systems": [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer":
+        null, "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 17, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:29 GMT
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/report_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"ReportRouter","method":"getReportTypes","data":{},"type":"rpc","tid":18}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 May 2015 19:02:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=47196628A68r9jgJPrs
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Thu, 21 May 2015 19:02:29 GMT
+      Content-Length:
+      - '307'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "1544e41f-24b3-4359-8440-028665160ace", "action": "ReportRouter",
+        "result": {"menuText": ["Custom Device Report", "Graph Report", "Multi-Graph
+        Report"], "reportTypes": ["customDeviceReport", "graphReport", "multiGraphReport"],
+        "success": true}, "tid": 18, "type": "rpc", "method": "getReportTypes"}'
+    http_version: 
+  recorded_at: Thu, 21 May 2015 19:02:29 GMT
+recorded_with: VCR 2.9.3
