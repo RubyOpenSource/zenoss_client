@@ -5,18 +5,18 @@ http_interactions:
     uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":4}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":15}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:28 GMT
+      - Thu, 21 May 2015 20:23:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=47196628A68r9jgJPrs
+      - _ZopeId=23089062A68sR13A1iI
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:28 GMT
+      - Thu, 21 May 2015 20:23:38 GMT
       Content-Length:
-      - '905'
+      - '906'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "c07ec0b1-7592-41ba-b79b-c9d99d4dc9e4", "action": "DeviceRouter",
+      string: '{"uuid": "6e37723b-85f9-4528-a04b-9605cbf442a9", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,26 +42,26 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 4, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 15, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:28 GMT
+  recorded_at: Thu, 21 May 2015 20:23:38 GMT
 - request:
     method: post
     uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/evconsole_router
     body:
       encoding: UTF-8
-      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC"}],"type":"rpc","tid":5}]'
+      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC"}],"type":"rpc","tid":16}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:28 GMT
+      - Thu, 21 May 2015 20:23:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=47196628A68r9jgJPrs
+      - _ZopeId=23089062A68sR13A1iI
   response:
     status:
       code: 200
@@ -70,35 +70,22 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:28 GMT
+      - Thu, 21 May 2015 20:23:38 GMT
       Content-Length:
-      - '35224'
+      - '37500'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "7fabc045-b650-4a43-a3df-1b9d886d1299", "action": "EventsRouter",
-        "result": {"totalCount": 27, "events": [{"prodState": null, "firstTime": "2015-05-21
-        18:58:23", "facility": null, "eventClassKey": null, "agent": null, "dedupid":
-        "UnitTestDevice||/Change/Remove|2|Deleted device: UnitTestDevice", "Location":
-        [], "ownerid": null, "eventClass": {"text": "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"},
-        "id": "0242ac11-0002-8007-11e4-ffeb5b2becb2", "DevicePriority": null, "monitor":
-        null, "priority": null, "details": {}, "DeviceClass": [], "eventKey": "",
-        "evid": "0242ac11-0002-8007-11e4-ffeb5b2becb2", "eventClassMapping": "", "component":
-        {"url": null, "text": null, "uid": null, "uuid": null}, "clearid": null, "DeviceGroups":
-        [], "eventGroup": null, "device": {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139",
-        "text": "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139",
-        "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"}, "message": "Deleted
-        device: UnitTestDevice", "severity": 2, "count": 1, "stateChange": "2015-05-21
-        18:58:23", "ntevid": null, "summary": "Deleted device: UnitTestDevice", "eventState":
-        "Closed", "lastTime": "2015-05-21 18:58:23", "ipAddress": "", "Systems": []},
-        {"prodState": "Production", "firstTime": "2015-05-18 20:52:42", "facility":
-        null, "eventClassKey": null, "agent": "zenperfsnmp", "dedupid": "localhost||/Status/Snmp|agent_down|4",
-        "Location": [], "ownerid": null, "eventClass": {"text": "/Status/Snmp", "uid":
-        "/zport/dmd/Events/Status/Snmp"}, "id": "0242ac11-0004-8f8b-11e4-fd9fd69d7ca2",
-        "DevicePriority": "Normal", "monitor": "localhost", "priority": null, "details":
-        {"zenoss.device.ip_address": ["::1"], "manager": ["9c2b9835b2ab"], "zenoss.device.production_state":
-        ["1000"], "zenoss.device.priority": ["3"], "zenoss.device.device_class": ["/Server/Linux"]},
+      string: '{"uuid": "f26b7a3a-f38d-4cd5-8036-308b722b3b85", "action": "EventsRouter",
+        "result": {"totalCount": 29, "events": [{"prodState": "Production", "firstTime":
+        "2015-05-18 20:52:42", "facility": null, "eventClassKey": null, "agent": "zenperfsnmp",
+        "dedupid": "localhost||/Status/Snmp|agent_down|4", "Location": [], "ownerid":
+        null, "eventClass": {"text": "/Status/Snmp", "uid": "/zport/dmd/Events/Status/Snmp"},
+        "id": "0242ac11-0004-8f8b-11e4-fd9fd69d7ca2", "DevicePriority": "Normal",
+        "monitor": "localhost", "priority": null, "details": {"zenoss.device.ip_address":
+        ["::1"], "manager": ["9c2b9835b2ab"], "zenoss.device.production_state": ["1000"],
+        "zenoss.device.priority": ["3"], "zenoss.device.device_class": ["/Server/Linux"]},
         "DeviceClass": [{"uid": "/zport/dmd/Devices/Server/Linux", "name": "/Server/Linux"}],
         "eventKey": "agent_down", "evid": "0242ac11-0004-8f8b-11e4-fd9fd69d7ca2",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
@@ -106,9 +93,48 @@ http_interactions:
         "device": {"url": "/zport/dmd/goto?guid=c87f478b-7647-4324-b167-e8c2546ac7b6",
         "text": "localhost", "uuid": "c87f478b-7647-4324-b167-e8c2546ac7b6", "uid":
         "/zport/dmd/Devices/Server/Linux/devices/localhost"}, "message": "SNMP agent
-        down - no response received", "severity": 4, "count": 66, "stateChange": "2015-05-18
+        down - no response received", "severity": 4, "count": 83, "stateChange": "2015-05-18
         20:52:42", "ntevid": null, "summary": "SNMP agent down - no response received",
-        "eventState": "New", "lastTime": "2015-05-21 18:58:10", "ipAddress": ["::1"],
+        "eventState": "New", "lastTime": "2015-05-21 20:23:12", "ipAddress": ["::1"],
+        "Systems": []}, {"prodState": null, "firstTime": "2015-05-21 20:23:07", "facility":
+        null, "eventClassKey": null, "agent": null, "dedupid": "UnitTestDevice||/Change/Remove|2|Deleted
+        device: UnitTestDevice", "Location": [], "ownerid": null, "eventClass": {"text":
+        "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"}, "id": "0242ac11-0002-8007-11e4-fff7311f0906",
+        "DevicePriority": null, "monitor": null, "priority": null, "details": {},
+        "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0002-8007-11e4-fff7311f0906",
+        "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
+        "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
+        "2015-05-21 20:23:07", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
+        "eventState": "Closed", "lastTime": "2015-05-21 20:23:07", "ipAddress": "",
+        "Systems": []}, {"prodState": null, "firstTime": "2015-05-21 20:15:29", "facility":
+        null, "eventClassKey": null, "agent": null, "dedupid": "UnitTestDevice||/Change/Remove|2|Deleted
+        device: UnitTestDevice", "Location": [], "ownerid": null, "eventClass": {"text":
+        "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"}, "id": "0242ac11-0002-8007-11e4-fff62035c533",
+        "DevicePriority": null, "monitor": null, "priority": null, "details": {},
+        "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0002-8007-11e4-fff62035c533",
+        "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
+        "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
+        "2015-05-21 20:15:29", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
+        "eventState": "Closed", "lastTime": "2015-05-21 20:15:29", "ipAddress": "",
+        "Systems": []}, {"prodState": null, "firstTime": "2015-05-21 18:58:23", "facility":
+        null, "eventClassKey": null, "agent": null, "dedupid": "UnitTestDevice||/Change/Remove|2|Deleted
+        device: UnitTestDevice", "Location": [], "ownerid": null, "eventClass": {"text":
+        "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"}, "id": "0242ac11-0002-8007-11e4-ffeb5b2becb2",
+        "DevicePriority": null, "monitor": null, "priority": null, "details": {},
+        "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0002-8007-11e4-ffeb5b2becb2",
+        "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
+        "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
+        "2015-05-21 18:58:23", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
+        "eventState": "Closed", "lastTime": "2015-05-21 18:58:23", "ipAddress": "",
         "Systems": []}, {"prodState": null, "firstTime": "2015-05-21 18:57:00", "facility":
         null, "eventClassKey": null, "agent": null, "dedupid": "UnitTestDevice||/Change/Remove|2|Deleted
         device: UnitTestDevice", "Location": [], "ownerid": null, "eventClass": {"text":
@@ -117,8 +143,8 @@ http_interactions:
         "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0002-8007-11e4-ffeb2948787f",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
-        {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139", "text":
-        "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
         "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
         "2015-05-21 18:57:00", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
         "eventState": "Closed", "lastTime": "2015-05-21 18:57:00", "ipAddress": "",
@@ -130,8 +156,8 @@ http_interactions:
         "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0002-8007-11e4-ffeae78d13fd",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
-        {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139", "text":
-        "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
         "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
         "2015-05-21 18:55:09", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
         "eventState": "Closed", "lastTime": "2015-05-21 18:55:09", "ipAddress": "",
@@ -297,8 +323,8 @@ http_interactions:
         "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0004-8f8b-11e4-fda1760b208a",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
-        {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139", "text":
-        "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
         "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
         "2015-05-18 21:04:23", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
         "eventState": "Closed", "lastTime": "2015-05-18 21:04:23", "ipAddress": "",
@@ -310,8 +336,8 @@ http_interactions:
         "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0004-8f8b-11e4-fda12a986637",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
-        {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139", "text":
-        "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
         "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
         "2015-05-18 21:02:17", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
         "eventState": "Closed", "lastTime": "2015-05-18 21:02:17", "ipAddress": "",
@@ -323,8 +349,8 @@ http_interactions:
         "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0004-8f8b-11e4-fda0bff35fb5",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
-        {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139", "text":
-        "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
         "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
         "2015-05-18 20:59:18", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
         "eventState": "Closed", "lastTime": "2015-05-18 20:59:18", "ipAddress": "",
@@ -388,8 +414,8 @@ http_interactions:
         "DeviceClass": [], "eventKey": "", "evid": "0242ac11-0004-8f8b-11e4-fda048cdf84a",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": null, "device":
-        {"url": "/zport/dmd/goto?guid=606b9f0c-e90b-48f1-92c3-eabffdcef139", "text":
-        "UnitTestDevice", "uuid": "606b9f0c-e90b-48f1-92c3-eabffdcef139", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
+        {"url": "/zport/dmd/goto?guid=abae6bc7-09c5-417a-a042-07322a5b259a", "text":
+        "UnitTestDevice", "uuid": "abae6bc7-09c5-417a-a042-07322a5b259a", "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"},
         "message": "Deleted device: UnitTestDevice", "severity": 2, "count": 1, "stateChange":
         "2015-05-18 20:55:58", "ntevid": null, "summary": "Deleted device: UnitTestDevice",
         "eventState": "Closed", "lastTime": "2015-05-18 20:55:58", "ipAddress": "",
@@ -499,8 +525,8 @@ http_interactions:
         zenwinperf heartbeat failure", "severity": 4, "count": 1, "stateChange": "2015-05-18
         20:52:56", "ntevid": null, "summary": "localhost zenwinperf heartbeat failure",
         "eventState": "Cleared", "lastTime": "2015-05-18 20:51:54", "ipAddress": ["::1"],
-        "Systems": []}], "success": true, "asof": 1432234948.63383}, "tid": 5, "type":
+        "Systems": []}], "success": true, "asof": 1432239818.414335}, "tid": 16, "type":
         "rpc", "method": "query"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:28 GMT
+  recorded_at: Thu, 21 May 2015 20:23:38 GMT
 recorded_with: VCR 2.9.3

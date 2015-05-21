@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:21 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:21 GMT
       Content-Length:
       - '59'
       Content-Type:
@@ -31,12 +31,12 @@ http_interactions:
       Location:
       - http://192.168.56.2:8080/zport/dmd/zport/dmd?submitted=true
       Set-Cookie:
-      - _ZopeId="47196628A68r9jgJPrs"; Path=/; HTTPOnly
+      - _ZopeId="23089062A68sR13A1iI"; Path=/; HTTPOnly
     body:
       encoding: UTF-8
       string: http://192.168.56.2:8080/zport/dmd/zport/dmd?submitted=true
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+  recorded_at: Thu, 21 May 2015 20:23:21 GMT
 - request:
     method: post
     uri: http://192.168.56.2:8080/zport/dmd/http://192.168.56.2:8080/zport/dmd/zport/dmd?submitted=true
@@ -49,11 +49,11 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:21 GMT
       Content-Type:
       - application/x-www-form-urlencoded
       Cookie:
-      - _ZopeId=47196628A68r9jgJPrs
+      - _ZopeId=23089062A68sR13A1iI
   response:
     status:
       code: 200
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:22 GMT
       Content-Length:
       - '32270'
       Content-Type:
@@ -363,7 +363,7 @@ http_interactions:
         \       connect('dialog_close','onclick', mydialog.box.hide);\n        $('dialog').style.visibility
         = '';\n    }\n});\n</script>\n\n\n    \n        <div id=\"contentPaneContainer\">\n
         \           \n<div id=\"portletContainer\"></div>\n<script>\n    var start_time
-        = '2015-05-21 19:02:13';\n    var state = '';\n    if(state) var dashboardState
+        = '2015-05-21 20:23:22';\n    var state = '';\n    if(state) var dashboardState
         = evalJSON(state);\n</script>\n<script>\nvar server_time = isoTimestamp(start_time).getTime();\nvar
         updateTime = {\n    run: function () {\n        server_time += 1000;\n    },\n
         \   interval: 1000\n}\nExt.TaskManager.start(updateTime);\nif (Ext.isIE) {\n
@@ -445,7 +445,7 @@ http_interactions:
         type=\"text/javascript\">\nExt.History.init(function(mgr){\n    Ext.History.selectByToken(mgr.getToken());\n});\n</script>\n</body>\n</html>
         <!-- metal:use-macro=\"context/page_macros/base-new\" -->\n\n\n"
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+  recorded_at: Thu, 21 May 2015 20:23:22 GMT
 - request:
     method: post
     uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
@@ -458,11 +458,11 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=47196628A68r9jgJPrs
+      - _ZopeId=23089062A68sR13A1iI
   response:
     status:
       code: 200
@@ -471,19 +471,19 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:22 GMT
       Content-Length:
       - '291'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "ef548acf-ba8a-4dd6-97e5-f386f1a4e89c", "action": "DeviceRouter",
-        "result": {"new_jobs": [{"uuid": "9451b498-662f-4a12-9e2e-ce4c6e94bdc0", "description":
+      string: '{"uuid": "df28e88d-9488-44b9-a85c-d3014faf43ce", "action": "DeviceRouter",
+        "result": {"new_jobs": [{"uuid": "598eb675-6428-4c3b-b278-d69d01d08498", "description":
         "Add device UnitTestDevice", "uid": "/zport/dmd/JobManager"}], "success":
         true}, "tid": 1, "type": "rpc", "method": "addDevice"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+  recorded_at: Thu, 21 May 2015 20:23:22 GMT
 - request:
     method: post
     uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
@@ -496,11 +496,11 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=47196628A68r9jgJPrs
+      - _ZopeId=23089062A68sR13A1iI
   response:
     status:
       code: 200
@@ -509,18 +509,18 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:13 GMT
+      - Thu, 21 May 2015 20:23:22 GMT
       Content-Length:
       - '197'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "1161f3e4-41dc-4fca-982c-2b0b2abfa150", "action": "DeviceRouter",
+      string: '{"uuid": "233fb229-8a37-46af-a4a4-2d2d07c29f3f", "action": "DeviceRouter",
         "result": {"totalCount": 0, "hash": "0", "success": true, "devices": []},
         "tid": 2, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:13 GMT
+  recorded_at: Thu, 21 May 2015 20:23:22 GMT
 - request:
     method: post
     uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
@@ -533,11 +533,11 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 19:02:28 GMT
+      - Thu, 21 May 2015 20:23:37 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=47196628A68r9jgJPrs
+      - _ZopeId=23089062A68sR13A1iI
   response:
     status:
       code: 200
@@ -546,14 +546,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 19:02:28 GMT
+      - Thu, 21 May 2015 20:23:37 GMT
       Content-Length:
       - '905'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "fdeecc37-fa0a-4971-a151-5f8c5055ca18", "action": "DeviceRouter",
+      string: '{"uuid": "2a59318b-a39d-4f72-8519-e10b27f8607e", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -565,5 +565,5 @@ http_interactions:
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
         "name": "UnitTestDevice"}]}, "tid": 3, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 19:02:28 GMT
+  recorded_at: Thu, 21 May 2015 20:23:37 GMT
 recorded_with: VCR 2.9.3
