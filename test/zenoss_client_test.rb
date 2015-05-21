@@ -10,7 +10,6 @@ describe Zenoss do
   # Simulate some "before all" type of setup
   # https://github.com/seattlerb/minitest/issues/61#issuecomment-4581115
   def self.zen
-    $already_recorded = false
     VCR.use_cassette('initial connection', :tag => :tag_recorded) do
       @zen ||= begin
         connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD
@@ -40,7 +39,7 @@ describe Zenoss do
               if devs.empty?
                 retries -= 1
                 LOG.info("#{TEST_DEVICE_NAME} not available yet")
-                sleep(retry_delay) unless $already_recorded
+                sleep(retry_delay) if VCR.current_cassette.recording?
               else
                 found_device = true
                 LOG.info("#{TEST_DEVICE_NAME} is available. Proceeding with " \
