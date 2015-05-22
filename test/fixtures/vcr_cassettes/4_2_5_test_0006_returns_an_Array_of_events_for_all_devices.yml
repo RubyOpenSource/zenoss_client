@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":19}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":6}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:27 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:27 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Length:
-      - '906'
+      - '905'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "aa582d6b-47ec-4afb-bcd6-b87b00ea58d0", "action": "DeviceRouter",
+      string: '{"uuid": "1723c17e-f1e8-4a09-b67e-9eb985de6a1a", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,26 +42,26 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 19, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 6, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:27 GMT
+  recorded_at: Fri, 22 May 2015 12:14:36 GMT
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/evconsole_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/evconsole_router
     body:
       encoding: UTF-8
-      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC"}],"type":"rpc","tid":20}]'
+      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC"}],"type":"rpc","tid":7}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:27 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -70,45 +70,115 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:27 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Length:
-      - '4183'
+      - '9943'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "6b20be45-a361-4c31-b470-f9085992ac79", "action": "EventsRouter",
-        "result": {"totalCount": 3, "events": [{"prodState": null, "firstTime": "2015-05-22
-        09:12:02", "facility": null, "eventClassKey": null, "agent": null, "dedupid":
+      string: '{"uuid": "8bcc3aa4-4d75-4945-8deb-7963b5bcba70", "action": "EventsRouter",
+        "result": {"totalCount": 7, "events": [{"prodState": null, "firstTime": "2015-05-22
+        12:13:50", "facility": null, "eventClassKey": null, "agent": null, "dedupid":
         "UnitTestDevice||/Change/Remove|2|Deleted device: UnitTestDevice", "Location":
         [], "ownerid": null, "eventClass": {"text": "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"},
-        "id": "0242ac11-001e-9740-11e5-00629bc10069", "DevicePriority": null, "monitor":
+        "id": "0242ac11-0025-9742-11e5-007c0173f789", "DevicePriority": null, "monitor":
         null, "priority": null, "details": {}, "DeviceClass": [], "eventKey": "",
-        "evid": "0242ac11-001e-9740-11e5-00629bc10069", "eventClassMapping": "", "component":
+        "evid": "0242ac11-0025-9742-11e5-007c0173f789", "eventClassMapping": "", "component":
         {"url": null, "text": null, "uid": null, "uuid": null}, "clearid": null, "DeviceGroups":
-        [], "eventGroup": null, "device": {"url": "/zport/dmd/goto?guid=b71deecb-3dbc-471e-90f1-3bf947ec121d",
-        "text": "UnitTestDevice", "uuid": "b71deecb-3dbc-471e-90f1-3bf947ec121d",
+        [], "eventGroup": null, "device": {"url": "/zport/dmd/goto?guid=00217159-594e-49da-889c-7650f8329068",
+        "text": "UnitTestDevice", "uuid": "00217159-594e-49da-889c-7650f8329068",
         "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"}, "message": "Deleted
         device: UnitTestDevice", "severity": 2, "count": 1, "stateChange": "2015-05-22
-        09:12:02", "ntevid": null, "summary": "Deleted device: UnitTestDevice", "eventState":
-        "Closed", "lastTime": "2015-05-22 09:12:02", "ipAddress": "", "Systems": []},
-        {"prodState": "Production", "firstTime": "2015-05-22 08:59:59", "facility":
+        12:13:50", "ntevid": null, "summary": "Deleted device: UnitTestDevice", "eventState":
+        "Closed", "lastTime": "2015-05-22 12:13:50", "ipAddress": "", "Systems": []},
+        {"prodState": "Production", "firstTime": "2015-05-22 11:52:49", "facility":
         null, "eventClassKey": null, "agent": "zenperfsnmp", "dedupid": "localhost||/Status/Snmp|agent_down|4",
         "Location": [], "ownerid": null, "eventClass": {"text": "/Status/Snmp", "uid":
-        "/zport/dmd/Events/Status/Snmp"}, "id": "0242ac11-001e-9740-11e5-0060ef1c55e5",
+        "/zport/dmd/Events/Status/Snmp"}, "id": "0242ac11-0025-9742-11e5-00791464c7f3",
         "DevicePriority": "Normal", "monitor": "localhost", "priority": null, "details":
-        {"zenoss.device.ip_address": ["::1"], "manager": ["19518d7c730e"], "zenoss.device.production_state":
+        {"zenoss.device.ip_address": ["::1"], "manager": ["88f2dd80f749"], "zenoss.device.production_state":
         ["1000"], "zenoss.device.priority": ["3"], "zenoss.device.device_class": ["/Server/Linux"]},
         "DeviceClass": [{"uid": "/zport/dmd/Devices/Server/Linux", "name": "/Server/Linux"}],
-        "eventKey": "agent_down", "evid": "0242ac11-001e-9740-11e5-0060ef1c55e5",
+        "eventKey": "agent_down", "evid": "0242ac11-0025-9742-11e5-00791464c7f3",
         "eventClassMapping": "", "component": {"url": null, "text": null, "uid": null,
         "uuid": null}, "clearid": null, "DeviceGroups": [], "eventGroup": "SnmpTest",
         "device": {"url": "/zport/dmd/goto?guid=86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9",
         "text": "localhost", "uuid": "86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "uid":
         "/zport/dmd/Devices/Server/Linux/devices/localhost"}, "message": "SNMP agent
-        down - no response received", "severity": 4, "count": 3, "stateChange": "2015-05-22
-        08:59:59", "ntevid": null, "summary": "SNMP agent down - no response received",
-        "eventState": "New", "lastTime": "2015-05-22 09:09:59", "ipAddress": ["::1"],
+        down - no response received", "severity": 4, "count": 5, "stateChange": "2015-05-22
+        11:52:49", "ntevid": null, "summary": "SNMP agent down - no response received",
+        "eventState": "New", "lastTime": "2015-05-22 12:12:49", "ipAddress": ["::1"],
+        "Systems": []}, {"prodState": "Production", "firstTime": "2015-05-22 11:52:28",
+        "facility": null, "eventClassKey": null, "agent": "zenpython", "dedupid":
+        "localhost|zenpython|/Status/Heartbeat|0|localhost zenpython heartbeat clear",
+        "Location": [], "ownerid": null, "eventClass": {"text": "/Status/Heartbeat",
+        "uid": "/zport/dmd/Events/Status/Heartbeat"}, "id": "0242ac11-0025-9742-11e5-0079051da5f1",
+        "DevicePriority": "Normal", "monitor": "localhost", "priority": null, "details":
+        {"zenoss.device.ip_address": ["::1"], "zenoss.device.production_state": ["1000"],
+        "zenoss.device.priority": ["3"], "zenoss.device.device_class": ["/Server/Linux"]},
+        "DeviceClass": [{"uid": "/zport/dmd/Devices/Server/Linux", "name": "/Server/Linux"}],
+        "eventKey": null, "evid": "0242ac11-0025-9742-11e5-0079051da5f1", "eventClassMapping":
+        "", "component": {"url": null, "text": "zenpython", "uid": null, "uuid": null},
+        "clearid": null, "DeviceGroups": [], "eventGroup": null, "device": {"url":
+        "/zport/dmd/goto?guid=86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "text": "localhost",
+        "uuid": "86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "uid": "/zport/dmd/Devices/Server/Linux/devices/localhost"},
+        "message": "localhost zenpython heartbeat clear", "severity": 0, "count":
+        1, "stateChange": "2015-05-22 11:52:28", "ntevid": null, "summary": "localhost
+        zenpython heartbeat clear", "eventState": "Closed", "lastTime": "2015-05-22
+        11:52:28", "ipAddress": ["::1"], "Systems": []}, {"prodState": "Production",
+        "firstTime": "2015-05-22 11:52:28", "facility": null, "eventClassKey": null,
+        "agent": "zenjmx", "dedupid": "localhost|zenjmx|/Status/Heartbeat|0|localhost
+        zenjmx heartbeat clear", "Location": [], "ownerid": null, "eventClass": {"text":
+        "/Status/Heartbeat", "uid": "/zport/dmd/Events/Status/Heartbeat"}, "id": "0242ac11-0025-9742-11e5-0079051da5f2",
+        "DevicePriority": "Normal", "monitor": "localhost", "priority": null, "details":
+        {"zenoss.device.ip_address": ["::1"], "zenoss.device.production_state": ["1000"],
+        "zenoss.device.priority": ["3"], "zenoss.device.device_class": ["/Server/Linux"]},
+        "DeviceClass": [{"uid": "/zport/dmd/Devices/Server/Linux", "name": "/Server/Linux"}],
+        "eventKey": null, "evid": "0242ac11-0025-9742-11e5-0079051da5f2", "eventClassMapping":
+        "", "component": {"url": null, "text": "zenjmx", "uid": null, "uuid": null},
+        "clearid": null, "DeviceGroups": [], "eventGroup": null, "device": {"url":
+        "/zport/dmd/goto?guid=86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "text": "localhost",
+        "uuid": "86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "uid": "/zport/dmd/Devices/Server/Linux/devices/localhost"},
+        "message": "localhost zenjmx heartbeat clear", "severity": 0, "count": 1,
+        "stateChange": "2015-05-22 11:52:28", "ntevid": null, "summary": "localhost
+        zenjmx heartbeat clear", "eventState": "Closed", "lastTime": "2015-05-22 11:52:28",
+        "ipAddress": ["::1"], "Systems": []}, {"prodState": "Production", "firstTime":
+        "2015-05-22 11:51:28", "facility": null, "eventClassKey": null, "agent": "zenpython",
+        "dedupid": "localhost|zenpython|/Status/Heartbeat|4|localhost zenpython heartbeat
+        failure", "Location": [], "ownerid": null, "eventClass": {"text": "/Status/Heartbeat",
+        "uid": "/zport/dmd/Events/Status/Heartbeat"}, "id": "0242ac11-0025-9742-11e5-0078e1cf68dd",
+        "DevicePriority": "Normal", "monitor": "localhost", "priority": null, "details":
+        {"zenoss.device.ip_address": ["::1"], "zenoss.device.production_state": ["1000"],
+        "zenoss.device.priority": ["3"], "zenoss.device.device_class": ["/Server/Linux"]},
+        "DeviceClass": [{"uid": "/zport/dmd/Devices/Server/Linux", "name": "/Server/Linux"}],
+        "eventKey": null, "evid": "0242ac11-0025-9742-11e5-0078e1cf68dd", "eventClassMapping":
+        "", "component": {"url": null, "text": "zenpython", "uid": null, "uuid": null},
+        "clearid": "0242ac11-0025-9742-11e5-0079051da5f1", "DeviceGroups": [], "eventGroup":
+        null, "device": {"url": "/zport/dmd/goto?guid=86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9",
+        "text": "localhost", "uuid": "86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "uid":
+        "/zport/dmd/Devices/Server/Linux/devices/localhost"}, "message": "localhost
+        zenpython heartbeat failure", "severity": 4, "count": 1, "stateChange": "2015-05-22
+        11:52:28", "ntevid": null, "summary": "localhost zenpython heartbeat failure",
+        "eventState": "Cleared", "lastTime": "2015-05-22 11:51:28", "ipAddress": ["::1"],
+        "Systems": []}, {"prodState": "Production", "firstTime": "2015-05-22 11:51:28",
+        "facility": null, "eventClassKey": null, "agent": "zenjmx", "dedupid": "localhost|zenjmx|/Status/Heartbeat|4|localhost
+        zenjmx heartbeat failure", "Location": [], "ownerid": null, "eventClass":
+        {"text": "/Status/Heartbeat", "uid": "/zport/dmd/Events/Status/Heartbeat"},
+        "id": "0242ac11-0025-9742-11e5-0078e1e6c16e", "DevicePriority": "Normal",
+        "monitor": "localhost", "priority": null, "details": {"zenoss.device.ip_address":
+        ["::1"], "zenoss.device.production_state": ["1000"], "zenoss.device.priority":
+        ["3"], "zenoss.device.device_class": ["/Server/Linux"]}, "DeviceClass": [{"uid":
+        "/zport/dmd/Devices/Server/Linux", "name": "/Server/Linux"}], "eventKey":
+        null, "evid": "0242ac11-0025-9742-11e5-0078e1e6c16e", "eventClassMapping":
+        "", "component": {"url": null, "text": "zenjmx", "uid": null, "uuid": null},
+        "clearid": "0242ac11-0025-9742-11e5-0079051da5f2", "DeviceGroups": [], "eventGroup":
+        null, "device": {"url": "/zport/dmd/goto?guid=86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9",
+        "text": "localhost", "uuid": "86b9d5f6-59d7-4eec-a2f0-146ef91fe9a9", "uid":
+        "/zport/dmd/Devices/Server/Linux/devices/localhost"}, "message": "localhost
+        zenjmx heartbeat failure", "severity": 4, "count": 1, "stateChange": "2015-05-22
+        11:52:28", "ntevid": null, "summary": "localhost zenjmx heartbeat failure",
+        "eventState": "Cleared", "lastTime": "2015-05-22 11:51:28", "ipAddress": ["::1"],
         "Systems": []}, {"prodState": "Production", "firstTime": "2015-05-22 08:51:29",
         "facility": null, "eventClassKey": null, "agent": "zendisc", "dedupid": "localhost|::1|/Status/Snmp|::1|2",
         "Location": [], "ownerid": null, "eventClass": {"text": "/Status/Snmp", "uid":
@@ -126,8 +196,8 @@ http_interactions:
         2, "count": 1, "stateChange": "2015-05-22 08:51:29", "ntevid": null, "summary":
         "''Discovered device name ''localhost'' for ip ''::1''", "eventState": "New",
         "lastTime": "2015-05-22 08:51:29", "ipAddress": ["::1"], "Systems": []}],
-        "success": true, "asof": 1432285947.499528}, "tid": 20, "type": "rpc", "method":
+        "success": true, "asof": 1432296876.43313}, "tid": 7, "type": "rpc", "method":
         "query"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:27 GMT
+  recorded_at: Fri, 22 May 2015 12:14:36 GMT
 recorded_with: VCR 2.9.3

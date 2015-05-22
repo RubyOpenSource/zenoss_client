@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":8}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":19}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:37 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:37 GMT
       Content-Length:
-      - '905'
+      - '906'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "bf0c7458-9b35-4734-ab38-f8a52c607b4e", "action": "DeviceRouter",
+      string: '{"uuid": "7f910b72-452c-47b7-b65d-2c74b4cda6fe", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,26 +42,26 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 8, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 19, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+  recorded_at: Fri, 22 May 2015 12:14:37 GMT
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getInfo","data":[{"uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":9}]'
+      string: '[{"action":"DeviceRouter","method":"getInfo","data":[{"uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":20}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:37 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -70,76 +70,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
-      Content-Length:
-      - '2197'
-      Content-Type:
-      - application/json
-    body:
-      encoding: UTF-8
-      string: '{"uuid": "7f2afa27-2b06-4ebb-a74f-e7c4a6aa22ff", "action": "DeviceRouter",
-        "result": {"disabled": false, "data": {"productionState": 1000, "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
-        "links": "", "snmpContact": "", "osModel": null, "hwModel": null, "osManufacturer":
-        null, "deviceClass": {"uuid": "98db2956-4f5f-42f5-ac1f-173ff47b306d", "name":
-        "/Server", "severity": "error", "id": "Server", "meta_type": "DeviceClass",
-        "inspector_type": "DeviceClass", "path": "/Devices/Server", "uid": "/zport/dmd/Devices/Server",
-        "events": {"info": {"count": 1, "acknowledged_count": 0}, "clear": {"count":
-        0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
-        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
-        1, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "description": ""}, "hwManufacturer": null, "snmpVersion": "v2c", "collector":
-        "localhost", "id": "UnitTestDevice", "uptime": "Unknown", "severity": "clear",
-        "locking": {"updates": false, "deletion": false, "events": false}, "comments":
-        "", "name": "UnitTestDevice", "priority": 3, "snmpCommunity": "public", "location":
-        null, "memory": {"ram": "Unknown", "swap": "Unknown"}, "icon": "/zport/dmd/img/icons/server.png",
-        "priorityLabel": "Normal", "lastCollected": "Not Modeled", "events": {"info":
-        {"count": 0, "acknowledged_count": 0}, "clear": {"count": 0, "acknowledged_count":
-        0}, "warning": {"count": 0, "acknowledged_count": 0}, "critical": {"count":
-        0, "acknowledged_count": 0}, "error": {"count": 0, "acknowledged_count": 0},
-        "debug": {"count": 0, "acknowledged_count": 0}}, "systems": [], "status":
-        true, "ipAddressString": null, "description": "", "snmpDescr": "", "groups":
-        [], "device": "UnitTestDevice", "firstSeen": "2015/05/22 09:12:11", "snmpSysName":
-        "", "pythonClass": "Products.ZenModel.Device", "lastChanged": "2015/05/22
-        09:12:12", "productionStateLabel": "Production", "serialNumber": "", "uuid":
-        "b71deecb-3dbc-471e-90f1-3bf947ec121d", "tagNumber": "", "meta_type": "Device",
-        "inspector_type": "Device", "snmpLocation": "", "snmpAgent": "", "ipAddress":
-        null, "rackSlot": 0}, "success": true}, "tid": 9, "type": "rpc", "method":
-        "getInfo"}'
-    http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:26 GMT
-- request:
-    method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
-    body:
-      encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getInfo","data":[{"uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":10}]'
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Fri, 22 May 2015 09:12:26 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
-      Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:37 GMT
       Content-Length:
       - '2198'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "32b77a46-5c8d-44e4-985d-093fbfc82f49", "action": "DeviceRouter",
+      string: '{"uuid": "e7b5baa4-3626-450b-9798-9f1fbd5a7dc6", "action": "DeviceRouter",
         "result": {"disabled": false, "data": {"productionState": 1000, "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
         "links": "", "snmpContact": "", "osModel": null, "hwModel": null, "osManufacturer":
         null, "deviceClass": {"uuid": "98db2956-4f5f-42f5-ac1f-173ff47b306d", "name":
@@ -160,32 +98,32 @@ http_interactions:
         0, "acknowledged_count": 0}, "error": {"count": 0, "acknowledged_count": 0},
         "debug": {"count": 0, "acknowledged_count": 0}}, "systems": [], "status":
         true, "ipAddressString": null, "description": "", "snmpDescr": "", "groups":
-        [], "device": "UnitTestDevice", "firstSeen": "2015/05/22 09:12:11", "snmpSysName":
+        [], "device": "UnitTestDevice", "firstSeen": "2015/05/22 12:14:21", "snmpSysName":
         "", "pythonClass": "Products.ZenModel.Device", "lastChanged": "2015/05/22
-        09:12:12", "productionStateLabel": "Production", "serialNumber": "", "uuid":
-        "b71deecb-3dbc-471e-90f1-3bf947ec121d", "tagNumber": "", "meta_type": "Device",
+        12:14:37", "productionStateLabel": "Production", "serialNumber": "", "uuid":
+        "00217159-594e-49da-889c-7650f8329068", "tagNumber": "", "meta_type": "Device",
         "inspector_type": "Device", "snmpLocation": "", "snmpAgent": "", "ipAddress":
-        null, "rackSlot": 0}, "success": true}, "tid": 10, "type": "rpc", "method":
+        null, "rackSlot": 0}, "success": true}, "tid": 20, "type": "rpc", "method":
         "getInfo"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+  recorded_at: Fri, 22 May 2015 12:14:37 GMT
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getInfo","data":[{"uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":11}]'
+      string: '[{"action":"DeviceRouter","method":"getInfo","data":[{"uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":21}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:37 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -194,14 +132,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:37 GMT
       Content-Length:
       - '2198'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "ddc1ec54-542d-4825-b369-d374e80d2f45", "action": "DeviceRouter",
+      string: '{"uuid": "d8be6206-d683-4909-ad26-1b26b47ca08e", "action": "DeviceRouter",
         "result": {"disabled": false, "data": {"productionState": 1000, "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
         "links": "", "snmpContact": "", "osModel": null, "hwModel": null, "osManufacturer":
         null, "deviceClass": {"uuid": "98db2956-4f5f-42f5-ac1f-173ff47b306d", "name":
@@ -222,13 +160,75 @@ http_interactions:
         0, "acknowledged_count": 0}, "error": {"count": 0, "acknowledged_count": 0},
         "debug": {"count": 0, "acknowledged_count": 0}}, "systems": [], "status":
         true, "ipAddressString": null, "description": "", "snmpDescr": "", "groups":
-        [], "device": "UnitTestDevice", "firstSeen": "2015/05/22 09:12:11", "snmpSysName":
+        [], "device": "UnitTestDevice", "firstSeen": "2015/05/22 12:14:21", "snmpSysName":
         "", "pythonClass": "Products.ZenModel.Device", "lastChanged": "2015/05/22
-        09:12:12", "productionStateLabel": "Production", "serialNumber": "", "uuid":
-        "b71deecb-3dbc-471e-90f1-3bf947ec121d", "tagNumber": "", "meta_type": "Device",
+        12:14:37", "productionStateLabel": "Production", "serialNumber": "", "uuid":
+        "00217159-594e-49da-889c-7650f8329068", "tagNumber": "", "meta_type": "Device",
         "inspector_type": "Device", "snmpLocation": "", "snmpAgent": "", "ipAddress":
-        null, "rackSlot": 0}, "success": true}, "tid": 11, "type": "rpc", "method":
+        null, "rackSlot": 0}, "success": true}, "tid": 21, "type": "rpc", "method":
         "getInfo"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+  recorded_at: Fri, 22 May 2015 12:14:37 GMT
+- request:
+    method: post
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getInfo","data":[{"uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":22}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 12:14:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=47495875A68v.lkNK6o
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 12:14:37 GMT
+      Content-Length:
+      - '2198'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "d4f54b53-7544-432b-8e06-d28b6233070b", "action": "DeviceRouter",
+        "result": {"disabled": false, "data": {"productionState": 1000, "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "links": "", "snmpContact": "", "osModel": null, "hwModel": null, "osManufacturer":
+        null, "deviceClass": {"uuid": "98db2956-4f5f-42f5-ac1f-173ff47b306d", "name":
+        "/Server", "severity": "error", "id": "Server", "meta_type": "DeviceClass",
+        "inspector_type": "DeviceClass", "path": "/Devices/Server", "uid": "/zport/dmd/Devices/Server",
+        "events": {"info": {"count": 1, "acknowledged_count": 0}, "clear": {"count":
+        0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        1, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "description": ""}, "hwManufacturer": null, "snmpVersion": "v2c", "collector":
+        "localhost", "id": "UnitTestDevice", "uptime": "Unknown", "severity": "clear",
+        "locking": {"updates": false, "deletion": false, "events": false}, "comments":
+        "", "name": "UnitTestDevice", "priority": 3, "snmpCommunity": "public", "location":
+        null, "memory": {"ram": "Unknown", "swap": "Unknown"}, "icon": "/zport/dmd/img/icons/server.png",
+        "priorityLabel": "Normal", "lastCollected": "Not Modeled", "events": {"info":
+        {"count": 0, "acknowledged_count": 0}, "clear": {"count": 0, "acknowledged_count":
+        0}, "warning": {"count": 0, "acknowledged_count": 0}, "critical": {"count":
+        0, "acknowledged_count": 0}, "error": {"count": 0, "acknowledged_count": 0},
+        "debug": {"count": 0, "acknowledged_count": 0}}, "systems": [], "status":
+        true, "ipAddressString": null, "description": "", "snmpDescr": "", "groups":
+        [], "device": "UnitTestDevice", "firstSeen": "2015/05/22 12:14:21", "snmpSysName":
+        "", "pythonClass": "Products.ZenModel.Device", "lastChanged": "2015/05/22
+        12:14:37", "productionStateLabel": "Production", "serialNumber": "", "uuid":
+        "00217159-594e-49da-889c-7650f8329068", "tagNumber": "", "meta_type": "Device",
+        "inspector_type": "Device", "snmpLocation": "", "snmpAgent": "", "ipAddress":
+        null, "rackSlot": 0}, "success": true}, "tid": 22, "type": "rpc", "method":
+        "getInfo"}'
+    http_version: 
+  recorded_at: Fri, 22 May 2015 12:14:37 GMT
 recorded_with: VCR 2.9.3

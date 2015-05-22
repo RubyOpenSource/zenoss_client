@@ -12,11 +12,9 @@ TEST_DEVICE_NAME = "UnitTestDevice"
 
 ZENOSS_VERSION = ENV['zenoss_version'] || '4.2.5'
 
+
 # VCR
 VCR.configure do |config|
   config.cassette_library_dir = "test/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  config.before_record do |rec|
-    rec.request.uri.sub!(ZENOSS_URL, 'http://localhost:8080/zport/dmd')
-  end
 end

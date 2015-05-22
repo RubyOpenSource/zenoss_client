@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":15}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":11}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:27 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Length:
       - '906'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "27bc1120-db55-419e-82b9-f2b4c679ee5a", "action": "DeviceRouter",
+      string: '{"uuid": "ce741537-ab28-42ec-9864-2b938f1c1c8e", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,26 +42,26 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 15, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 11, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:27 GMT
+  recorded_at: Fri, 22 May 2015 12:14:36 GMT
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/evconsole_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/evconsole_router
     body:
       encoding: UTF-8
-      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC","uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":16}]'
+      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC","uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":12}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:27 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -70,30 +70,30 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Length:
       - '1341'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "490e7b70-4fb5-447b-bf3c-6ddf7381a311", "action": "EventsRouter",
+      string: '{"uuid": "ea06b90e-c24d-401e-8b7a-c35b5f48b09e", "action": "EventsRouter",
         "result": {"totalCount": 1, "events": [{"prodState": null, "firstTime": "2015-05-22
-        09:12:02", "facility": null, "eventClassKey": null, "agent": null, "dedupid":
+        12:13:50", "facility": null, "eventClassKey": null, "agent": null, "dedupid":
         "UnitTestDevice||/Change/Remove|2|Deleted device: UnitTestDevice", "Location":
         [], "ownerid": null, "eventClass": {"text": "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"},
-        "id": "0242ac11-001e-9740-11e5-00629bc10069", "DevicePriority": null, "monitor":
+        "id": "0242ac11-0025-9742-11e5-007c0173f789", "DevicePriority": null, "monitor":
         null, "priority": null, "details": {}, "DeviceClass": [], "eventKey": "",
-        "evid": "0242ac11-001e-9740-11e5-00629bc10069", "eventClassMapping": "", "component":
+        "evid": "0242ac11-0025-9742-11e5-007c0173f789", "eventClassMapping": "", "component":
         {"url": null, "text": null, "uid": null, "uuid": null}, "clearid": null, "DeviceGroups":
-        [], "eventGroup": null, "device": {"url": "/zport/dmd/goto?guid=b71deecb-3dbc-471e-90f1-3bf947ec121d",
-        "text": "UnitTestDevice", "uuid": "b71deecb-3dbc-471e-90f1-3bf947ec121d",
+        [], "eventGroup": null, "device": {"url": "/zport/dmd/goto?guid=00217159-594e-49da-889c-7650f8329068",
+        "text": "UnitTestDevice", "uuid": "00217159-594e-49da-889c-7650f8329068",
         "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"}, "message": "Deleted
         device: UnitTestDevice", "severity": 2, "count": 1, "stateChange": "2015-05-22
-        09:12:02", "ntevid": null, "summary": "Deleted device: UnitTestDevice", "eventState":
-        "Closed", "lastTime": "2015-05-22 09:12:02", "ipAddress": "", "Systems": []}],
-        "success": true, "asof": 1432285946.977841}, "tid": 16, "type": "rpc", "method":
+        12:13:50", "ntevid": null, "summary": "Deleted device: UnitTestDevice", "eventState":
+        "Closed", "lastTime": "2015-05-22 12:13:50", "ipAddress": "", "Systems": []}],
+        "success": true, "asof": 1432296876.617308}, "tid": 12, "type": "rpc", "method":
         "query"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:27 GMT
+  recorded_at: Fri, 22 May 2015 12:14:36 GMT
 recorded_with: VCR 2.9.3

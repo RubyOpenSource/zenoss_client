@@ -10,7 +10,7 @@ describe Zenoss do
   # Simulate some "before all" type of setup
   # https://github.com/seattlerb/minitest/issues/61#issuecomment-4581115
   def self.zen
-    VCR.use_cassette "#{ZENOSS_VERSION}_initial connection"  do
+    VCR.use_cassette "#{ZENOSS_VERSION}_initial connection", :match_requests_on => [:method, :path, :query]  do
       @zen ||= begin
         connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD
         # We Need to Create A Device for testing
@@ -55,17 +55,27 @@ describe Zenoss do
         # Return the connection object
         connection
       end
-   end
+    end
+  end
+
+  def gen_cassette_name
+    n = "#{ZENOSS_VERSION}_#{name}"
+    # name method is not available on ruby 1.9
+    rescue NoMethodError, NameError
+      fallback_method = [:__name__, :__NAME__].find { |m| self.respond_to? m }
+      n = "#{ZENOSS_VERSION}_#{send(fallback_method)}"
+    n.gsub!('.', '_')
+    n
   end
 
   before do
-    VCR.insert_cassette "#{ZENOSS_VERSION}_#{name}"
+    VCR.insert_cassette gen_cassette_name, :match_requests_on => [:method, :path, :query]
     @zen = self.class.zen
     @dev = @zen.find_devices_by_name(TEST_DEVICE_NAME).first
   end
 
   after do
-    VCR.eject_cassette "#{ZENOSS_VERSION}_#{name}"
+    VCR.eject_cassette gen_cassette_name
   end
 
   it 'returns an Array of devices when searched by name' do

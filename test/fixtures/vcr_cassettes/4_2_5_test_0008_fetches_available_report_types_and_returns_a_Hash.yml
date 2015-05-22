@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":6}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":8}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Length:
       - '905'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "608b9f19-1ea0-48af-b479-35cd28d124e6", "action": "DeviceRouter",
+      string: '{"uuid": "f95969e7-1bcc-4fba-8ae0-c233c66323ee", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,26 +42,26 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 6, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 8, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+  recorded_at: Fri, 22 May 2015 12:14:36 GMT
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/report_router
+    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/report_router
     body:
       encoding: UTF-8
-      string: '[{"action":"ReportRouter","method":"getReportTypes","data":{},"type":"rpc","tid":7}]'
+      string: '[{"action":"ReportRouter","method":"getReportTypes","data":{},"type":"rpc","tid":9}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=53572535A68vSC9XJhE
+      - _ZopeId=47495875A68v.lkNK6o
   response:
     status:
       code: 200
@@ -70,17 +70,17 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:12:26 GMT
+      - Fri, 22 May 2015 12:14:36 GMT
       Content-Length:
       - '306'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "24171f54-fce5-4e6d-be82-e2e5a1bbd551", "action": "ReportRouter",
+      string: '{"uuid": "b1a42eb7-2f33-46a3-99f2-eed9774e1ca2", "action": "ReportRouter",
         "result": {"menuText": ["Custom Device Report", "Graph Report", "Multi-Graph
         Report"], "reportTypes": ["customDeviceReport", "graphReport", "multiGraphReport"],
-        "success": true}, "tid": 7, "type": "rpc", "method": "getReportTypes"}'
+        "success": true}, "tid": 9, "type": "rpc", "method": "getReportTypes"}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+  recorded_at: Fri, 22 May 2015 12:14:36 GMT
 recorded_with: VCR 2.9.3
