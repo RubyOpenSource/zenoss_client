@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":21}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":4}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:26 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=23089062A68sR13A1iI
+      - _ZopeId=53572535A68vSC9XJhE
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 20:23:39 GMT
+      - Fri, 22 May 2015 09:12:26 GMT
       Content-Length:
-      - '906'
+      - '905'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "d963371b-4225-458b-86f5-a4a3add01a29", "action": "DeviceRouter",
+      string: '{"uuid": "bf2975c8-a484-4f52-b29f-1d899735d86d", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,26 +42,26 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 21, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 4, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 20:23:39 GMT
+  recorded_at: Fri, 22 May 2015 09:12:26 GMT
 - request:
     method: post
-    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":22}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":5}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 20:23:39 GMT
+      - Fri, 22 May 2015 09:12:26 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=23089062A68sR13A1iI
+      - _ZopeId=53572535A68vSC9XJhE
   response:
     status:
       code: 200
@@ -70,14 +70,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 20:23:39 GMT
+      - Fri, 22 May 2015 09:12:26 GMT
       Content-Length:
-      - '906'
+      - '905'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "c0dd012a-d92a-4fcd-95de-8d1694d780e9", "action": "DeviceRouter",
+      string: '{"uuid": "b8bb2977-b931-40b8-aa45-e1241ace42f4", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -87,7 +87,7 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 22, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 5, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 20:23:39 GMT
+  recorded_at: Fri, 22 May 2015 09:12:26 GMT
 recorded_with: VCR 2.9.3

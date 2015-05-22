@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":12}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=53572535A68vSC9XJhE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Length:
+      - '906'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "66e36a20-2c96-4296-a7ac-4965451d2955", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 1000,
+        "systems": [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer":
+        null, "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 12, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/evconsole_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC","uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":13}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=53572535A68vSC9XJhE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Length:
+      - '1341'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "21d79e54-d2ab-4d92-a450-c71e39b449c8", "action": "EventsRouter",
+        "result": {"totalCount": 1, "events": [{"prodState": null, "firstTime": "2015-05-22
+        09:12:02", "facility": null, "eventClassKey": null, "agent": null, "dedupid":
+        "UnitTestDevice||/Change/Remove|2|Deleted device: UnitTestDevice", "Location":
+        [], "ownerid": null, "eventClass": {"text": "/Change/Remove", "uid": "/zport/dmd/Events/Change/Remove"},
+        "id": "0242ac11-001e-9740-11e5-00629bc10069", "DevicePriority": null, "monitor":
+        null, "priority": null, "details": {}, "DeviceClass": [], "eventKey": "",
+        "evid": "0242ac11-001e-9740-11e5-00629bc10069", "eventClassMapping": "", "component":
+        {"url": null, "text": null, "uid": null, "uuid": null}, "clearid": null, "DeviceGroups":
+        [], "eventGroup": null, "device": {"url": "/zport/dmd/goto?guid=b71deecb-3dbc-471e-90f1-3bf947ec121d",
+        "text": "UnitTestDevice", "uuid": "b71deecb-3dbc-471e-90f1-3bf947ec121d",
+        "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"}, "message": "Deleted
+        device: UnitTestDevice", "severity": 2, "count": 1, "stateChange": "2015-05-22
+        09:12:02", "ntevid": null, "summary": "Deleted device: UnitTestDevice", "eventState":
+        "Closed", "lastTime": "2015-05-22 09:12:02", "ipAddress": "", "Systems": []}],
+        "success": true, "asof": 1432285946.850004}, "tid": 13, "type": "rpc", "method":
+        "query"}'
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+recorded_with: VCR 2.9.3

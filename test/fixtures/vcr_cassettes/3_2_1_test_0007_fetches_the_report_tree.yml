@@ -1,0 +1,181 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":6}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:18:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - __ginger_snap=NzQ2NTczNzQ6NzQ2NTczNzQ%253D
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.12.1, python 2.6.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:18:48 GMT
+      Content-Length:
+      - '576'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"tid": 6, "action": "DeviceRouter", "type": "rpc", "method": "getDevices",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"groups":
+        [], "serialNumber": "", "name": "UnitTestDevice", "collector": "localhost",
+        "osModel": null, "productionState": "Production", "location": null, "priority":
+        "Normal", "hwModel": null, "tagNumber": "", "osManufacturer": null, "systems":
+        [], "hwManufacturer": null, "ipAddress": null, "events": {"info": 0, "debug":
+        0, "critical": 0, "warning": 0, "error": 0}, "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"}]}}'
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:18:48 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/report_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"ReportRouter","method":"getTree","data":[{"id":"/zport/dmd/Reports"}],"type":"rpc","tid":7}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:18:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - __ginger_snap=NzQ2NTczNzQ6NzQ2NTczNzQ%253D
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.12.1, python 2.6.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:18:48 GMT
+      Content-Length:
+      - '8396'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"tid": 7, "action": "ReportRouter", "type": "rpc", "method": "getTree",
+        "result": [{"meta_type": "ReportClass", "leaf": false, "uid": "/zport/dmd/Reports",
+        "deletable": false, "text": {"count": 19, "text": "Reports", "description":
+        "reports"}, "path": "", "expandable": true, "uiProvider": "report", "children":
+        [{"meta_type": "DeviceReportClass", "leaf": false, "uid": "/zport/dmd/Reports/Device
+        Reports", "deletable": true, "text": {"count": 8, "text": "Device Reports",
+        "description": "reports"}, "path": "Device Reports", "expandable": true, "uiProvider":
+        "report", "children": [{"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Device
+        Reports/SNMP Status Issues", "deletable": true, "text": "SNMP Status Issues",
+        "path": "SNMP Status Issues", "expandable": false, "uiProvider": "report",
+        "children": [], "id": ".zport.dmd.Reports.Device Reports.SNMP Status Issues"},
+        {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Device Reports/All
+        Devices", "deletable": true, "text": "All Devices", "path": "All Devices",
+        "expandable": false, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Device
+        Reports.All Devices"}, {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Device
+        Reports/Software Inventory", "deletable": true, "text": "Software Inventory",
+        "path": "Software Inventory", "expandable": false, "uiProvider": "report",
+        "children": [], "id": ".zport.dmd.Reports.Device Reports.Software Inventory"},
+        {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Device Reports/Device
+        Changes", "deletable": true, "text": "Device Changes", "path": "Device Changes",
+        "expandable": false, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Device
+        Reports.Device Changes"}, {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Device
+        Reports/New Devices", "deletable": true, "text": "New Devices", "path": "New
+        Devices", "expandable": false, "uiProvider": "report", "children": [], "id":
+        ".zport.dmd.Reports.Device Reports.New Devices"}, {"meta_type": "Report",
+        "leaf": true, "uid": "/zport/dmd/Reports/Device Reports/All Monitored Components",
+        "deletable": true, "text": "All Monitored Components", "path": "All Monitored
+        Components", "expandable": false, "uiProvider": "report", "children": [],
+        "id": ".zport.dmd.Reports.Device Reports.All Monitored Components"}, {"meta_type":
+        "Report", "leaf": true, "uid": "/zport/dmd/Reports/Device Reports/Ping Status
+        Issues", "deletable": true, "text": "Ping Status Issues", "path": "Ping Status
+        Issues", "expandable": false, "uiProvider": "report", "children": [], "id":
+        ".zport.dmd.Reports.Device Reports.Ping Status Issues"}, {"meta_type": "Report",
+        "leaf": true, "uid": "/zport/dmd/Reports/Device Reports/Model Collection Age",
+        "deletable": true, "text": "Model Collection Age", "path": "Model Collection
+        Age", "expandable": false, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Device
+        Reports.Model Collection Age"}], "id": ".zport.dmd.Reports.Device Reports"},
+        {"meta_type": "CustomDeviceReportClass", "leaf": false, "uid": "/zport/dmd/Reports/Custom
+        Device Reports", "deletable": false, "text": {"count": 0, "text": "Custom
+        Device Reports", "description": "reports"}, "path": "Custom Device Reports",
+        "expandable": true, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Custom
+        Device Reports"}, {"meta_type": "GraphReportClass", "leaf": false, "uid":
+        "/zport/dmd/Reports/Graph Reports", "deletable": false, "text": {"count":
+        0, "text": "Graph Reports", "description": "reports"}, "path": "Graph Reports",
+        "expandable": true, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Graph
+        Reports"}, {"meta_type": "MultiGraphReportClass", "leaf": false, "uid": "/zport/dmd/Reports/Multi-Graph
+        Reports", "deletable": false, "text": {"count": 0, "text": "Multi-Graph Reports",
+        "description": "reports"}, "path": "Multi-Graph Reports", "expandable": true,
+        "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Multi-Graph
+        Reports"}, {"meta_type": "ReportClass", "leaf": false, "uid": "/zport/dmd/Reports/Performance
+        Reports", "deletable": true, "text": {"count": 7, "text": "Performance Reports",
+        "description": "reports"}, "path": "Performance Reports", "expandable": true,
+        "uiProvider": "report", "children": [{"meta_type": "Report", "leaf": true,
+        "uid": "/zport/dmd/Reports/Performance Reports/Availability Report", "deletable":
+        true, "text": "Availability Report", "path": "Availability Report", "expandable":
+        false, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Performance
+        Reports.Availability Report"}, {"meta_type": "Report", "leaf": true, "uid":
+        "/zport/dmd/Reports/Performance Reports/Aggregate Reports", "deletable": true,
+        "text": "Aggregate Reports", "path": "Aggregate Reports", "expandable": false,
+        "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Performance
+        Reports.Aggregate Reports"}, {"meta_type": "Report", "leaf": true, "uid":
+        "/zport/dmd/Reports/Performance Reports/CPU Utilization", "deletable": true,
+        "text": "CPU Utilization", "path": "CPU Utilization", "expandable": false,
+        "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Performance
+        Reports.CPU Utilization"}, {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Performance
+        Reports/Threshold Summary", "deletable": true, "text": "Threshold Summary",
+        "path": "Threshold Summary", "expandable": false, "uiProvider": "report",
+        "children": [], "id": ".zport.dmd.Reports.Performance Reports.Threshold Summary"},
+        {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Performance
+        Reports/Filesystem Util Report", "deletable": true, "text": "Filesystem Util
+        Report", "path": "Filesystem Util Report", "expandable": false, "uiProvider":
+        "report", "children": [], "id": ".zport.dmd.Reports.Performance Reports.Filesystem
+        Util Report"}, {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Performance
+        Reports/Memory Utilization", "deletable": true, "text": "Memory Utilization",
+        "path": "Memory Utilization", "expandable": false, "uiProvider": "report",
+        "children": [], "id": ".zport.dmd.Reports.Performance Reports.Memory Utilization"},
+        {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Performance
+        Reports/Interface Utilization", "deletable": true, "text": "Interface Utilization",
+        "path": "Interface Utilization", "expandable": false, "uiProvider": "report",
+        "children": [], "id": ".zport.dmd.Reports.Performance Reports.Interface Utilization"}],
+        "id": ".zport.dmd.Reports.Performance Reports"}, {"meta_type": "ReportClass",
+        "leaf": false, "uid": "/zport/dmd/Reports/Event Reports", "deletable": true,
+        "text": {"count": 3, "text": "Event Reports", "description": "reports"}, "path":
+        "Event Reports", "expandable": true, "uiProvider": "report", "children": [{"meta_type":
+        "Report", "leaf": true, "uid": "/zport/dmd/Reports/Event Reports/All Heartbeats",
+        "deletable": true, "text": "All Heartbeats", "path": "All Heartbeats", "expandable":
+        false, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Event
+        Reports.All Heartbeats"}, {"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/Event
+        Reports/All EventClasses", "deletable": true, "text": "All EventClasses",
+        "path": "All EventClasses", "expandable": false, "uiProvider": "report", "children":
+        [], "id": ".zport.dmd.Reports.Event Reports.All EventClasses"}, {"meta_type":
+        "Report", "leaf": true, "uid": "/zport/dmd/Reports/Event Reports/All EventMappings",
+        "deletable": true, "text": "All EventMappings", "path": "All EventMappings",
+        "expandable": false, "uiProvider": "report", "children": [], "id": ".zport.dmd.Reports.Event
+        Reports.All EventMappings"}], "id": ".zport.dmd.Reports.Event Reports"}, {"meta_type":
+        "ReportClass", "leaf": false, "uid": "/zport/dmd/Reports/User Reports", "deletable":
+        true, "text": {"count": 1, "text": "User Reports", "description": "report"},
+        "path": "User Reports", "expandable": true, "uiProvider": "report", "children":
+        [{"meta_type": "Report", "leaf": true, "uid": "/zport/dmd/Reports/User Reports/Notification
+        Schedules", "deletable": true, "text": "Notification Schedules", "path": "Notification
+        Schedules", "expandable": false, "uiProvider": "report", "children": [], "id":
+        ".zport.dmd.Reports.User Reports.Notification Schedules"}], "id": ".zport.dmd.Reports.User
+        Reports"}], "id": ".zport.dmd.Reports"}]}'
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:18:48 GMT
+recorded_with: VCR 2.9.3

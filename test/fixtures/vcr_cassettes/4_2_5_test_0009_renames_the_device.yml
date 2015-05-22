@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":19}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":17}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=23089062A68sR13A1iI
+      - _ZopeId=53572535A68vSC9XJhE
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Content-Length:
       - '906'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "2f6ac217-9e19-4973-9f97-0b65ac5c83df", "action": "DeviceRouter",
+      string: '{"uuid": "5f077581-610f-4993-bd2a-6038bc553036", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -42,12 +42,12 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 19, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 17, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 20:23:38 GMT
+  recorded_at: Fri, 22 May 2015 09:12:27 GMT
 - request:
     method: get
-    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/Devices/Server/devices/UnitTestDevice/renameDevice?newId=unit_test_temporary_device_name
+    uri: http://localhost:8080/zport/dmd/zport/dmd/Devices/Server/devices/UnitTestDevice/renameDevice?newId=unit_test_temporary_device_name
     body:
       encoding: UTF-8
       string: ''
@@ -57,9 +57,9 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Cookie:
-      - _ZopeId=23089062A68sR13A1iI
+      - _ZopeId=53572535A68vSC9XJhE
   response:
     status:
       code: 200
@@ -68,7 +68,7 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Content-Length:
       - '65'
       Content-Type:
@@ -77,24 +77,24 @@ http_interactions:
       encoding: UTF-8
       string: "/zport/dmd/Devices/Server/devices/unit_test_temporary_device_name"
     http_version: 
-  recorded_at: Thu, 21 May 2015 20:23:38 GMT
+  recorded_at: Fri, 22 May 2015 09:12:27 GMT
 - request:
     method: post
-    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/device_router
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"unit_test_temporary_device_name"}}],"type":"rpc","tid":20}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"unit_test_temporary_device_name"}}],"type":"rpc","tid":18}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - _ZopeId=23089062A68sR13A1iI
+      - _ZopeId=53572535A68vSC9XJhE
   response:
     status:
       code: 200
@@ -103,14 +103,14 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Content-Length:
       - '940'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"uuid": "d50cae61-a6d5-485a-b703-c4e1cacc7166", "action": "DeviceRouter",
+      string: '{"uuid": "ee9bf06e-921b-4b0a-8c82-761cd50f8a02", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
         null, "collector": "localhost", "osModel": null, "productionState": 1000,
@@ -120,13 +120,13 @@ http_interactions:
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "unit_test_temporary_device_name"}]}, "tid": 20, "type": "rpc", "method":
+        "name": "unit_test_temporary_device_name"}]}, "tid": 18, "type": "rpc", "method":
         "getDevices"}'
     http_version: 
-  recorded_at: Thu, 21 May 2015 20:23:38 GMT
+  recorded_at: Fri, 22 May 2015 09:12:27 GMT
 - request:
     method: get
-    uri: http://192.168.56.2:8080/zport/dmd/zport/dmd/Devices/Server/devices/unit_test_temporary_device_name/renameDevice?newId=UnitTestDevice
+    uri: http://localhost:8080/zport/dmd/zport/dmd/Devices/Server/devices/unit_test_temporary_device_name/renameDevice?newId=UnitTestDevice
     body:
       encoding: UTF-8
       string: ''
@@ -136,9 +136,9 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Cookie:
-      - _ZopeId=23089062A68sR13A1iI
+      - _ZopeId=53572535A68vSC9XJhE
   response:
     status:
       code: 200
@@ -147,7 +147,7 @@ http_interactions:
       Server:
       - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
       Date:
-      - Thu, 21 May 2015 20:23:38 GMT
+      - Fri, 22 May 2015 09:12:27 GMT
       Content-Length:
       - '48'
       Content-Type:
@@ -156,5 +156,5 @@ http_interactions:
       encoding: UTF-8
       string: "/zport/dmd/Devices/Server/devices/UnitTestDevice"
     http_version: 
-  recorded_at: Thu, 21 May 2015 20:23:38 GMT
+  recorded_at: Fri, 22 May 2015 09:12:27 GMT
 recorded_with: VCR 2.9.3
