@@ -31,13 +31,13 @@ module Zenoss
     include Zenoss::JSONAPI::ReportRouter
     include Zenoss::RESTAPI
 
-    def initialize(url, user, pass, &block)
+    def initialize(url, user, pass, opts = {}, &block)
       @zenoss_uri = (url.is_a?(URI) ? url : URI.parse(url))
       @request_number = 1
       @httpcli = HTTPClient.new
       @httpcli.receive_timeout = 360  # six minutes should be more that sufficient
       yield(@httpcli) if block_given?
-      sign_in(user,pass)
+      sign_in(user, pass) unless opts[:no_sign_in]
     end
 
     private
