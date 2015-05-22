@@ -10,7 +10,7 @@ describe Zenoss do
   # Simulate some "before all" type of setup
   # https://github.com/seattlerb/minitest/issues/61#issuecomment-4581115
   def self.zen
-    VCR.use_cassette('initial connection', :tag => :tag_recorded) do
+    VCR.use_cassette "#{ZENOSS_VERSION}_initial connection"  do
       @zen ||= begin
         connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD
         # We Need to Create A Device for testing
@@ -59,13 +59,13 @@ describe Zenoss do
   end
 
   before do
-    VCR.insert_cassette name
+    VCR.insert_cassette "#{ZENOSS_VERSION}_#{name}"
     @zen = self.class.zen
     @dev = @zen.find_devices_by_name(TEST_DEVICE_NAME).first
   end
 
   after do
-    VCR.eject_cassette name
+    VCR.eject_cassette "#{ZENOSS_VERSION}_#{name}"
   end
 
   it 'returns an Array of devices when searched by name' do
