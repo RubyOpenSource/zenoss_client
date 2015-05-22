@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":14}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie:
+      - _ZopeId=53572535A68vSC9XJhE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Length:
+      - '906'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "4c18058e-4fae-4204-8006-f052dc56e192", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 1000,
+        "systems": [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer":
+        null, "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 14, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:12:26 GMT
+- request:
+    method: get
+    uri: http://localhost:8080/zport/dmd/zport/dmd/Devices/Server/devices/UnitTestDevice/sysUpTime
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Cookie:
+      - _ZopeId=53572535A68vSC9XJhE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Length:
+      - '3'
+      Content-Type:
+      - text/plain; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: nan
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:12:27 GMT
+- request:
+    method: get
+    uri: http://localhost:8080/zport/dmd/zport/dmd/Devices/Server/devices/UnitTestDevice/sysUpTime
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 22 May 2015 09:12:27 GMT
+      Cookie:
+      - _ZopeId=53572535A68vSC9XJhE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Zope/(2.13.13, python 2.7.2, linux2) ZServer/1.1
+      Date:
+      - Fri, 22 May 2015 09:12:26 GMT
+      Content-Length:
+      - '3'
+      Content-Type:
+      - text/plain; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: nan
+    http_version: 
+  recorded_at: Fri, 22 May 2015 09:12:27 GMT
+recorded_with: VCR 2.9.3
