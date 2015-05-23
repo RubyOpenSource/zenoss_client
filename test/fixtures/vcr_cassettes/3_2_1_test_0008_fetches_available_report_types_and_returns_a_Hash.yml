@@ -2,21 +2,21 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    uri: http://192.168.56.2:9080/zport/dmd/zport/dmd/device_router
     body:
       encoding: UTF-8
-      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":9}]'
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":18}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:18:48 GMT
+      - Fri, 22 May 2015 12:19:39 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - __ginger_snap=NzQ2NTczNzQ6NzQ2NTczNzQ%253D
+      - __ginger_snap=NjE2NDZkNjk2ZTo3YTY1NmU2ZjczNzM%253D
   response:
     status:
       code: 200
@@ -25,14 +25,14 @@ http_interactions:
       Server:
       - Zope/(2.12.1, python 2.6.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:18:48 GMT
+      - Fri, 22 May 2015 12:19:39 GMT
       Content-Length:
-      - '576'
+      - '577'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"tid": 9, "action": "DeviceRouter", "type": "rpc", "method": "getDevices",
+      string: '{"tid": 18, "action": "DeviceRouter", "type": "rpc", "method": "getDevices",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"groups":
         [], "serialNumber": "", "name": "UnitTestDevice", "collector": "localhost",
         "osModel": null, "productionState": "Production", "location": null, "priority":
@@ -40,24 +40,24 @@ http_interactions:
         [], "hwManufacturer": null, "ipAddress": null, "events": {"info": 0, "debug":
         0, "critical": 0, "warning": 0, "error": 0}, "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"}]}}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:18:48 GMT
+  recorded_at: Fri, 22 May 2015 12:19:39 GMT
 - request:
     method: post
-    uri: http://localhost:8080/zport/dmd/zport/dmd/report_router
+    uri: http://192.168.56.2:9080/zport/dmd/zport/dmd/report_router
     body:
       encoding: UTF-8
-      string: '[{"action":"ReportRouter","method":"getReportTypes","data":{},"type":"rpc","tid":10}]'
+      string: '[{"action":"ReportRouter","method":"getReportTypes","data":{},"type":"rpc","tid":19}]'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.6.0.1, ruby 2.2.0 (2014-12-25))
       Accept:
       - "*/*"
       Date:
-      - Fri, 22 May 2015 09:18:48 GMT
+      - Fri, 22 May 2015 12:19:39 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie:
-      - __ginger_snap=NzQ2NTczNzQ6NzQ2NTczNzQ%253D
+      - __ginger_snap=NjE2NDZkNjk2ZTo3YTY1NmU2ZjczNzM%253D
   response:
     status:
       code: 200
@@ -66,17 +66,17 @@ http_interactions:
       Server:
       - Zope/(2.12.1, python 2.6.2, linux2) ZServer/1.1
       Date:
-      - Fri, 22 May 2015 09:18:48 GMT
+      - Fri, 22 May 2015 12:19:39 GMT
       Content-Length:
       - '259'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"tid": 10, "action": "ReportRouter", "type": "rpc", "method": "getReportTypes",
+      string: '{"tid": 19, "action": "ReportRouter", "type": "rpc", "method": "getReportTypes",
         "result": {"menuText": ["Custom Device Report", "Graph Report", "Multi-Graph
         Report"], "reportTypes": ["customDeviceReport", "graphReport", "multiGraphReport"],
         "success": true}}'
     http_version: 
-  recorded_at: Fri, 22 May 2015 09:18:48 GMT
+  recorded_at: Fri, 22 May 2015 12:19:39 GMT
 recorded_with: VCR 2.9.3
