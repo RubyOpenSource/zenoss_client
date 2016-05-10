@@ -63,6 +63,13 @@ module Zenoss
         end
 
         json = JSON.load(resp.http_body.content)
+        # Handle the situation where the 'result' key in the JSON response does not
+        # point to a hash, but instead is nil.
+        # This has been seen in the wild on an installation of Zenoss 4.2.5
+        if(json['result'].nil?
+          raise ZenossError, "JSON request '#{json['method']}' on '#{json['action']}' returned malformed data"
+        end
+
         # Check for JSON success. There are some exceptions where this doesn't make sense:
         #   1. Sometimes the 'success' key does not exist like in EventsRouter#query
         #   2. When json['result'] is not a Hash like a return from ReportRouter#get_tree
