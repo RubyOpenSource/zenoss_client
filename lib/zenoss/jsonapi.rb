@@ -66,7 +66,7 @@ module Zenoss
         # Handle the situation where the 'result' key in the JSON response does not
         # point to a hash, but instead is nil.
         # This has been seen in the wild on an installation of Zenoss 4.2.5
-        if(json['result'].nil?
+        if json['result'].nil?
           raise ZenossError, "JSON request '#{json['method']}' on '#{json['action']}' returned malformed data"
         end
 
