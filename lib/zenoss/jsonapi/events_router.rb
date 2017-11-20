@@ -57,7 +57,19 @@ module Zenoss
         events
       end
 
+      # @param [Hash] data evids that should be closed
+      # @option data [Array] :evids Array of evids that is closed
+      def close_events(data = {})    
+        json_request('EventsRouter', 'close', [data])
+      end
 
+      # @param [Hash] data data specifying event that should have a logmessage appended
+      # @option data [String] :evid evid that message should be appended to
+      # @option data [String] :message text that should be appended to the event log
+      def write_log(data= {})
+        json_request('EventsRouter','write_log', [data])
+      end
+      
       # @param [String] uid the uid to query events for. If this isn't specified
       #   the query may take a very long time
       # @param [Hash] opts misc options to limit/filter events
