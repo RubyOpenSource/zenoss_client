@@ -22,11 +22,11 @@ module Zenoss
     module ReportRouter
 
       def get_report_types
-        resp = json_request('ReportRouter', 'getReportTypes')
+        json_request('ReportRouter', 'getReportTypes')
       end
 
       def get_report_tree(id = '/zport/dmd/Reports')
-        resp = json_request('ReportRouter', 'getTree', [{:id => id}])
+        json_request('ReportRouter', 'getTree', [{:id => id}])
       end
 
     end # ReportRouter

@@ -181,7 +181,7 @@ module Zenoss
         components = rest(method)
 
         # Turn the return string into an array of components
-        (components.gsub /[\[\]]/,'').split /,\s+/
+        components.gsub(/[\[\]]/, '').split(/,\s+/)
       end
 
       # Return list of all DeviceComponents on this device

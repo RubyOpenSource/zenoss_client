@@ -51,14 +51,14 @@ module Zenoss
       end
 
       def get_templates(device_id)
-        resp = json_request('DeviceRouter', 'getTemplates', [{:id => device_id}])
+        json_request('DeviceRouter', 'getTemplates', [{:id => device_id}])
       end
 
       def get_info(device_id, keys = nil)
         data = {}
         data[:uid]  = device_id
         data[:keys] = keys if keys
-        resp = json_request('DeviceRouter', 'getInfo', [data])
+        json_request('DeviceRouter', 'getInfo', [data])
       end
 
       # =============== Non-API Helper methods ===============
