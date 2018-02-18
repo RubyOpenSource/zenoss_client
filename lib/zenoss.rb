@@ -45,7 +45,7 @@ module Zenoss
   def plist_to_array(list)
     return nil if list.nil?
     list = sanitize_str(list)
-    (list.gsub /[\[\]]/,'').split /,\s+/
+    list.gsub(/[\[\]]/, '').split(/,\s+/)
   end
 
   # Some of the REST methods return Strings that are formated like a Python list.
