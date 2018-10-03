@@ -32,21 +32,57 @@ module Zenoss
         parse_time_format
       end
 
-      # Parse time format from zenoss
-      # Zenoss version 4 expects the time format to be a string
-      # Zenoss version 6 expects the time to be a float
-      # @return[Time] self.firstTime, self.lastTime the time from zenoss
-      def parse_time_format
+      # Check to see if firstTime is set and not set to false
+      # @return[Time, nil] self.firstTime
+      def first_time?
+        if self.firstTime && self.firstTime != false
+          return self.firstTime
+        else
+          self.firstTime = nil
+        end
+      end
+
+      # Check to see if lastTime is set and not set to false
+      # @return[Time, nil] self.lastTime
+      def last_time?
+        if self.lastTime && self.lastTime != false
+          return self.lastTime
+        else
+          self.lastTime = nil
+        end
+      end
+
+      # Parses the firstTime value
+      # @return[Time] self.firstTime
+      def parse_first_time
         if self.firstTime.is_a?(String)
           self.firstTime = Time.parse(self.firstTime)
         else
           self.firstTime = Time.at(self.firstTime)
         end
+      end
 
+      # Parses the lastTime value
+      # @return[Time] self.lastTime
+      def parse_last_time
         if self.lastTime.is_a?(String)
           self.lastTime = Time.parse(self.lastTime)
         else
           self.lastTime = Time.at(self.lastTime)
+        end
+      end
+
+      # Parse time format from zenoss
+      # Zenoss version 4 emits the time format to be a string
+      # Zenoss version 6 emits the time to be a float
+      # @return[Time] self.firstTime, self.lastTime the time from zenoss
+      def parse_time_format
+        if first_time?
+          parse_first_time
+        end
+
+        if last_time?
+          parse_last_time
         end
       end
 
