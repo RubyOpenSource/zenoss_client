@@ -137,3 +137,26 @@ describe Zenoss do
     end
   end
 end
+
+describe Zenoss::Events::Event do
+  it 'initializes an object with times as strings' do
+    @zenoss = Zenoss
+    firstTime = Time.new(2018, 10, 3, 1, 0, 0).to_s
+    lastTime = Time.new(2018, 10, 3, 3, 0, 0).to_s
+    event = Zenoss::Events::Event.new(@zenoss, firstTime: firstTime, lastTime: lastTime)
+    event.must_be_kind_of Zenoss::Events::Event
+    event.firstTime.must_be_kind_of DateTime
+    event.lastTime.must_be_kind_of DateTime
+  end
+
+  it 'intializes an object with times as unix time' do
+    @zenoss = Zenoss
+    firstTime = Time.now.to_f
+    lastTime = Time.now.to_f
+    event = Zenoss::Events::Event.new(@zenoss, firstTime: firstTime, lastTime: lastTime)
+    event.must_be_kind_of Zenoss::Events::Event
+    event.firstTime.class.must_equal String
+    event.firstTime.must_be_kind_of String
+    event.lastTime.must_be_kind_of String
+  end
+end

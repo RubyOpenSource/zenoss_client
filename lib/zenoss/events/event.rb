@@ -1,3 +1,4 @@
+# coding: utf-8
 #############################################################################
 # Copyright © 2010 Dan Wanek <dwanek@nd.gov>
 #
@@ -28,8 +29,25 @@ module Zenoss
       def initialize(zenoss,zhash)
         @zenoss = zenoss
         super zhash
-        self.firstTime = DateTime.parse(self.firstTime) if self.firstTime
-        self.lastTime  = DateTime.parse(self.lastTime) if self.lastTime
+        parse_time_format
+      end
+
+      # Parse time format from zenoss
+      # Zenoss version 4 expects the time format to be a string
+      # Zenoss version 6 expects the time to be a float
+      # @return[DateTime, String] self.firstTime, self.lastTime the time from zenoss
+      def parse_time_format
+        if self.firstTime.is_a?(String)
+          self.firstTime = DateTime.parse(self.firstTime)
+        else
+          self.firstTime = Time.at(self.firstTime).to_datetime.to_s
+        end
+
+        if self.lastTime.is_a?(String)
+          self.lastTime = DateTime.parse(self.lastTime)
+        else
+          self.lastTime = Time.at(self.lastTime).to_datetime.to_s
+        end
       end
 
       def detail(history = false)
