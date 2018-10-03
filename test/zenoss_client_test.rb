@@ -145,18 +145,18 @@ describe Zenoss::Events::Event do
     lastTime = Time.new(2018, 10, 3, 3, 0, 0).to_s
     event = Zenoss::Events::Event.new(@zenoss, firstTime: firstTime, lastTime: lastTime)
     event.must_be_kind_of Zenoss::Events::Event
-    event.firstTime.must_be_kind_of DateTime
-    event.lastTime.must_be_kind_of DateTime
+    event.firstTime.must_be_kind_of Time
+    event.lastTime.must_be_kind_of Time
   end
 
   it 'intializes an object with times as unix time' do
     @zenoss = Zenoss
-    firstTime = Time.now.to_f
-    lastTime = Time.now.to_f
+    firstTime = Time.new(2018, 10, 3, 2, 0, 0).to_f
+    lastTime = Time.new(2018, 10, 3, 5, 0, 0).to_f
     event = Zenoss::Events::Event.new(@zenoss, firstTime: firstTime, lastTime: lastTime)
     event.must_be_kind_of Zenoss::Events::Event
-    event.firstTime.class.must_equal String
-    event.firstTime.must_be_kind_of String
-    event.lastTime.must_be_kind_of String
+    event.firstTime.class.must_equal Time
+    event.firstTime.must_be_kind_of Time
+    event.lastTime.must_be_kind_of Time
   end
 end

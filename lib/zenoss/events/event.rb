@@ -35,18 +35,18 @@ module Zenoss
       # Parse time format from zenoss
       # Zenoss version 4 expects the time format to be a string
       # Zenoss version 6 expects the time to be a float
-      # @return[DateTime, String] self.firstTime, self.lastTime the time from zenoss
+      # @return[Time] self.firstTime, self.lastTime the time from zenoss
       def parse_time_format
         if self.firstTime.is_a?(String)
-          self.firstTime = DateTime.parse(self.firstTime)
+          self.firstTime = Time.parse(self.firstTime)
         else
-          self.firstTime = Time.at(self.firstTime).to_datetime.to_s
+          self.firstTime = Time.at(self.firstTime)
         end
 
         if self.lastTime.is_a?(String)
-          self.lastTime = DateTime.parse(self.lastTime)
+          self.lastTime = Time.parse(self.lastTime)
         else
-          self.lastTime = Time.at(self.lastTime).to_datetime.to_s
+          self.lastTime = Time.at(self.lastTime)
         end
       end
 
