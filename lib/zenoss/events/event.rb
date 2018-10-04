@@ -36,9 +36,7 @@ module Zenoss
       # @return[Time, nil] self.firstTime
       def first_time?
         if self.firstTime && self.firstTime != false
-          return self.firstTime
-        else
-          self.firstTime = nil
+          self.firstTime
         end
       end
 
@@ -46,9 +44,7 @@ module Zenoss
       # @return[Time, nil] self.lastTime
       def last_time?
         if self.lastTime && self.lastTime != false
-          return self.lastTime
-        else
-          self.lastTime = nil
+          self.lastTime
         end
       end
 

@@ -188,7 +188,7 @@ describe Zenoss::Events::Event do
     }
     event = Zenoss::Events::Event.new(@zenoss, zhash)
     event.must_be_kind_of Zenoss::Events::Event
-    assert_nil event.firstTime
-    assert_nil event.lastTime
+    event.firstTime.must_equal false
+    event.lastTime.must_equal false
   end
 end
