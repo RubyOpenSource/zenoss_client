@@ -34,7 +34,7 @@ module Zenoss
 
       # Check to see if firstTime is set and not set to false
       # @return[Time, nil] self.firstTime
-      def first_time?
+      def first_time
         if self.firstTime && self.firstTime != false
           self.firstTime
         end
@@ -42,7 +42,7 @@ module Zenoss
 
       # Check to see if lastTime is set and not set to false
       # @return[Time, nil] self.lastTime
-      def last_time?
+      def last_time
         if self.lastTime && self.lastTime != false
           self.lastTime
         end
@@ -73,11 +73,11 @@ module Zenoss
       # Zenoss version 6 emits the time to be a float
       # @return[Time] self.firstTime, self.lastTime the time from zenoss
       def parse_time_format
-        if first_time?
+        if first_time
           parse_first_time
         end
 
-        if last_time?
+        if last_time
           parse_last_time
         end
       end
