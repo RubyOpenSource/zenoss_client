@@ -48,37 +48,27 @@ module Zenoss
         end
       end
 
-      # Parses the firstTime value
-      # @return[Time] self.firstTime
-      def parse_first_time
-        if self.firstTime.is_a?(String)
-          self.firstTime = Time.parse(self.firstTime)
+      # Converts a string or float to a Time object
+      # Zenoss version 4 emits the time format to be a string
+      # Zenoss version 6 emits the time to be a float
+      # @return[Time]
+      def convert_time(time)
+        if time.is_a?(String)
+          Time.parse(time)
         else
-          self.firstTime = Time.at(self.firstTime)
-        end
-      end
-
-      # Parses the lastTime value
-      # @return[Time] self.lastTime
-      def parse_last_time
-        if self.lastTime.is_a?(String)
-          self.lastTime = Time.parse(self.lastTime)
-        else
-          self.lastTime = Time.at(self.lastTime)
+          Time.at(time)
         end
       end
 
       # Parse time format from zenoss
-      # Zenoss version 4 emits the time format to be a string
-      # Zenoss version 6 emits the time to be a float
       # @return[Time] self.firstTime, self.lastTime the time from zenoss
       def parse_time_format
         if first_time
-          parse_first_time
+          self.firstTime = convert_time(self.firstTime)
         end
 
         if last_time
-          parse_last_time
+          self.lastTime = convert_time(self.lastTime)
         end
       end
 
