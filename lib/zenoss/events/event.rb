@@ -26,26 +26,13 @@ module Zenoss
       # Initialize this object from a Hash returned via the JSON api
       # @param[Zenoss] zenoss the current instance we are connecting with
       # @param[Hash] zhash a hash of values used to create this Event instance
+      # @return[Time] self.firstTime, self.lastTime
       def initialize(zenoss,zhash)
         @zenoss = zenoss
         super zhash
-        parse_time_format
-      end
-
-      # Check to see if firstTime is set and not set to false
-      # @return[Time, nil] self.firstTime
-      def first_time
-        if self.firstTime && self.firstTime != false
-          self.firstTime
-        end
-      end
-
-      # Check to see if lastTime is set and not set to false
-      # @return[Time, nil] self.lastTime
-      def last_time
-        if self.lastTime && self.lastTime != false
-          self.lastTime
-        end
+        #parse_time_format
+        self.firstTime &&= convert_time(self.firstTime)
+        self.lastTime &&= convert_time(self.lastTime)
       end
 
       # Converts a string or float to a Time object
@@ -57,18 +44,6 @@ module Zenoss
           Time.parse(time)
         else
           Time.at(time)
-        end
-      end
-
-      # Parse time format from zenoss
-      # @return[Time] self.firstTime, self.lastTime the time from zenoss
-      def parse_time_format
-        if first_time
-          self.firstTime = convert_time(self.firstTime)
-        end
-
-        if last_time
-          self.lastTime = convert_time(self.lastTime)
         end
       end
 
