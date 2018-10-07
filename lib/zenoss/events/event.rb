@@ -1,4 +1,3 @@
-# coding: utf-8
 #############################################################################
 # Copyright © 2010 Dan Wanek <dwanek@nd.gov>
 #
@@ -26,18 +25,16 @@ module Zenoss
       # Initialize this object from a Hash returned via the JSON api
       # @param[Zenoss] zenoss the current instance we are connecting with
       # @param[Hash] zhash a hash of values used to create this Event instance
-      # @return[Time] self.firstTime, self.lastTime
       def initialize(zenoss,zhash)
         @zenoss = zenoss
         super zhash
-        #parse_time_format
         self.firstTime &&= convert_time(self.firstTime)
         self.lastTime &&= convert_time(self.lastTime)
       end
 
       # Converts a string or float to a Time object
-      # Zenoss version 4 emits the time format to be a string
-      # Zenoss version 6 emits the time to be a float
+      # Zenoss version 4 emits the time format as a string
+      # Zenoss version 6 emits the time as a float
       # @return[Time]
       def convert_time(time)
         if time.is_a?(String)
