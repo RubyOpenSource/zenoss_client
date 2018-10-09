@@ -137,3 +137,58 @@ describe Zenoss do
     end
   end
 end
+
+describe Zenoss::Events::Event do
+  it 'initializes an object with times as strings' do
+    @zenoss = Zenoss
+    firstTime = Time.new(2018, 10, 3, 1, 0, 0)
+    lastTime = Time.new(2018, 10, 3, 3, 0, 0)
+    zhash = {
+      firstTime: firstTime.to_s,
+      lastTime: lastTime.to_s
+    }
+    event = Zenoss::Events::Event.new(@zenoss, zhash)
+    event.must_be_kind_of Zenoss::Events::Event
+    event.firstTime.must_be_kind_of Time
+    event.lastTime.must_be_kind_of Time
+  end
+
+  it 'intializes an object with times as unix time' do
+    @zenoss = Zenoss
+    firstTime = Time.new(2018, 10, 3, 2, 0, 0)
+    lastTime = Time.new(2018, 10, 3, 5, 0, 0)
+    zhash = {
+      firstTime: firstTime.to_f,
+      lastTime: lastTime.to_f
+    }
+    event = Zenoss::Events::Event.new(@zenoss, zhash)
+    event.must_be_kind_of Zenoss::Events::Event
+    event.firstTime.class.must_equal Time
+    event.firstTime.must_be_kind_of Time
+    event.lastTime.must_be_kind_of Time
+  end
+
+  it 'intializes an object with times set to nil' do
+    @zenoss = Zenoss
+    zhash = {
+      firstTime: nil,
+      lastTime: nil
+    }
+    event = Zenoss::Events::Event.new(@zenoss, zhash)
+    event.must_be_kind_of Zenoss::Events::Event
+    assert_nil event.firstTime
+    assert_nil event.lastTime
+  end
+
+  it 'intializes an object with times set to false' do
+    @zenoss = Zenoss
+    zhash = {
+      firstTime: false,
+      lastTime: false
+    }
+    event = Zenoss::Events::Event.new(@zenoss, zhash)
+    event.must_be_kind_of Zenoss::Events::Event
+    event.firstTime.must_equal false
+    event.lastTime.must_equal false
+  end
+end

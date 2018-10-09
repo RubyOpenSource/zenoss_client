@@ -28,8 +28,20 @@ module Zenoss
       def initialize(zenoss,zhash)
         @zenoss = zenoss
         super zhash
-        self.firstTime = DateTime.parse(self.firstTime) if self.firstTime
-        self.lastTime  = DateTime.parse(self.lastTime) if self.lastTime
+        self.firstTime &&= convert_time(self.firstTime)
+        self.lastTime &&= convert_time(self.lastTime)
+      end
+
+      # Converts a string or float to a Time object
+      # Zenoss version 4 emits the time format as a string
+      # Zenoss version 6 emits the time as a float
+      # @return[Time]
+      def convert_time(time)
+        if time.is_a?(String)
+          Time.parse(time)
+        else
+          Time.at(time)
+        end
       end
 
       def detail(history = false)
