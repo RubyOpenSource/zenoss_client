@@ -32,6 +32,7 @@ module Zenoss
     include Zenoss::RESTAPI
 
     def initialize(url, user, pass, opts = {}, &block)
+      @zenoss_version = opts[:version]
       @zenoss_uri = (url.is_a?(URI) ? url : URI.parse(url))
       @request_number = 1
       @httpcli = HTTPClient.new

@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":12}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:52 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '905'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "4c63f583-5a2f-4b72-90e0-a9cd34f011f9", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 400, "systems":
+        [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer": null,
+        "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 12, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:52 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/evconsole_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"EventsRouter","method":"query","data":[{"limit":100,"start":0,"sort":"lastTime","dir":"DESC","uid":"/zport/dmd/Devices/Server/devices/UnitTestDevice"}],"type":"rpc","tid":13}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:52 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "1", "action": "EventsRouter", "result": {"totalCount": 1,
+        "events": [{"prodState": "Production", "dedupid": "fan", "eventKey": "1",
+        "evid": "1", "eventClass": {"uid": "/zport/dmd/Events/HW/Temparature/Fan"}}],
+        "success": true, "tid": 19, "type": "rpc", "method": "query"}}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:52 GMT
+recorded_with: VCR 4.0.0

@@ -11,7 +11,9 @@ describe Zenoss do
   def self.zen
     VCR.use_cassette "#{ZENOSS_VERSION}_initial connection", :match_requests_on => [:method, :path, :query]  do
       @zen ||= begin
-        connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD
+        opts = {}
+        opts[:version] = ZENOSS_VERSION
+        connection = Zenoss.connect ZENOSS_URL, ZENOSS_USER, ZENOSS_PASSWORD, opts
         # We Need to Create A Device for testing
         # We do this here, so we can re-use the same device over and over
         # Without needing to create a new one per test

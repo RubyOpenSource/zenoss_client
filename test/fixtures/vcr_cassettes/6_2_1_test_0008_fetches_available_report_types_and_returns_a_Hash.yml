@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":16}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:53 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '905'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "b9b81b35-3cfd-4fc0-a7ad-b16938b99d65", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 400, "systems":
+        [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer": null,
+        "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 16, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:53 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/report_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"ReportRouter","method":"getReportTypes","data":{},"type":"rpc","tid":17}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:53 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '307'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "08c5bc38-197e-4adf-b1e2-e73c9b27ec35", "action": "ReportRouter",
+        "result": {"menuText": ["Custom Device Report", "Graph Report", "Multi-Graph
+        Report"], "reportTypes": ["customDeviceReport", "graphReport", "multiGraphReport"],
+        "success": true}, "tid": 17, "type": "rpc", "method": "getReportTypes"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:53 GMT
+recorded_with: VCR 4.0.0

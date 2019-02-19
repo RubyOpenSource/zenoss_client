@@ -1,0 +1,164 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"DeviceRouter","method":"getDevices","data":[{"uid":"/zport/dmd/Devices","params":{"name":"UnitTestDevice"}}],"type":"rpc","tid":9}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:51 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '904'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "ae0a0972-7413-4995-8129-e279a35d8572", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 400, "systems":
+        [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer": null,
+        "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 9, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:51 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/report_router
+    body:
+      encoding: UTF-8
+      string: '[{"action":"ReportRouter","method":"asyncGetTree","data":["/zport/dmd/Reports"],"type":"rpc","tid":10}]'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:51 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "a359c5df-a88d-422b-b31e-dd08f13d82a5", "action": "ReportRouter",
+        "result": [{"leaf": false, "uid": "/zport/dmd/Reports", "text": {"count":
+        69, "text": "Reports", "description": "reports"}, "children": [{"leaf": false,
+        "uid": "/zport/dmd/Reports/AWS Reports", "text": {"count": 1, "text": "AWS
+        Reports", "description": "reports"}, "deletable": true, "iconCls": "severity-icon-small
+        clear", "path": "Reports/AWS Reports", "hidden": false, "id": ".zport.dmd.Reports.AWS
+        Reports", "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Azure",
+        "text": {"count": 1, "text": "Azure", "description": "reports"}, "deletable":
+        true, "iconCls": "severity-icon-small clear", "path": "Reports/Azure", "hidden":
+        false, "id": ".zport.dmd.Reports.Azure", "edit_url": null}, {"leaf": false,
+        "uid": "/zport/dmd/Reports/Cisco UCS Reports", "text": {"count": 2, "text":
+        "Cisco UCS Reports", "description": "reports"}, "deletable": true, "iconCls":
+        "severity-icon-small clear", "path": "Reports/Cisco UCS Reports", "hidden":
+        false, "id": ".zport.dmd.Reports.Cisco UCS Reports", "edit_url": null}, {"leaf":
+        false, "uid": "/zport/dmd/Reports/Configuration Management", "text": {"count":
+        2, "text": "Configuration Management", "description": "reports"}, "deletable":
+        true, "iconCls": "severity-icon-small clear", "path": "Reports/Configuration
+        Management", "hidden": false, "id": ".zport.dmd.Reports.Configuration Management",
+        "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Custom Device
+        Reports", "text": {"count": 1, "text": "Custom Device Reports", "description":
+        "reports"}, "deletable": false, "iconCls": "severity-icon-small clear", "path":
+        "Reports/Custom Device Reports", "hidden": false, "id": ".zport.dmd.Reports.Custom
+        Device Reports", "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Device
+        Reports", "text": {"count": 12, "text": "Device Reports", "description": "reports"},
+        "deletable": true, "iconCls": "severity-icon-small clear", "path": "Reports/Device
+        Reports", "hidden": false, "id": ".zport.dmd.Reports.Device Reports", "edit_url":
+        null}, {"leaf": false, "uid": "/zport/dmd/Reports/Enterprise Reports", "text":
+        {"count": 15, "text": "Enterprise Reports", "description": "reports"}, "deletable":
+        true, "iconCls": "severity-icon-small clear", "path": "Reports/Enterprise
+        Reports", "hidden": false, "id": ".zport.dmd.Reports.Enterprise Reports",
+        "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Event Reports",
+        "text": {"count": 4, "text": "Event Reports", "description": "reports"}, "deletable":
+        true, "iconCls": "severity-icon-small clear", "path": "Reports/Event Reports",
+        "hidden": false, "id": ".zport.dmd.Reports.Event Reports", "edit_url": null},
+        {"leaf": false, "uid": "/zport/dmd/Reports/Graph Reports", "text": {"count":
+        5, "text": "Graph Reports", "description": "reports"}, "deletable": false,
+        "iconCls": "severity-icon-small clear", "path": "Reports/Graph Reports", "hidden":
+        false, "id": ".zport.dmd.Reports.Graph Reports", "edit_url": null}, {"leaf":
+        false, "uid": "/zport/dmd/Reports/Juniper ERX", "text": {"count": 1, "text":
+        "Juniper ERX", "description": "reports"}, "deletable": true, "iconCls": "severity-icon-small
+        clear", "path": "Reports/Juniper ERX", "hidden": false, "id": ".zport.dmd.Reports.Juniper
+        ERX", "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Monitoring
+        Capabilities Reports", "text": {"count": 1, "text": "Monitoring Capabilities
+        Reports", "description": "reports"}, "deletable": true, "iconCls": "severity-icon-small
+        clear", "path": "Reports/Monitoring Capabilities Reports", "hidden": false,
+        "id": ".zport.dmd.Reports.Monitoring Capabilities Reports", "edit_url": null},
+        {"leaf": false, "uid": "/zport/dmd/Reports/Multi-Graph Reports", "text": {"count":
+        5, "text": "Multi-Graph Reports", "description": "reports"}, "deletable":
+        false, "iconCls": "severity-icon-small clear", "path": "Reports/Multi-Graph
+        Reports", "hidden": false, "id": ".zport.dmd.Reports.Multi-Graph Reports",
+        "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Performance
+        Reports", "text": {"count": 7, "text": "Performance Reports", "description":
+        "reports"}, "deletable": true, "iconCls": "severity-icon-small clear", "path":
+        "Reports/Performance Reports", "hidden": false, "id": ".zport.dmd.Reports.Performance
+        Reports", "edit_url": null}, {"leaf": false, "uid": "/zport/dmd/Reports/Storage",
+        "text": {"count": 3, "text": "Storage", "description": "reports"}, "deletable":
+        true, "iconCls": "severity-icon-small clear", "path": "Reports/Storage", "hidden":
+        false, "id": ".zport.dmd.Reports.Storage", "edit_url": null}, {"leaf": false,
+        "uid": "/zport/dmd/Reports/vSphere", "text": {"count": 8, "text": "vSphere",
+        "description": "reports"}, "deletable": true, "iconCls": "severity-icon-small
+        clear", "path": "Reports/vSphere", "hidden": false, "id": ".zport.dmd.Reports.vSphere",
+        "edit_url": null}, {"leaf": true, "uid": "/zport/dmd/Reports/96", "text":
+        "96", "columns": 1, "deletable": true, "isGraphReport": false, "isMultiGraphReport":
+        true, "hidden": false, "path": "Reports/96", "id": ".zport.dmd.Reports.96",
+        "edit_url": "/zport/dmd/Reports/96/editMultiGraphReport", "iconCls": "leaf"}],
+        "deletable": false, "iconCls": "severity-icon-small clear", "path": "Reports",
+        "hidden": false, "id": ".zport.dmd.Reports", "edit_url": null}], "tid": 10,
+        "type": "rpc", "method": "asyncGetTree"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:51 GMT
+recorded_with: VCR 4.0.0
