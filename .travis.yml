@@ -12,5 +12,5 @@ rvm:
   - jruby-head
 
 install:
-  - gem install bundler
+  - gem install bundler -v 1.17.3
   - bundle install --jobs=3 --retry=3
