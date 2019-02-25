@@ -26,7 +26,11 @@ module Zenoss
       end
 
       def get_report_tree(id = '/zport/dmd/Reports')
-        json_request('ReportRouter', 'getTree', [{:id => id}])
+        if @zenoss_version && @zenoss_version > '6'
+          json_request('ReportRouter', 'asyncGetTree', [id])
+        else
+          json_request('ReportRouter', 'getTree', [{:id => id}])
+        end
       end
 
     end # ReportRouter

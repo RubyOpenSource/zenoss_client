@@ -1,0 +1,188 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/acl_users/cookieAuthHelper/login
+    body:
+      encoding: UTF-8
+      string: __ac_name=admin&__ac_password=zenoss&submitted=true&came_from=https%3A%2F%2Fhttp:://localhost:8080/zport/dmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:46 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie: ''
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Length:
+      - '25'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 19 Feb 2019 22:36:47 GMT
+      Location:
+      - "/zport/dmd?submitted=true"
+      Server: ''
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: "/zport/dmd?submitted=true"
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:47 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd//zport/dmd?submitted=true
+    body:
+      encoding: UTF-8
+      string: __ac_name=admin&__ac_password=zenoss&submitted=true&came_from=https%3A%2F%2Fhttp:://localhost:8080/zport/dmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:47 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Tue, 19 Feb 2019 22:36:47 GMT
+      Server: ''
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Page-Speed:
+      - 1.11.33.4-0
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "\\n\\n    <!DOCTYPE html>\\n<html>\\n"
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:48 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: __ac_name=admin&__ac_password=zenoss&submitted=true&came_from=https%3A%2F%2Fhttp:://localhost:8080/zport/dmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:49 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '309'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "02f12150-4aa5-4616-a35d-fd4b942421a4", "action": "DeviceRouter",
+        "result": {"new_jobs": [{"uuid": "3bbee1ec-4f40-44ce-ada1-cc064eb40505", "description":
+        "Create UnitTestDevice under /Devices/Server", "uid": "/zport/dmd/JobManager"}],
+        "success": true}, "tid": 1, "type": "rpc", "method": "addDevice"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:49 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: __ac_name=admin&__ac_password=zenoss&submitted=true&came_from=https%3A%2F%2Fhttp:://localhost:8080/zport/dmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 19 Feb 2019 22:36:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Feb 2019 22:36:49 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '904'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "8c081232-47f0-43f1-9e06-691574b5a164", "action": "DeviceRouter",
+        "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
+        null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
+        null, "collector": "localhost", "osModel": null, "productionState": 400, "systems":
+        [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer": null,
+        "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
+        "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
+        0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
+        0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
+        "name": "UnitTestDevice"}]}, "tid": 2, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 22:36:49 GMT
+recorded_with: VCR 4.0.0
