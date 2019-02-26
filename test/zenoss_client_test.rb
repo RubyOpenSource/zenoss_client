@@ -165,6 +165,14 @@ end
 
 describe Zenoss do
 
+  before do
+    VCR.turn_off!
+  end
+
+  after do
+    VCR.turn_on!
+  end
+
   stub_request(:post, 'http://localhost/zport/acl_users/cookieAuthHelper/login')
     .with(
       body: {
