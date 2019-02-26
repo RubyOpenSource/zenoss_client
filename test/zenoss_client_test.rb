@@ -183,8 +183,7 @@ describe Zenoss do
       },
       headers: {
         'Accept' => '*/*',
-        'Content-Type' => 'application/x-www-form-urlencoded',
-        'User-Agent' => 'HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))'
+        'Content-Type' => 'application/x-www-form-urlencoded'
       })
     .to_return(status: 200,
                body: '',
@@ -198,8 +197,7 @@ describe Zenoss do
             "\"tid\":1}]",
       headers: {
         'Accept'=>'*/*',
-        'Content-Type'=>'application/json; charset=utf-8',
-        'User-Agent'=>'HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))'
+        'Content-Type'=>'application/json; charset=utf-8'
       })
     .to_return(status: 200,
                body: '{"uuid": "8c37791a-f4c7-4dec-b3dd-37b4f2aee84b", '\
