@@ -50,6 +50,11 @@ module Zenoss
         @zenoss.get_info(self.uid, keys)
       end
 
+      def set_info(opts = {})
+        opts[:uid] = self.uid
+        @zenoss.set_info(opts)
+      end
+
       # ------------------ Legacy REST Calls ------------------ #
 
       # Move this Device to the given DeviceClass.
