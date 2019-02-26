@@ -70,6 +70,7 @@ describe Zenoss do
   end
 
   before do
+    WebMock.allow_net_connect!
     VCR.insert_cassette gen_cassette_name, :match_requests_on => [:method, :path, :query], :allow_playback_repeats => true
     @zen = self.class.zen
     @dev = @zen.find_devices_by_name(TEST_DEVICE_NAME).first
@@ -77,6 +78,7 @@ describe Zenoss do
 
   after do
     VCR.eject_cassette gen_cassette_name
+    WebMock.disable_net_connect!
   end
 
   it 'returns an Array of devices when searched by name' do
@@ -139,23 +141,91 @@ describe Zenoss do
     end
   end
 
-  it 'sets info for a device' do
-    opts = {}
-    opts[:uid] = @dev.uid
-    opts[:productionState] = -1
-    set_info = @zen.set_info(opts)
-    set_info.must_be_kind_of Hash
-    set_info.wont_be_empty
-    set_info['success'].must_equal true
-  end
+  if ZENOSS_VERSION > '6'
+    it 'sets info for a device' do
+      opts = {}
+      opts[:uid] = @dev.uid
+      opts[:productionState] = -1
+      set_info = @zen.set_info(opts)
+      set_info.must_be_kind_of Hash
+      set_info.wont_be_empty
+      set_info['success'].must_equal true
+    end
 
-  it 'sets info for a device on a device object' do
+    it 'sets info for a device on a device object' do
+      opts = {}
+      opts[:productionState] = -1
+      set_info = @dev.set_info(opts)
+      set_info.must_be_kind_of Hash
+      set_info.wont_be_empty
+      set_info['success'].must_equal true
+    end
+  end
+end
+
+describe Zenoss do
+
+  stub_request(:post, 'http://localhost/zport/acl_users/cookieAuthHelper/login')
+    .with(
+      body: {
+        '__ac_name' => 'admin',
+        '__ac_password' => 'zenoss',
+        'came_from' => 'http://localhost/zport/dmd',
+        'submitted' => 'true'
+      },
+      headers: {
+        'Accept' => '*/*',
+        'Content-Type' => 'application/x-www-form-urlencoded',
+        'User-Agent' => 'HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))'
+      })
+    .to_return(status: 200,
+               body: '',
+               headers: {})
+
+  stub_request(:post, 'http://localhost/zport/dmd/device_router')
+    .with(
+      body: "[{\"action\":\"DeviceRouter\",\"method\":\"getDevices\","\
+            "\"data\":[{\"uid\":\"/zport/dmd/Devices\","\
+            "\"params\":{\"name\":\"UnitTestDevice\"}}],\"type\":\"rpc\","\
+            "\"tid\":1}]",
+      headers: {
+        'Accept'=>'*/*',
+        'Content-Type'=>'application/json; charset=utf-8',
+        'User-Agent'=>'HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))'
+      })
+    .to_return(status: 200,
+               body: '{"uuid": "8c37791a-f4c7-4dec-b3dd-37b4f2aee84b", '\
+                     '"action": "DeviceRouter", "result": {"totalCount": 1, '\
+                     '"hash": "1", "success": true, "devices": '\
+                     '[{"ipAddressString": null, "serialNumber": "", '\
+                     '"pythonClass": "Products.ZenModel.Device", '\
+                     '"hwManufacturer": null, "collector": "localhost", '\
+                     '"osModel": null, "productionState": 400, "systems": [], '\
+                     '"priority": 3, "hwModel": null, "tagNumber": "", '\
+                     '"osManufacturer": null, "location": null, "groups": [], '\
+                     '"uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"'\
+                     ', "ipAddress": null, "events": {"info": '\
+                     '{"count": 0, "acknowledged_count": 0}, "clear": '\
+                     '{"count": 0, "acknowledged_count": 0}, "warning": '\
+                     '{"count": 0, "acknowledged_count": 0}, "critical": '\
+                     '{"count": 0, "acknowledged_count": 0}, "error": '\
+                     '{"count": 0, "acknowledged_count": 0}, "debug": '\
+                     '{"count": 0, "acknowledged_count": 0}}, "name": '\
+                     '"UnitTestDevice"}]}, "tid": 1, "type": "rpc", '\
+                     '"method": "getDevices"}',
+               headers: {})
+
+  it 'raises error on #set_info when version is less than 6' do
     opts = {}
-    opts[:productionState] = -1
-    set_info = @dev.set_info(opts)
-    set_info.must_be_kind_of Hash
-    set_info.wont_be_empty
-    set_info['success'].must_equal true
+    opts[:version] = '4.2.5'
+    connection = Zenoss.connect('http://localhost', 'admin', 'zenoss', opts)
+    dev = connection.find_devices_by_name(TEST_DEVICE_NAME).first
+    options = {}
+    options[:productionState] = -1
+    exception = assert_raises Zenoss::ZenossError do
+      dev.set_info(options)
+    end
+    assert_equal('setInfo method on DeviceRouter is only allowed for version 6 and above', exception.message)
   end
 end
 

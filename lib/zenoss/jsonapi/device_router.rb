@@ -68,13 +68,18 @@ module Zenoss
       # @option opts [Fixnum] :priority priority of a device; Highest => 5, High => 4, Normal => 3, Low => 2, Lowest => 1, Trivial => 0
       # @option opts [Fixnum] :productionState state of a device; Production => 1000, Pre-Production => 500, Test => 400, Maintenance => 300, Decommissioned => -1
       def set_info(opts = {})
-        data = {}
-        data[:uid] = opts[:uid]
-        data[:ipAddressString] = opts[:ipAddressString] if opts.has_key? :ipAddressString
-        data[:name] = opts[:name] if opts.has_key? :name
-        data[:priority] = opts[:priority] if opts.has_key? :priority
-        data[:productionState] = opts[:productionState] if opts.has_key? :productionState
-        json_request('DeviceRouter', 'setInfo', [data])
+        if @zenoss_version && @zenoss_version > '6'
+          data = {}
+          data[:uid] = opts[:uid]
+          data[:ipAddressString] = opts[:ipAddressString] if opts.has_key? :ipAddressString
+          data[:name] = opts[:name] if opts.has_key? :name
+          data[:priority] = opts[:priority] if opts.has_key? :priority
+          data[:productionState] = opts[:productionState] if opts.has_key? :productionState
+          json_request('DeviceRouter', 'setInfo', [data])
+        else
+          raise ZenossError, 'setInfo method on DeviceRouter is only allowed '\
+                             'for version 6 and above'
+        end
       end
 
       # =============== Non-API Helper methods ===============
