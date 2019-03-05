@@ -189,43 +189,18 @@ describe Zenoss do
                body: '',
                headers: {})
 
-  stub_request(:post, 'http://localhost/zport/dmd/device_router')
-    .with(
-      body: "[{\"action\":\"DeviceRouter\",\"method\":\"getDevices\","\
-            "\"data\":[{\"uid\":\"/zport/dmd/Devices\","\
-            "\"params\":{\"name\":\"UnitTestDevice\"}}],\"type\":\"rpc\","\
-            "\"tid\":1}]",
-      headers: {
-        'Accept'=>'*/*',
-        'Content-Type'=>'application/json; charset=utf-8'
-      })
-    .to_return(status: 200,
-               body: '{"uuid": "8c37791a-f4c7-4dec-b3dd-37b4f2aee84b", '\
-                     '"action": "DeviceRouter", "result": {"totalCount": 1, '\
-                     '"hash": "1", "success": true, "devices": '\
-                     '[{"ipAddressString": null, "serialNumber": "", '\
-                     '"pythonClass": "Products.ZenModel.Device", '\
-                     '"hwManufacturer": null, "collector": "localhost", '\
-                     '"osModel": null, "productionState": 400, "systems": [], '\
-                     '"priority": 3, "hwModel": null, "tagNumber": "", '\
-                     '"osManufacturer": null, "location": null, "groups": [], '\
-                     '"uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice"'\
-                     ', "ipAddress": null, "events": {"info": '\
-                     '{"count": 0, "acknowledged_count": 0}, "clear": '\
-                     '{"count": 0, "acknowledged_count": 0}, "warning": '\
-                     '{"count": 0, "acknowledged_count": 0}, "critical": '\
-                     '{"count": 0, "acknowledged_count": 0}, "error": '\
-                     '{"count": 0, "acknowledged_count": 0}, "debug": '\
-                     '{"count": 0, "acknowledged_count": 0}}, "name": '\
-                     '"UnitTestDevice"}]}, "tid": 1, "type": "rpc", '\
-                     '"method": "getDevices"}',
-               headers: {})
-
   it 'raises error on #set_info when version is less than 6' do
     opts = {}
     opts[:version] = '4.2.5'
     connection = Zenoss.connect('http://localhost', 'admin', 'zenoss', opts)
-    dev = connection.find_devices_by_name(TEST_DEVICE_NAME).first
+    zhash = {
+      productionState: 400,
+      priority: 3,
+      uid: '/zport/dmd/Devices/Server/devices/UnitTestDevice',
+      name: 'UnitTestDevice'
+    }
+
+    dev = Zenoss::Model::Device.new(connection, zhash)
     options = {}
     options[:productionState] = -1
     exception = assert_raises Zenoss::ZenossError do
