@@ -70,7 +70,6 @@ describe Zenoss do
   end
 
   before do
-    WebMock.allow_net_connect!
     VCR.insert_cassette gen_cassette_name, :match_requests_on => [:method, :path, :query], :allow_playback_repeats => true
     @zen = self.class.zen
     @dev = @zen.find_devices_by_name(TEST_DEVICE_NAME).first
@@ -78,7 +77,6 @@ describe Zenoss do
 
   after do
     VCR.eject_cassette gen_cassette_name
-    WebMock.disable_net_connect!
   end
 
   it 'returns an Array of devices when searched by name' do
@@ -164,35 +162,11 @@ describe Zenoss do
 end
 
 describe Zenoss do
-
-  before do
-    VCR.turn_off!
-  end
-
-  after do
-    VCR.turn_on!
-  end
-
-  stub_request(:post, 'http://localhost/zport/acl_users/cookieAuthHelper/login')
-    .with(
-      body: {
-        '__ac_name' => 'admin',
-        '__ac_password' => 'zenoss',
-        'came_from' => 'http://localhost/zport/dmd',
-        'submitted' => 'true'
-      },
-      headers: {
-        'Accept' => '*/*',
-        'Content-Type' => 'application/x-www-form-urlencoded'
-      })
-    .to_return(status: 200,
-               body: '',
-               headers: {})
-
   it 'raises error on #set_info when version is less than 6' do
     opts = {}
     opts[:version] = '4.2.5'
-    connection = Zenoss.connect('http://localhost', 'admin', 'zenoss', opts)
+    opts[:no_sign_in] = true
+    connection = Zenoss::Connection.new('http://localhost', 'admin', 'zenoss', opts)
     zhash = {
       productionState: 400,
       priority: 3,
