@@ -65,8 +65,8 @@ module Zenoss
       # @option opts [String] :uid required; device id in Zenoss
       # @option opts [String] :ipAddressString ip address
       # @option opts [String] :name name of device
-      # @option opts [Fixnum] :priority priority of a device; Highest => 5, High => 4, Normal => 3, Low => 2, Lowest => 1, Trivial => 0
-      # @option opts [Fixnum] :productionState state of a device; Production => 1000, Pre-Production => 500, Test => 400, Maintenance => 300, Decommissioned => -1
+      # @option opts [Integer] :priority priority of a device; Highest => 5, High => 4, Normal => 3, Low => 2, Lowest => 1, Trivial => 0
+      # @option opts [Integer] :productionState state of a device; Production => 1000, Pre-Production => 500, Test => 400, Maintenance => 300, Decommissioned => -1
       def set_info(opts = {})
         if @zenoss_version && @zenoss_version > '6'
           data = {}
