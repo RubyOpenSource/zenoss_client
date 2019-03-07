@@ -12,7 +12,6 @@ TEST_DEVICE_NAME = "UnitTestDevice"
 
 ZENOSS_VERSION = ENV['zenoss_version'] || '4.2.5'
 
-
 # VCR
 WebMock.enable!
 VCR.configure do |config|
