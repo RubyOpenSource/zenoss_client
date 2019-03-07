@@ -65,9 +65,7 @@ module Zenoss
       # @option opts [String] :uid required; device id in Zenoss
       def set_info(opts = {})
         if @zenoss_version && @zenoss_version > '6'
-          data = {}
-          data[:uid] = opts[:uid]
-          json_request('DeviceRouter', 'setInfo', [data])
+          json_request('DeviceRouter', 'setInfo', [opts])
         else
           raise ZenossError, 'setInfo method on DeviceRouter is only allowed '\
                              'for version 6 and above'
