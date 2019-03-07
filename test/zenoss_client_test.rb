@@ -161,7 +161,6 @@ describe Zenoss do
   end
 end
 
-
 describe Zenoss::Events::Event do
   it 'initializes an object with times as strings' do
     @zenoss = Zenoss
