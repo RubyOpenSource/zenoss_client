@@ -70,7 +70,7 @@ describe Zenoss do
   end
 
   before do
-    VCR.insert_cassette gen_cassette_name, :match_requests_on => [:method, :path, :query]
+    VCR.insert_cassette gen_cassette_name, :match_requests_on => [:method, :path, :query], :allow_playback_repeats => true
     @zen = self.class.zen
     @dev = @zen.find_devices_by_name(TEST_DEVICE_NAME).first
   end
@@ -136,6 +136,27 @@ describe Zenoss do
       renamed_device.name.must_equal TEMPORARY_DEVICE_NAME
     ensure
       renamed_device.rename_device(TEST_DEVICE_NAME)
+    end
+  end
+
+  if ZENOSS_VERSION > '6'
+    it 'sets info for a device' do
+      opts = {}
+      opts[:uid] = @dev.uid
+      opts[:productionState] = -1
+      set_info = @zen.set_info(opts)
+      set_info.must_be_kind_of Hash
+      set_info.wont_be_empty
+      set_info['success'].must_equal true
+    end
+
+    it 'sets info for a device on a device object' do
+      opts = {}
+      opts[:productionState] = -1
+      set_info = @dev.set_info(opts)
+      set_info.must_be_kind_of Hash
+      set_info.wont_be_empty
+      set_info['success'].must_equal true
     end
   end
 end

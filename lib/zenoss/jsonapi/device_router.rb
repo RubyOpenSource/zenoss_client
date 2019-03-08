@@ -61,6 +61,17 @@ module Zenoss
         json_request('DeviceRouter', 'getInfo', [data])
       end
 
+      # @param [Hash] opts arguments to pass to setInfo
+      # @option opts [String] :uid required; device id in Zenoss
+      def set_info(opts = {})
+        if @zenoss_version && @zenoss_version > '6'
+          json_request('DeviceRouter', 'setInfo', [opts])
+        else
+          raise ZenossError, 'setInfo method on DeviceRouter is only allowed '\
+                             'for version 6 and above'
+        end
+      end
+
       # =============== Non-API Helper methods ===============
 
       # This method will allow you to search for devices by name. If you put a partial name
