@@ -158,6 +158,15 @@ describe Zenoss do
       set_info.wont_be_empty
       set_info['success'].must_equal true
     end
+
+    it 'remodels a device' do
+      uid = @dev.uid
+      remodel = @zen.remodel(uid)
+      remodel.must_be_kind_of Hash
+      remodel.wont_be_empty
+      remodel['success'].must_equal true
+      remodel['exitStatus'].must_equal 0
+    end
   end
 end
 

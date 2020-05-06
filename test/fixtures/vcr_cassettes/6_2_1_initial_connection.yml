@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 25 Feb 2019 23:20:05 GMT
+      - Wed, 15 Apr 2020 20:38:47 GMT
       Content-Type:
       - application/x-www-form-urlencoded
       Cookie: ''
@@ -26,7 +26,7 @@ http_interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Mon, 25 Feb 2019 23:20:06 GMT
+      - Wed, 15 Apr 2020 20:38:50 GMT
       Location:
       - "/zport/dmd?submitted=true"
       Server: ''
@@ -41,7 +41,7 @@ http_interactions:
       encoding: UTF-8
       string: "/zport/dmd?submitted=true"
     http_version: 
-  recorded_at: Mon, 25 Feb 2019 23:20:06 GMT
+  recorded_at: Wed, 15 Apr 2020 20:38:51 GMT
 - request:
     method: post
     uri: http://localhost:8080/zport/dmd//zport/dmd?submitted=true
@@ -54,7 +54,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 25 Feb 2019 23:20:06 GMT
+      - Wed, 15 Apr 2020 20:38:51 GMT
       Content-Type:
       - application/x-www-form-urlencoded
       Cookie: ''
@@ -68,7 +68,7 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Mon, 25 Feb 2019 23:20:07 GMT
+      - Wed, 15 Apr 2020 20:38:51 GMT
       Server: ''
       Set-Cookie: ''
       Strict-Transport-Security:
@@ -87,7 +87,7 @@ http_interactions:
       encoding: UTF-8
       string: "\\n\\n    <!DOCTYPE html>\\n<html>\\n"
     http_version: 
-  recorded_at: Mon, 25 Feb 2019 23:20:07 GMT
+  recorded_at: Wed, 15 Apr 2020 20:38:52 GMT
 - request:
     method: post
     uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
@@ -100,7 +100,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 25 Feb 2019 23:20:07 GMT
+      - Wed, 15 Apr 2020 20:38:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cookie: ''
@@ -112,7 +112,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 25 Feb 2019 23:20:07 GMT
+      - Wed, 15 Apr 2020 20:38:54 GMT
       Server: ''
       Strict-Transport-Security:
       - max-age=31536000
@@ -123,23 +123,110 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '1063'
+      - '309'
       Set-Cookie: ''
     body:
       encoding: UTF-8
-      string: '{"uuid": "05f56525-8c70-487e-90ad-0b4480e3a9e5", "action": "DeviceRouter",
+      string: '{"uuid": "a34caf64-2209-480c-96ed-dd94117ef7ac", "action": "DeviceRouter",
+        "result": {"new_jobs": [{"uuid": "b0c01851-394f-49a1-8547-acd02633194e", "description":
+        "Create UnitTestDevice under /Devices/Server", "uid": "/zport/dmd/JobManager"}],
+        "success": true}, "tid": 1, "type": "rpc", "method": "addDevice"}'
+    http_version: 
+  recorded_at: Wed, 15 Apr 2020 20:38:54 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: __ac_name=admin&__ac_password=zenoss&submitted=true&came_from=https%3A%2F%2Fhttp:://localhost:8080/zport/dmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 15 Apr 2020 20:38:54 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 15 Apr 2020 20:38:54 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '197'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "48c067ba-5c1e-4d81-aac0-3c49aadba9fc", "action": "DeviceRouter",
+        "result": {"totalCount": 0, "hash": "0", "success": true, "devices": []},
+        "tid": 2, "type": "rpc", "method": "getDevices"}'
+    http_version: 
+  recorded_at: Wed, 15 Apr 2020 20:38:54 GMT
+- request:
+    method: post
+    uri: http://localhost:8080/zport/dmd/zport/dmd/device_router
+    body:
+      encoding: UTF-8
+      string: __ac_name=admin&__ac_password=zenoss&submitted=true&came_from=https%3A%2F%2Fhttp:://localhost:8080/zport/dmd%2Fzport%2Fdmd
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.3 (2016-11-21))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 15 Apr 2020 20:39:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cookie: ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 15 Apr 2020 20:39:11 GMT
+      Server: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '905'
+      Set-Cookie: ''
+    body:
+      encoding: UTF-8
+      string: '{"uuid": "91ffde13-d44b-4a5e-9846-2155070ba803", "action": "DeviceRouter",
         "result": {"totalCount": 1, "hash": "1", "success": true, "devices": [{"ipAddressString":
         null, "serialNumber": "", "pythonClass": "Products.ZenModel.Device", "hwManufacturer":
-        null, "collector": "zencollector01", "osModel": null, "productionState": -1,
+        null, "collector": "localhost", "osModel": null, "productionState": 1000,
         "systems": [], "priority": 3, "hwModel": null, "tagNumber": "", "osManufacturer":
-        null, "location": null, "groups": [{"uid": "/zport/dmd/Groups/BackboneDevices",
-        "path": "/Groups/BackboneDevices", "uuid": "65142f38-df6e-482e-a74d-ec825af8e058",
-        "name": "/BackboneDevices"}], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
+        null, "location": null, "groups": [], "uid": "/zport/dmd/Devices/Server/devices/UnitTestDevice",
         "ipAddress": null, "events": {"info": {"count": 0, "acknowledged_count": 0},
         "clear": {"count": 0, "acknowledged_count": 0}, "warning": {"count": 0, "acknowledged_count":
         0}, "critical": {"count": 0, "acknowledged_count": 0}, "error": {"count":
         0, "acknowledged_count": 0}, "debug": {"count": 0, "acknowledged_count": 0}},
-        "name": "UnitTestDevice"}]}, "tid": 2, "type": "rpc", "method": "getDevices"}'
+        "name": "UnitTestDevice"}]}, "tid": 3, "type": "rpc", "method": "getDevices"}'
     http_version: 
-  recorded_at: Mon, 25 Feb 2019 23:20:07 GMT
+  recorded_at: Wed, 15 Apr 2020 20:39:11 GMT
 recorded_with: VCR 4.0.0

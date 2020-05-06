@@ -72,6 +72,24 @@ module Zenoss
         end
       end
 
+      # @param [String] uid required; device id in Zenoss
+      # @param [String] plugins optional; takes a regular expression
+      # default is an empty string
+      # @param [Boolean] background optional; default false to not schedule
+      # a job. Set to true to schedule a background job
+      def remodel(uid, plugins = nil, background = false)
+        if @zenoss_version && @zenoss_version > '6'
+          data = {}
+          data[:deviceUid] = uid
+          data[:collectPlugins] = plugins || ''
+          data[:background] = background
+          json_request('DeviceRouter', 'remodel', [data])
+        else
+          raise ZenossError, 'remodel method on DeviceRouter is only allowed '\
+                             'for version 6 and above'
+        end
+      end
+
       # =============== Non-API Helper methods ===============
 
       # This method will allow you to search for devices by name. If you put a partial name
