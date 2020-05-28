@@ -73,10 +73,9 @@ module Zenoss
       end
 
       # @param [String] uid required; device id in Zenoss
-      # @param [String] plugins optional; takes a regular expression
-      # default is an empty string
-      # @param [Boolean] background optional; default false to not schedule
-      # a job. Set to true to schedule a background job
+      # @param [String] plugins takes a string.  A plugin respresents a Modeler
+      # plugin such as cisco.snmp.Interfaces
+      # @param [Boolean] background whether to schedule a job in background
       def remodel(uid, plugins = nil, background = false)
         if @zenoss_version && @zenoss_version > '6'
           data = {}
