@@ -10,8 +10,8 @@ Gem::Specification.new do |gem|
   gem.platform = Gem::Platform::RUBY
   gem.rubyforge_project  = nil
 
-  gem.authors = ['Dan Wanek', 'Ben Miller', 'Marek Skrobacki']
-  gem.email = ['dan.wanek@gmail.com', 'bjmllr@gmail.com', 'marek@skrobacki.uk']
+  gem.authors = ['Dan Wanek', 'Ben Miller', 'Marek Skrobacki', 'Taylor Etheredge']
+  gem.email = ['dan.wanek@gmail.com', 'bjmllr@gmail.com', 'marek@skrobacki.uk', 'taylor.etheredge@gmail.com']
   gem.homepage = "http://github.com/RubyOpenSource/zenoss_client"
 
   gem.summary = "A wrapper around the Zenoss JSON and REST APIs"
@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
   gem.rdoc_options = %w(-x test/ -x examples/)
   gem.extra_rdoc_files = %w(README.textile COPYING.txt)
 
-  gem.required_ruby_version = '>= 1.8.7'
+  gem.required_ruby_version = '>= 2.0.0-p648'
   gem.add_runtime_dependency  'httpclient', '~> 2.0'
   gem.add_runtime_dependency  'tzinfo', '~> 0.3.20'
   gem.add_runtime_dependency  'json', '~> 1.5'
