@@ -10,8 +10,8 @@ Gem::Specification.new do |gem|
   gem.platform = Gem::Platform::RUBY
   gem.rubyforge_project  = nil
 
-  gem.authors = ['Dan Wanek', 'Ben Miller', 'Marek Skrobacki']
-  gem.email = ['dan.wanek@gmail.com', 'bjmllr@gmail.com', 'marek@skrobacki.uk']
+  gem.authors = ['Dan Wanek', 'Ben Miller', 'Marek Skrobacki', 'Taylor Etheredge']
+  gem.email = ['dan.wanek@gmail.com', 'bjmllr@gmail.com', 'marek@skrobacki.uk', 'taylor.etheredge@gmail.com']
   gem.homepage = "http://github.com/RubyOpenSource/zenoss_client"
 
   gem.summary = "A wrapper around the Zenoss JSON and REST APIs"
