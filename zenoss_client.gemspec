@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
   gem.rdoc_options = %w(-x test/ -x examples/)
   gem.extra_rdoc_files = %w(README.textile COPYING.txt)
 
-  gem.required_ruby_version = '>= 1.8.7'
+  gem.required_ruby_version = '>= 2.0.0-p648'
   gem.add_runtime_dependency  'httpclient', '~> 2.0'
   gem.add_runtime_dependency  'tzinfo', '~> 0.3.20'
   gem.add_runtime_dependency  'json', '~> 1.5'
