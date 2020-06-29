@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.license = 'GPL-3.0'
   gem.description = <<-EOF
     This is a wrapper around the Zenoss JSON and REST APIs. For the most things it
-    should feel very familiar to zendmd, but there are some changes do to the merging
+    should feel very familiar to zendmd, but there are some changes due to the merging
     of the JSON and REST APIs. Please read the API docs for Zenoss and the YARDDoc for
     this gem (rdoc.info).
   EOF
