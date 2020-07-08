@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+
 lib = File.expand_path('lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 require 'date'
@@ -18,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.license = 'GPL-3.0'
   gem.description = <<-EOF
     This is a wrapper around the Zenoss JSON and REST APIs. For the most things it
-    should feel very familiar to zendmd, but there are some changes do to the merging
+    should feel very familiar to zendmd, but there are some changes due to the merging
     of the JSON and REST APIs. Please read the API docs for Zenoss and the YARDDoc for
     this gem (rdoc.info).
   EOF
@@ -30,8 +31,8 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 2.0.0-p648'
   gem.add_runtime_dependency  'httpclient', '~> 2.0'
-  gem.add_runtime_dependency  'tzinfo', '~> 0.3.20'
-  gem.add_runtime_dependency  'json', '~> 1.5'
+  gem.add_runtime_dependency  'tzinfo', '~> 2.0.2'
+  gem.add_runtime_dependency  'json', '~> 2.3'
 
   gem.add_development_dependency('rake')
   gem.add_development_dependency('minitest')
